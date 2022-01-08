@@ -6,8 +6,8 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="shortcut icon" href="/images/icon-48x48.png" />
-          <link rel="apple-touch-icon" href="/images/icon-192x192.png" />
+          <link rel="shortcut icon" href="/images/icon-128x128.png" />
+          <link rel="apple-touch-icon" href="/images/icon-384x384.png" />
           <link rel="manifest" href="/manifest.json" />
           <script async src="https://cdn.splitbee.io/sb.js" />
         </Head>
