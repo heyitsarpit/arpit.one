@@ -4,11 +4,19 @@ import { a11yDate, visibleDate } from '@/utils/date';
 
 const experience = [
   {
+    company: 'Defi Trading Platform (Ethereum)',
+    location: 'remote',
+    position: 'Frontend Developer',
+    startDate: 'november 1, 2021',
+    endDate: 'now',
+    details: 'Anonymous collaborator working as frontend developer for a defi trading platform.'
+  },
+  {
     company: 'Antillia',
     location: 'remote',
     position: 'Fullstack Developer',
     startDate: 'november 1, 2020',
-    endDate: 'now',
+    endDate: 'november 1, 2021',
     details: 'Building customizable video chat applications, similar to zoom or google meet.'
   },
   {
