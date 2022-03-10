@@ -1,6 +1,6 @@
 # [arpit.one](https://www.arpit.one)
 
-source code for my personal website and blog [www.arpit.one](https://www.arpit.one).
+source code for my personal website and blog [arpit.one](https://www.arpit.one).
 
 ## built with
 
