@@ -7,9 +7,8 @@ export const projects = [
     source: 'https://github.com/heyitsarpit/react-hooks-library'
   },
   {
-    title: 'heyitsarpit.dev',
-    details: `The website that you're looking at currently.`,
-    source: 'https://github.com/heyitsarpit/heyitsarpit.dev'
+    title: 'arpit.one',
+    details: `The website that you're looking at currently.`
   },
   {
     title: 'Ad Recommendation on YouTube Videos',

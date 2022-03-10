@@ -5,9 +5,9 @@ export const SEO: React.FC = () => {
     <DefaultSeo
       title="Arpit Bharti"
       description="Software Developer"
-      canonical="https://heyitsarpit.dev/"
+      canonical="https://www.arpit.one/"
       openGraph={{
-        url: 'https://heyitsarpit.dev/',
+        url: 'https://www.arpit.one/',
         title: 'Arpit',
         description: 'Software Developer',
         site_name: 'heyitsarpit'

@@ -1,6 +1,6 @@
-# [heyitsarpit.dev](https://heyitsarpit.dev)
+# [arpit.one](https://www.arpit.one)
 
-source code for my personal website and blog [heyitsarpit.dev](https://heyitsarpit.dev).
+source code for my personal website and blog [www.arpit.one](https://www.arpit.one).
 
 ## built with
 

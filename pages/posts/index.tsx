@@ -59,8 +59,8 @@ const Posts: React.FC<Props> = ({ posts }) => {
     <>
       <NextSeo
         title="Posts"
-        canonical="https://heyitsarpit.dev/posts"
-        openGraph={{ url: 'https://heyitsarpit.dev/posts' }}
+        canonical="https://www.arpit.one/posts"
+        openGraph={{ url: 'https://www.arpit.one/posts' }}
       />
       <div className="w-full sm:max-w-[75ch] m-auto px-5 py-16 flex flex-col justify-center items-center">
         <PostPreviewList posts={posts} />
