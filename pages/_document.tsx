@@ -9,7 +9,7 @@ class MyDocument extends Document {
           <link rel="shortcut icon" href="/images/icon-128x128.png" />
           <link rel="apple-touch-icon" href="/images/icon-384x384.png" />
           <link rel="manifest" href="/manifest.json" />
-          <script async src="https://cdn.splitbee.io/sb.js" />
+          <script async data-api="/_hive" src="/bee.js" />
         </Head>
         <body className="dark">
           <script

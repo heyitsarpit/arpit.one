@@ -5,13 +5,22 @@ if (process.env.NODE_ENV === 'development') {
 import '@/public/styles/font.css';
 import '@/public/styles/global.css';
 
+import splitbee from '@splitbee/web';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { useEffect } from 'react';
 
 import Nav from '@/components/Nav';
 import { SEO } from '@/components/SEO';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+  useEffect(() => {
+    splitbee.init({
+      scriptUrl: '/bee.js',
+      apiUrl: '/_hive'
+    });
+  }, []);
+
   return (
     <>
       <Head>
