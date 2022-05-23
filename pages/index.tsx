@@ -8,6 +8,7 @@ import { Experience } from '@/components/Experience';
 import { components } from '@/components/MDXComponents';
 import { Projects } from '@/components/Projects';
 import { Spacer } from '@/components/Spacer';
+import { Contacts } from '@/components/Contacts';
 import { loadMDX } from '@/utils/loadMDX';
 
 export const getStaticProps = async () => {
@@ -19,7 +20,7 @@ export const getStaticProps = async () => {
   return { props: { code } };
 };
 
-const mdxComponents = { ...components, Experience, Projects, Spacer };
+const mdxComponents = { ...components, Experience, Projects, Contacts, Spacer };
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
