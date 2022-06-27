@@ -61,9 +61,10 @@
   html,
   body,
   #__next {
-    @apply w-full h-full;
+    @apply w-full h-full text-[14px] md:text-[16px];
     --sc-width: 6px;
     scroll-behavior: smooth;
+
   }
 
   html {
