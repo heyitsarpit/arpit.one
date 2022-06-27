@@ -5,7 +5,7 @@ type LinkProps = {
 
 export function Link({ href, children }: LinkProps) {
   return (
-    <a className="p-1 link-btn" rel="noopener noreferrer" target="_blank" href={href}>
+    <a className="px-2 py-1 link-btn" rel="noopener noreferrer" target="_blank" href={href}>
       {children}
     </a>
   );
@@ -15,10 +15,6 @@ const contactList = [
   {
     name: 'Github',
     href: 'https://github.com/heyitsarpit/'
-  },
-  {
-    name: 'Github(alt)',
-    href: 'https://github.com/fr0ntenddev'
   },
   {
     name: 'LinkedIn',
