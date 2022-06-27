@@ -66,18 +66,14 @@ export function Experience() {
           key={company}
           className="pb-2 pl-0 mb-4 border-b dark:border-warmGray-900 border-warmGray-200 before:contents">
           <section>
-            <div className="flex justify-between">
-              <h3 className="m-0 text-base font-normal">{position}</h3>
-
-              <a href={link} className="text-sm link-btn" rel="noopener noreferrer" target="_blank">
-                {company}
-              </a>
-            </div>
-
-            <div className="text-xs text-warmGray-600 dark:text-warmGray-400 ">
-              <time dateTime={a11yDate(startDate)}>{visibleDate(startDate)}</time>
-              {' - '}
-              <time dateTime={a11yDate(endDate)}>{visibleDate(endDate)}</time>
+            <h3 className="m-0 text-base font-normal">{position}</h3>
+            <div className="flex justify-between text-sm text-warmGray-600 dark:text-warmGray-400 ">
+              <div>{company}</div>
+              <div>
+                <time dateTime={a11yDate(startDate)}>{visibleDate(startDate)}</time>
+                {' - '}
+                <time dateTime={a11yDate(endDate)}>{visibleDate(endDate)}</time>
+              </div>
             </div>
 
             <p className="mt-4 text-sm">{details}</p>
