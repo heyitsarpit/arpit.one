@@ -75,6 +75,14 @@
 } */
 
 @font-face {
+  font-family: 'AGaramond Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(/fonts/AGaramondPro-Regular.woff2) format('woff2');
+}
+
+@font-face {
   font-family: 'Cormorant Garamond';
   font-style: italic;
   font-display: swap;
