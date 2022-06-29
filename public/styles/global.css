@@ -130,7 +130,8 @@
   a,
   button,
   input,
-  textarea {
+  textarea,
+  [data-clickable='true'] {
     cursor: none;
   }
 

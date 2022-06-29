@@ -44,7 +44,7 @@ const ThemeSwitch: React.FC = () => {
       <Head>
         <meta name="theme-color" content={theme === 'dark' ? '#000' : '#fdfdfd'} />
       </Head>
-      <div className="flex items-center w-5 h-5 bg-transparent">
+      <div className="flex items-center w-5 h-5 bg-transparent" data-clickable="true">
         <DarkModeSwitch
           checked={theme === 'dark'}
           onChange={switchTheme}

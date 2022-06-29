@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 
 export function Cursor() {
   const ref = useRef<HTMLDivElement>(null);
@@ -31,7 +31,9 @@ export function Cursor() {
     // called to reset to default position
     handleMouseLeave();
 
-    const allLinks = Array.from(document.querySelectorAll('a, button, input, textarea'));
+    const allLinks = Array.from(
+      document.querySelectorAll('a, button, input, textarea, [data-clickable="true"]')
+    );
 
     allLinks.map((link) => {
       link.addEventListener('mouseenter', handleMouseEnter);
