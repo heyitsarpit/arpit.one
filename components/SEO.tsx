@@ -3,7 +3,7 @@ import { DefaultSeo } from 'next-seo';
 export const SEO: React.FC = () => {
   return (
     <DefaultSeo
-      title="Arpit Bharti"
+      title="Arpit"
       description="Software Developer"
       canonical="https://www.arpit.one/"
       openGraph={{
