@@ -127,14 +127,6 @@
     @apply p-2 border-2 border-warmGray-200 dark:border-warmGray-500;
   }
 
-  a,
-  button,
-  input,
-  textarea,
-  [data-clickable='true'] {
-    cursor: none;
-  }
-
   .link {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

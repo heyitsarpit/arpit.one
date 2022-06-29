@@ -1,5 +1,8 @@
 import { useRouter } from 'next/router';
 import { useLayoutEffect, useRef } from 'react';
+import devtools from 'devtools-detect';
+
+// TODO: disable when devtools are open
 
 export function Cursor() {
   const ref = useRef<HTMLDivElement>(null);
@@ -7,6 +10,20 @@ export function Cursor() {
 
   useLayoutEffect(() => {
     document.body.style.cursor = 'none';
+
+    const devtoolsHandler = () => {
+      if (!ref.current) return;
+
+      if (devtools.isOpen) {
+        document.body.style.cursor = 'none';
+        ref.current.style.display = 'flex';
+      } else {
+        document.body.style.cursor = 'auto';
+        ref.current.style.display = 'none';
+      }
+    };
+
+    window.addEventListener('devtoolschange', devtoolsHandler);
 
     const handleMouseEnter = () => {
       if (!ref.current) return;
@@ -36,6 +53,8 @@ export function Cursor() {
     );
 
     allLinks.map((link) => {
+      link.setAttribute('style', 'cursor: none;');
+
       link.addEventListener('mouseenter', handleMouseEnter);
       link.addEventListener('mouseleave', handleMouseLeave);
     });
@@ -72,6 +91,7 @@ export function Cursor() {
     window.addEventListener('scroll', handleScroll);
 
     return () => {
+      window.removeEventListener('devtoolschange', devtoolsHandler);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
 
