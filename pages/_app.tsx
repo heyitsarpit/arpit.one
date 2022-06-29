@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 
 import Nav from '@/components/Nav';
 import { SEO } from '@/components/SEO';
+import { Cursor } from '@/components/Cursor';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
@@ -27,11 +28,13 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <SEO />
+      <Cursor />
       <div className="w-full h-full">
         <Nav />
         <main className="w-full">
           <Component {...pageProps} />
         </main>
+        <footer></footer>
       </div>
     </>
   );
