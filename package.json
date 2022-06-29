@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@splitbee/web": "^0.3.0",
+    "devtools-detect": "^4.0.0",
     "light-date": "^1.2.0",
     "mdx-bundler": "^6.0.2",
     "next": "^11.1.2",
