@@ -64,7 +64,6 @@
     @apply w-full h-full text-[14px] md:text-[16px];
     --sc-width: 6px;
     scroll-behavior: smooth;
-
   }
 
   html {
@@ -126,6 +125,13 @@
 
   .button {
     @apply p-2 border-2 border-warmGray-200 dark:border-warmGray-500;
+  }
+
+  a,
+  button,
+  input,
+  textarea {
+    cursor: none;
   }
 
   .link {
