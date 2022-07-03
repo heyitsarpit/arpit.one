@@ -1,29 +1,12 @@
 import { useRouter } from 'next/router';
-import { useLayoutEffect, useRef } from 'react';
-import devtools from 'devtools-detect';
-
-// TODO: disable when devtools are open
+import { useLayoutEffect as useEffect, useRef } from 'react';
 
 export function Cursor() {
   const ref = useRef<HTMLDivElement>(null);
   const { route } = useRouter();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     document.body.style.cursor = 'none';
-
-    const devtoolsHandler = () => {
-      if (!ref.current) return;
-
-      if (devtools.isOpen) {
-        document.body.style.cursor = 'none';
-        ref.current.style.display = 'flex';
-      } else {
-        document.body.style.cursor = 'auto';
-        ref.current.style.display = 'none';
-      }
-    };
-
-    window.addEventListener('devtoolschange', devtoolsHandler);
 
     const handleMouseEnter = () => {
       if (!ref.current) return;
@@ -46,18 +29,28 @@ export function Cursor() {
     };
 
     // called to reset to default position
-    handleMouseLeave();
 
     const allLinks = Array.from(
       document.querySelectorAll('a, button, input, textarea, [data-clickable="true"]')
     );
 
-    allLinks.map((link) => {
-      link.setAttribute('style', 'cursor: none;');
+    const handleLinks = () => {
+      allLinks.map((link) => {
+        link.setAttribute('style', 'cursor: none;');
 
-      link.addEventListener('mouseenter', handleMouseEnter);
-      link.addEventListener('mouseleave', handleMouseLeave);
-    });
+        link.addEventListener('mouseenter', handleMouseEnter);
+        link.addEventListener('mouseleave', handleMouseLeave);
+      });
+    };
+
+    const unHandleLinks = () => {
+      allLinks.map((link) => {
+        link.setAttribute('style', 'cursor: auto;');
+
+        link.removeEventListener('mouseenter', handleMouseEnter);
+        link.removeEventListener('mouseleave', handleMouseLeave);
+      });
+    };
 
     let lastScrollX = 0;
     let lastScrollY = 0;
@@ -87,18 +80,21 @@ export function Cursor() {
       ref.current.style.top = `${lastPageY + scrollDistanceY}px`;
     };
 
+    //////////////////////////////////////////////////////////////////
+
+    handleMouseLeave();
+    handleLinks();
+
+    // window.addEventListener('devtoolschange', devtoolsHandler);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('devtoolschange', devtoolsHandler);
+      // window.removeEventListener('devtoolschange', devtoolsHandler);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
 
-      allLinks.map((link) => {
-        link.removeEventListener('mouseenter', handleMouseEnter);
-        link.removeEventListener('mouseleave', handleMouseLeave);
-      });
+      unHandleLinks();
     };
   }, [route]);
 
