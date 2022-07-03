@@ -61,7 +61,7 @@ const experience = [
 export function Experience() {
   return (
     <ul>
-      {experience.map(({ company, details, endDate, position, startDate, link }) => (
+      {experience.map(({ company, details, endDate, position, startDate }) => (
         <li
           key={company}
           className="pb-2 pl-0 mb-4 border-b dark:border-warmGray-900 border-warmGray-200 before:contents">

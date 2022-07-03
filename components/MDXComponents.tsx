@@ -18,9 +18,9 @@ export const components = {
       </Link>
     );
   },
-  img: ({ children, ...props }: { children: React.ReactNode }) => (
+  img: ({ ...props }: { children: React.ReactNode }) => (
     <div className="my-10">
-      <img {...(props as any)} layout="fill" />
+      <img {...(props as any)} layout="fill" alt="" />
     </div>
   )
 };

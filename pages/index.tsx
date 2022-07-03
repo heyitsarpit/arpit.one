@@ -4,11 +4,11 @@ import { InferGetStaticPropsType } from 'next';
 import path from 'path';
 import { useMemo } from 'react';
 
+import { Contacts } from '@/components/Contacts';
 import { Experience } from '@/components/Experience';
 import { components } from '@/components/MDXComponents';
 import { Projects } from '@/components/Projects';
 import { Spacer } from '@/components/Spacer';
-import { Contacts } from '@/components/Contacts';
 import { loadMDX } from '@/utils/loadMDX';
 
 export const getStaticProps = async () => {
