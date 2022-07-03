@@ -85,12 +85,10 @@ export function Cursor() {
     handleMouseLeave();
     handleLinks();
 
-    // window.addEventListener('devtoolschange', devtoolsHandler);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      // window.removeEventListener('devtoolschange', devtoolsHandler);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
 
