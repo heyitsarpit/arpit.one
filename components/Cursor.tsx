@@ -1,12 +1,21 @@
+import { BreakPointHooks, breakpointsTailwind } from '@react-hooks-library/core';
 import { useRouter } from 'next/router';
-import { useLayoutEffect as useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
+
+const { useSmaller } = BreakPointHooks(breakpointsTailwind);
 
 export function Cursor() {
   const ref = useRef<HTMLDivElement>(null);
   const { route } = useRouter();
+  const isMobile = useSmaller('md');
 
-  useEffect(() => {
-    document.body.style.cursor = 'none';
+  useLayoutEffect(() => {
+    if (isMobile) {
+      document.body.style.cursor = 'auto';
+      return;
+    } else {
+      document.body.style.cursor = 'none';
+    }
 
     const handleMouseEnter = () => {
       if (!ref.current) return;
@@ -94,14 +103,16 @@ export function Cursor() {
 
       unHandleLinks();
     };
-  }, [route]);
+  }, [isMobile, route]);
 
   return (
-    <div
-      ref={ref}
-      style={{ transitionProperty: 'height, width, transform' }}
-      className="absolute top-0 left-0 w-8 h-8 z-[200] duration-150 -translate-x-4 -translate-y-4 border-2 rounded-full pointer-events-none border-warmGray-800 dark:border-warmGray-200 ring-1 ring-warmGray-200 dark:ring-warmGray-800 bg-gray-400/20 flex justify-center items-center">
-      <div className="w-2 h-2 rounded-full bg-warmGray-800 dark:bg-warmGray-200 ring-1 ring-warmGray-200 dark:ring-warmGray-800"></div>
+    <div className="hidden md:block min-w-max">
+      <div
+        ref={ref}
+        style={{ transitionProperty: 'height, width, transform' }}
+        className="absolute top-0 left-0 w-8 h-8 z-[200] duration-150 -translate-x-4 -translate-y-4 border-2 rounded-full pointer-events-none border-warmGray-800 dark:border-warmGray-200 ring-1 ring-warmGray-200 dark:ring-warmGray-800 bg-gray-400/20 flex justify-center items-center">
+        <div className="w-2 h-2 rounded-full bg-warmGray-800 dark:bg-warmGray-200 ring-1 ring-warmGray-200 dark:ring-warmGray-800"></div>
+      </div>
     </div>
   );
 }
