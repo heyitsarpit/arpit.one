@@ -42,7 +42,7 @@ const ThemeSwitch: React.FC = () => {
   return (
     <>
       <Head>
-        <meta name="theme-color" content={theme === 'dark' ? '#000' : '#fdfdfd'} />
+        <meta name="theme-color" content={theme === 'dark' ? '#0f0d0c' : '#fdfdfd'} />
       </Head>
       <div className="flex items-center w-5 h-5 bg-transparent">
         <DarkModeSwitch
