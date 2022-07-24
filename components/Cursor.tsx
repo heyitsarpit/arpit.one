@@ -110,8 +110,8 @@ export function Cursor() {
       <div
         ref={ref}
         style={{ transitionProperty: 'height, width, transform' }}
-        className="absolute top-0 left-0 w-8 h-8 z-[200] duration-150 -translate-x-4 -translate-y-4 border-2 rounded-full pointer-events-none border-warmGray-800 dark:border-warmGray-200 ring-1 ring-warmGray-200 dark:ring-warmGray-800 bg-gray-400/20 flex justify-center items-center">
-        <div className="w-2 h-2 rounded-full bg-warmGray-800 dark:bg-warmGray-200 ring-1 ring-warmGray-200 dark:ring-warmGray-800"></div>
+        className="absolute top-0 left-0 w-8 h-8 z-[200] duration-150 -translate-x-4 -translate-y-4 border-2 rounded-full pointer-events-none border-stone-800 dark:border-stone-200 ring-1 ring-stone-200 dark:ring-stone-800 bg-gray-400/20 flex justify-center items-center">
+        <div className="w-2 h-2 rounded-full bg-stone-800 dark:bg-stone-200 ring-1 ring-stone-200 dark:ring-stone-800"></div>
       </div>
     </div>
   );

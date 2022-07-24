@@ -4,7 +4,7 @@
 
 @layer base {
   body.light {
-    --theme: 'light';
+    color-scheme: light;
     --color-text: #31302e;
     --color-text-secondary: #6d6f88;
     --color-background: #fdfdfd;
@@ -32,7 +32,7 @@
   }
 
   body.dark {
-    --theme: 'dark';
+    color-scheme: dark;
     --color-text: #b0b0b0;
     --color-text-secondary: #dbdada;
     --color-background: #0f0d0c;
@@ -111,7 +111,7 @@
   }
 
   *::selection {
-    @apply bg-yellow-500 text-warmGray-800;
+    @apply bg-yellow-500 text-stone-800;
   }
 
   .shadow_line {
@@ -120,11 +120,11 @@
 
   .link-btn {
     height: max-content;
-    @apply px-1 font-medium transition-colors duration-150 ease-linear rounded-sm hover:bg-amber-300 dark:hover:bg-yellow-500 dark:hover:text-warmGray-800 bg-warmGray-200 dark:bg-warmGray-800;
+    @apply px-1 font-medium transition-colors duration-150 ease-linear rounded-sm hover:bg-amber-300 dark:hover:bg-yellow-500 dark:hover:text-stone-800 bg-stone-200 dark:bg-stone-800;
   }
 
   .button {
-    @apply p-2 border-2 border-warmGray-200 dark:border-warmGray-500;
+    @apply p-2 border-2 border-stone-200 dark:border-stone-500;
   }
 
   .link {
@@ -136,7 +136,7 @@
   }
 
   article :is(h1, h2, h3, h4, h5, h6) {
-    @apply flex mt-8 mb-5 font-semibold text-warmGray-800 dark:text-warmGray-200;
+    @apply flex mt-8 mb-5 font-semibold text-stone-800 dark:text-stone-200;
   }
 
   h2 {
@@ -159,7 +159,7 @@
   }
 
   article strong {
-    @apply text-warmGray-800 dark:text-warmGray-200;
+    @apply text-stone-800 dark:text-stone-200;
   }
 
   article blockquote code {
@@ -170,7 +170,7 @@
     background: var(--syntax-background);
 
     font-family: 'Fira Code', monospace;
-    @apply rounded-sm mx-1 py-[2px] px-2 text-sm text-warmGray-800 dark:text-warmGray-200;
+    @apply rounded-sm mx-1 py-[2px] px-2 text-sm text-stone-800 dark:text-stone-200;
   }
   article :not(pre) > code::before {
     content: '`';

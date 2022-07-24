@@ -60,7 +60,7 @@ export function Projects() {
       {projects.map(({ details, live, source, title }) => (
         <li
           key={title}
-          className="pb-2 pl-0 mb-4 text-sm border-b before:contents dark:border-warmGray-900 border-warmGray-200">
+          className="pb-2 pl-0 mb-4 text-sm border-b before:contents dark:border-stone-900 border-stone-200">
           <section>
             <div className="flex justify-between">
               <h3 className="m-0 text-base font-normal">{title}</h3>
