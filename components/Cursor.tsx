@@ -89,6 +89,17 @@ export function Cursor() {
       ref.current.style.top = `${lastPageY + scrollDistanceY}px`;
     };
 
+    const handleWindowEnter = () => {
+      if (!ref.current) return;
+      console.log('handleWindowEnter');
+      ref.current.style.visibility = 'visible';
+    };
+    const handleWindowLeave = () => {
+      if (!ref.current) return;
+      console.log('handleWindowLeave');
+      ref.current.style.visibility = 'hidden';
+    };
+
     //////////////////////////////////////////////////////////////////
 
     handleMouseLeave();
@@ -97,9 +108,15 @@ export function Cursor() {
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
 
+    document.documentElement.addEventListener('mouseenter', handleWindowEnter);
+    document.documentElement.addEventListener('mouseleave', handleWindowLeave);
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
+
+      document.documentElement.removeEventListener('mouseenter', handleWindowEnter);
+      document.documentElement.removeEventListener('mouseleave', handleWindowLeave);
 
       unHandleLinks();
     };
