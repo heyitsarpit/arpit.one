@@ -120,7 +120,7 @@
 
   .link-btn {
     height: max-content;
-    @apply px-1 font-medium transition-colors duration-150 ease-linear rounded-sm hover:bg-amber-300 dark:hover:bg-yellow-500 dark:hover:text-stone-800 bg-stone-200 dark:bg-stone-800;
+    @apply px-1 font-medium transition-colors duration-150 ease-linear rounded-sm hover:bg-amber-300 focus:bg-amber-300 dark:hover:bg-yellow-500 dark:focus:bg-yellow-500 dark:hover:text-stone-800 dark:focus:text-stone-800 bg-stone-200 dark:bg-stone-800;
   }
 
   .button {

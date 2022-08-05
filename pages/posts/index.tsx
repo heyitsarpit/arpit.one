@@ -12,13 +12,13 @@ export const getStaticProps = async () => {
 
 const PostPreview: React.FC<PostMeta> = ({ slug, title, date }) => {
   return (
-    <li className="my-8">
+    <li className="flex items-center p-1 my-8">
+      <p className="text-sm mr-8 min-w-[50px]">
+        <time dateTime={validDate(date)}>{formateDatePreview(date)}</time>
+      </p>
       <Link href={`posts/${slug}`}>
-        <a className="flex items-center p-1 capitalize transition-colors duration-200 rounded outline-none">
-          <p className="text-sm mr-8 min-w-[50px]">
-            <time dateTime={validDate(date)}>{formateDatePreview(date)}</time>
-          </p>
-          <h3 className="font-light link-btn">{title}</h3>
+        <a className="font-light capitalize transition-colors duration-200 rounded outline-none link-btn">
+          {title}
         </a>
       </Link>
     </li>
@@ -62,7 +62,7 @@ const Posts: React.FC<Props> = ({ posts }) => {
         canonical="https://www.arpit.one/posts"
         openGraph={{ url: 'https://www.arpit.one/posts' }}
       />
-      <div className="w-full sm:max-w-[75ch] m-auto px-5 py-16 flex flex-col justify-center items-center">
+      <div className="sm:max-w-[75ch] m-auto px-5 py-16 flex flex-col justify-center items-center">
         <PostPreviewList posts={posts} />
       </div>
     </>
