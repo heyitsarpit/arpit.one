@@ -10,7 +10,7 @@ export const SEO: React.FC = () => {
         url: 'https://www.arpit.one/',
         title: 'Arpit',
         description: 'Software Developer',
-        site_name: 'heyitsarpit'
+        site_name: 'Arpit'
         // images: [
         //   {
         //     url: 'https://www.example.ie/og-image-01.jpg',
@@ -29,8 +29,8 @@ export const SEO: React.FC = () => {
         // ]
       }}
       twitter={{
-        handle: '@onygami',
-        site: '@onygami',
+        handle: '@heyitsarpit',
+        site: '@heyitsarpit',
         cardType: 'summary_large_image'
       }}
     />
