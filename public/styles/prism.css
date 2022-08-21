@@ -133,6 +133,10 @@ pre[class*='language-'] {
   font-weight: 300;
 }
 
+.token.class-name {
+  color: var(--syntax-operator);
+}
+
 .token.function {
   color: var(--syntax-operator);
   font-weight: 500;
