@@ -1,0 +1,258 @@
+---
+title: Suspense in React 18
+published: true
+listed: true
+date: 'August 21 2022'
+description: Trying to gain a more intuitive understanding of Suspense in React 18.
+tags: react,suspense
+---
+
+## What is Suspense?
+
+The `<Suspense />` component is a feature that was introduced along with [React.lazy](https://reactjs.org/blog/2018/10/23/react-v-16-6.html#reactlazy-code-splitting-with-suspense) in React 16.6, to enable client side code splitting to load react components only when they're needed.
+
+With React 18, Suspense is a lot more general and works for any asynchronous action you may wish to perform in your components, for e.g. data fetching.
+
+> For React 18, according to the [release notes](https://reactjs.org/blog/2022/03/29/react-v18.html#suspense-in-data-frameworks), you can technically use suspense for data fetching but for several libraries that support it, it's still an experimental feature.
+
+Suspense is able to detect when your component is "suspended" and renders a fallback for it. The question you may have is, what does it mean for a component to be "suspended"?
+
+## How to suspend a component
+
+A suspended component is one that threw a promise that is yet to be fulfilled. Now that sentence may be confusing to you. What do you mean "threw" a promise?
+
+Below is a simple example of a suspended component, this is unusual React code, and you will never need to write this directly, but this is exactly how React knows when a component is suspended.
+
+```tsx
+function Component() {
+  throw new Promise((resolve) => {
+    console.log('this is a promise that will never resolve');
+  });
+
+  return <div>Hello World</div>;
+}
+```
+
+In most code bases, we are just used to throwing an error like this:
+
+```tsx
+throw new Error('something went wrong');
+```
+
+But `throw` in JavaScript is very generic, it will throw whatever you want, it doesn't have to be an error. Along with `throw`, we use `try/catch` in to "catch" what was thrown, so we can gracefully handle the error.
+
+`<Suspense />` from a developer's perspective, works just like a `catch` block and tells react that this component is suspended, and we can't yet render it, it has to be handled in some other way.
+
+That other way is to render a fallback component. The most common use case will be to show a loading indicator.
+
+So instead of using `isLoading` state as we're used to, we will use `<Suspense />`, and its `fallback` prop.
+
+Example using `isLoading`.
+
+```tsx
+function App() {
+  const { data, isLoading } = useDataFetcher();
+
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
+
+  return <Component />;
+}
+```
+
+Example using `Suspense`.
+
+```tsx
+function App() {
+  return (
+    <React.Suspense fallback={<div>loading...</div>}>
+      <Component />
+    </React.Suspense>
+  );
+}
+```
+
+## How to write a suspender function
+
+Here is a naive implementation of a function that suspends a component and then resumes after our async `action` function is "fulfilled".
+
+```tsx
+interface Response<T> {
+  status: 'success' | 'pending' | 'error';
+  data: T | null;
+}
+
+/**
+ * A promise tracker that will be updated
+ * when promise resolves or rejects
+ */
+const response: Response<unknown> = {
+  status: 'pending',
+  data: null
+};
+
+/**
+ * This is our suspender function
+ * that throws promise if it is not fulfilled yet
+ */
+export function suspend<T>(fn: () => Promise<T>) {
+  /**
+   * suspender is the promise we will throw
+   * so react can re-render when it is fulfilled
+   */
+  const suspender = fn().then(
+    (res) => {
+      response.status = 'success';
+      response.data = res;
+    },
+    (error) => {
+      response.status = 'error';
+      response.data = error;
+    }
+  );
+
+  switch (response.status) {
+    case 'pending':
+      throw suspender;
+    case 'error':
+      throw response.data as T;
+    default:
+      return response.data as T;
+  }
+}
+```
+
+In this code example we keep track of a global `response` variable that tracks the state of our promise, `suspender` is a new promise that is thrown if the status of our argument is still `'pending'`. Otherwise, we can return the resolved data.
+
+When the component is suspended, React has access to the `suspender` promise. When it is "resolved" or "rejected", React will attempt to re-render the component and this time since data will available we do not need to rely on our fallback.
+
+In our React component, we will use the `suspend` function like this.
+
+```tsx
+import * as React from 'react';
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+const action = async () => {
+  await sleep(2000);
+  return { greeting: 'hello world' };
+};
+
+function Component() {
+  const data = suspend(action);
+
+  return <div>The Greeting is - {data.greeting}</div>;
+}
+
+function App() {
+  return (
+    <React.Suspense fallback={<div>loading...</div>}>
+      <Component />
+    </React.Suspense>
+  );
+}
+```
+
+In the above example `<Component />` will throw a promise and in `<App />`, `<React.Suspense />` will catch it, and render the given fallback instead.
+
+This `suspend` function has several issues though. `Component` currently does not accept any props and `action` does not accept any arguments that may be derived from those props, we cannot handle cases where promises are recreated for new function calls.
+
+As a user just building UI components, You will probably never have to worry about these problems since they're supposed to be handled by external libraries.
+
+Problems like caching or multiple promises are handled by whichever data fetching solution you use or something generic like [suspend-react](https://github.com/pmndrs/suspend-react) which will handle them for you.
+
+Let's rewrite our example with `suspend-react`.
+
+```tsx
+import * as React from 'react';
+import { suspend } from 'suspend-react';
+
+const action = async (name) => {
+  await sleep(2000);
+  return { greeting: `hello ${name}` };
+};
+
+function Component(props) {
+  const data = suspend(() => action(props.name), [props.name]);
+
+  return <div>The Greeting is - {data.greeting}</div>;
+}
+```
+
+`suspend-react` works as a suspender function and has a global cache for your actions.
+It accepts a list of keys to cache the status of a promise or the result of its execution.
+
+When it comes to data fetching, there are way more specific problems that some libraries like [swr](https://swr.vercel.app/) will take care of.
+
+Let's see an example with `swr`.
+
+```tsx
+import * as React from 'react';
+import useSWR from 'swr';
+
+function Component() {
+  const { data } = useSWR('/api/user', fetcher, { suspense: true });
+
+  return <div>hello, {data.name}</div>;
+}
+
+function App() {
+  return (
+    <React.Suspense fallback={<div>loading...</div>}>
+      <Component />
+    </React.Suspense>
+  );
+}
+```
+
+As you can see, the complexity of writing a suspender function is abstracted away from your code, and you end up with a nice clean API surface.
+
+## Nested Suspense Boundaries
+
+Just like `try/catch` blocks, `<Suspense />` boundaries can be nested.
+
+You can have a single suspense boundary for several components.
+
+```tsx
+import * as React from 'react';
+
+function App() {
+  return (
+    <React.Suspense fallback={<Loader />}>
+      <UserAvatar />
+      <UserName />
+    </React.Suspense>
+  );
+}
+```
+
+Or Several suspense boundaries for each component to handle their suspended state differently.
+
+```tsx
+import * as React from 'react';
+
+function App() {
+  return (
+    <div>
+      <React.Suspense fallback={<Loader />}>
+        <UserAvatar />
+      </React.Suspense>
+
+      <React.Suspense fallback={<Loader />}>
+        <UserName />
+      </React.Suspense>
+    </div>
+  );
+}
+```
+
+Which strategy you choose will depend on your designs, UX and other requirements.
+
+Further Reading:
+
+- [Suspense in React 18 RFC](https://github.com/reactjs/rfcs/blob/main/text/0213-suspense-in-react-18.md)
+- [react-suspense-fetch](https://github.com/dai-shi/react-suspense-fetch)
+- [Suspense in SWR](https://swr.vercel.app/docs/suspense)
