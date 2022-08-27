@@ -1,16 +1,15 @@
+// @ts-check
 const withPWA = require('next-pwa');
 const runtimeCaching = require('next-pwa/cache');
 
-module.exports = withPWA({
-  pwa: {
-    disable: process.env.NODE_ENV === 'development',
-    dest: 'public',
-    runtimeCaching
-  },
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
+  swcMinify: true,
   images: {
     domains: ['images.pexels.com', 'user-images.githubusercontent.com']
   },
-
   async rewrites() {
     return [
       {
@@ -23,4 +22,6 @@ module.exports = withPWA({
       }
     ];
   }
-});
+};
+
+module.exports = nextConfig;
