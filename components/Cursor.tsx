@@ -91,12 +91,10 @@ export function Cursor() {
 
     const handleWindowEnter = () => {
       if (!ref.current) return;
-      console.log('handleWindowEnter');
       ref.current.style.visibility = 'visible';
     };
     const handleWindowLeave = () => {
       if (!ref.current) return;
-      console.log('handleWindowLeave');
       ref.current.style.visibility = 'hidden';
     };
 

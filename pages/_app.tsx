@@ -15,7 +15,7 @@ import Nav from '@/components/Nav';
 import { SEO } from '@/components/SEO';
 
 const DynamicCursor = dynamic(() => import('../components/Cursor').then((m) => m.Cursor), {
-  ssr: true
+  ssr: false
 });
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {

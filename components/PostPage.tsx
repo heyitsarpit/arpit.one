@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo';
 
 import { formateDateFull, validDate } from '@/utils/formatDate';
 
-type Props = { meta: PostMeta };
+type Props = { meta: PostMeta; children: React.ReactNode };
 
 export const PostPage: React.FC<Props> = ({ meta, children }) => {
   return (

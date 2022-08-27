@@ -14,14 +14,16 @@ const RootPath = process.cwd();
 const PostPath = path.join(RootPath, 'posts');
 
 export async function loadMDX(source: string) {
-  const bundle = await bundleMDX(source, {
-    xdmOptions(options) {
+  const bundle = await bundleMDX({
+    source,
+    mdxOptions(options) {
       options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm, remarkPrism];
       options.rehypePlugins = [
         ...(options?.rehypePlugins ?? []),
         rehypeSlug,
         [rehypeAutolink, autoLinkHeadingsOptions]
       ];
+
       return options;
     }
   });
