@@ -23,6 +23,7 @@ out
 
 .linaria-cache
 
+tsconfig.tsbuildinfo
 public/*.js
 public/*.js.map
 public/robots.txt
