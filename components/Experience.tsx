@@ -4,13 +4,22 @@ import { a11yDate, visibleDate } from '@/utils/date';
 
 const experience = [
   {
+    company: 'Everclear',
+    location: 'remote',
+    position: 'Senior Frontend Developer',
+    link: 'https://www.everclear.org/',
+    startDate: 'may 10, 2024',
+    endDate: 'now',
+    details: 'Leading frontend efforts at Everclear.'
+  },
+  {
     company: 'Rage Trade',
     location: 'remote',
-    position: 'Frontend Developer',
+    position: 'Senior Frontend Developer',
     link: 'https://www.rage.trade/',
     startDate: 'november 1, 2021',
-    endDate: 'now',
-    details: 'Building a perpetual swaps trading and staking platform on uniswap v3.'
+    endDate: 'may 9, 2024',
+    details: 'Built and scaled a cross chain perpetual swap aggregation platform to $1B+ in Volume'
   },
   {
     company: 'Antillia',
