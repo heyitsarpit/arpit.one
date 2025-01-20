@@ -1,4 +1,4 @@
-export const Signature = (): JSX.Element => (
+export const Signature = () => (
   <div>
     <svg
       width="100"
