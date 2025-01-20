@@ -16,10 +16,8 @@ const PostPreview: React.FC<PostMeta> = ({ slug, title, date }) => {
       <p className="text-sm mr-8 min-w-[50px]">
         <time dateTime={validDate(date)}>{formateDatePreview(date)}</time>
       </p>
-      <Link href={`posts/${slug}`}>
-        <a className="font-light capitalize transition-colors duration-200 rounded outline-none link-btn">
+      <Link href={`posts/${slug}`} className="font-light capitalize transition-colors duration-200 rounded outline-none link-btn">
           {title}
-        </a>
       </Link>
     </li>
   );
