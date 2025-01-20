@@ -1,6 +1,6 @@
 import { BreakPointHooks, breakpointsTailwind } from '@react-hooks-library/core';
 import { useRouter } from 'next/router';
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const { useSmaller } = BreakPointHooks(breakpointsTailwind);
 
@@ -9,7 +9,7 @@ export function Cursor() {
   const { route } = useRouter();
   const isMobile = useSmaller('md');
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isMobile) {
       document.body.style.cursor = 'auto';
       return;

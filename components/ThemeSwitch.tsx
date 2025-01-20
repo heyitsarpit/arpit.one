@@ -1,13 +1,8 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-
+import { DarkModeSwitch } from "react-toggle-dark-mode"
 import { setLocalStorage } from '../utils/localStorage';
-
-const DarkModeSwitch = dynamic(
-  () => import('react-toggle-dark-mode').then((mod) => mod.DarkModeSwitch),
-  { loading: () => <div className="w-5 h-5"></div> }
-);
 
 type ColorTheme = 'light' | 'dark';
 

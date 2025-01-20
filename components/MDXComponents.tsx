@@ -1,8 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable react/display-name */
-/* eslint-disable jsx-a11y/heading-has-content */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-
 import Link from 'next/link';
 
 export const components = {
@@ -13,9 +8,7 @@ export const components = {
       );
     }
     return (
-      <Link href={href} passHref>
-        <a className="link-btn" {...props} />
-      </Link>
+      <Link href={href} className="link-btn" {...props} />
     );
   },
   img: ({ ...props }: { children: React.ReactNode }) => (

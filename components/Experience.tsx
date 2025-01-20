@@ -50,8 +50,8 @@ const experience = [
       <>
         Proposed and developed system to auto update firefox public suffix list. Successfully
         delivered in firefox 70.{' '}
-        <Link href="/posts/gsoc-2019">
-          <a className="link-btn">All my work is public and open source.</a>
+        <Link href="/posts/gsoc-2019" className="link-btn">
+            All my work is public and open source.
         </Link>
       </>
     )

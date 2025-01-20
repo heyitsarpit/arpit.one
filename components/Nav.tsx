@@ -14,17 +14,13 @@ const Nav: React.FC = () => {
     <header className="relative w-full h-16">
       <div className="fixed h-16 z-40 w-full flex justify-between backdrop-blur-[20px] backdrop-saturate-150 bg-white/50 dark:bg-[#0D0D1050]">
         <nav className="w-full sm:max-w-[75ch] m-auto flex px-5 justify-between items-center ">
-          <Link href="/" passHref>
-            <a title="Home" aria-label="Home">
+          <Link href="/" title="Home" aria-label="Home">
               ARPIT
-            </a>
           </Link>
           <div className="flex items-center gap-10">
             {['/posts', '/art'].map((path) => (
-              <Link key={path} href={path}>
-                <a className={`capitalize ${isActive(path) ? '' : 'opacity-50'}`}>
+              <Link key={path} href={path} className={`capitalize ${isActive(path) ? '' : 'opacity-50'}`}>
                   {path.replace('/', '')}
-                </a>
               </Link>
             ))}
 
