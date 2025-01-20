@@ -15,7 +15,7 @@ const Nav: React.FC = () => {
       <div className='fixed h-16 z-40 w-full flex justify-between backdrop-blur-[20px] backdrop-saturate-150 bg-white/50 dark:bg-[#0D0D1050]'>
         <nav className='w-full sm:max-w-[75ch] m-auto flex px-5 justify-between items-center '>
           <Link href='/' title='Home' aria-label='Home'>
-            ARPIT
+            HOME
           </Link>
           <div className='flex items-center gap-10'>
             {['/posts', '/art'].map((path) => (

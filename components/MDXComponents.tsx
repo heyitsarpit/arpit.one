@@ -15,7 +15,7 @@ export const components = {
         />
       )
     }
-    return <Link href={href} className='link-btn' {...props} />
+    return <Link href={href} {...props} />
   },
   img: ({ ...props }: { children: React.ReactNode }) => (
     <div className='my-10'>
