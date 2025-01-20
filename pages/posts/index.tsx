@@ -63,7 +63,7 @@ const Posts: React.FC<Props> = ({ posts }) => {
         canonical='https://www.arpit.one/posts'
         openGraph={{ url: 'https://www.arpit.one/posts' }}
       />
-      <div className='sm:max-w-[75ch] m-auto px-5 py-16 flex flex-col justify-center items-center'>
+      <div className='sm:max-w-[840px] m-auto px-5 py-16 flex flex-col justify-center items-center'>
         <PostPreviewList posts={posts} />
       </div>
     </>

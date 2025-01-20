@@ -21,7 +21,7 @@ export function PostPage({ meta, children }: Props) {
       <Head>
         <link rel='stylesheet' href='/styles/prism.css' />
       </Head>
-      <article className='max-w-[75ch] mx-auto pt-12 pb-28  px-5'>
+      <article className='max-w-[840px] mx-auto pt-12 pb-28  px-5'>
         <div>
           <h1 className='mb-1 text-3xl font-black capitalize md:text-4xl'>
             {meta.title}

@@ -31,7 +31,7 @@ function Typefaces() {
 
 export default function Curated() {
   return (
-    <article className='w-full sm:max-w-[75ch] mx-auto px-5 pt-12 pb-28 '>
+    <article className='w-full sm:max-w-[840px] mx-auto px-5 pt-12 pb-28 '>
       <h1 className='text-2xl font-black'>A list of web things I love</h1>
       <Typefaces />
     </article>

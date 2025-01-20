@@ -1,7 +1,7 @@
 import fs from 'node:fs'
+import path from 'node:path'
 import { getMDXComponent } from 'mdx-bundler/client'
 import type { InferGetStaticPropsType } from 'next'
-import path from 'node:path'
 import { useMemo } from 'react'
 
 import { Contacts } from '@/components/Contacts'
@@ -28,7 +28,7 @@ export default function Home({ code }: Props) {
   const Component = useMemo(() => getMDXComponent(code), [code])
 
   return (
-    <article className='max-w-[75ch] mx-auto pt-12 pb-28 px-5'>
+    <article className='max-w-[840px] mx-auto pt-12 pb-28 px-5'>
       <Component components={mdxComponents} />
     </article>
   )
