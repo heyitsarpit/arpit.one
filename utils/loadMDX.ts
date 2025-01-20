@@ -14,20 +14,27 @@ const RootPath = process.cwd();
 const PostPath = path.join(RootPath, 'posts');
 
 export async function loadMDX(source: string) {
-  const bundle = await bundleMDX(source, {
-    xdmOptions(options) {
-      options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm, remarkPrism];
-      options.rehypePlugins = [
-        ...(options?.rehypePlugins ?? []),
-        rehypeSlug,
-        [rehypeAutolink, autoLinkHeadingsOptions]
-      ];
-      return options;
+ return bundleMDX(
+    {
+      source, 
+      mdxOptions(options, frontmatter) {
+     
+        options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm, remarkPrism]
+        options.rehypePlugins = 
+        [
+              ...(options?.rehypePlugins ?? []),
+              rehypeSlug,
+              [rehypeAutolink, autoLinkHeadingsOptions]
+            ]
+    
+        return options
+      },
+   
     }
-  });
+ );
 
-  return bundle;
 }
+
 
 /**
  * Get meta data of all posts
