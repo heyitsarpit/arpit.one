@@ -8,7 +8,9 @@ export const projects = [
   },
   {
     title: 'arpit.one',
-    details: `The website that you're looking at currently.`
+    details: `The website that you're looking at currently.`,
+    live: 'https://www.arpit.one/',
+    source: 'https://github.com/heyitsarpit/arpit.one'
   },
   {
     title: 'Ad Recommendation on YouTube Videos',
