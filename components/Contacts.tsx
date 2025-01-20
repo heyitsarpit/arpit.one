@@ -1,14 +1,18 @@
 type LinkProps = {
-  href: string;
-  children: React.ReactNode;
-};
+  href: string
+  children: React.ReactNode
+}
 
 export function Link({ href, children }: LinkProps) {
   return (
-    <a className="px-2 py-1 link-btn" rel="noopener noreferrer" target="_blank" href={href}>
+    <a
+      className='px-2 py-1 link-btn'
+      rel='noopener noreferrer'
+      target='_blank'
+      href={href}>
       {children}
     </a>
-  );
+  )
 }
 
 const contactList = [
@@ -28,16 +32,16 @@ const contactList = [
     name: 'Twitter',
     href: 'https://twitter.com/heyitsarpit'
   }
-];
+]
 
 export function Contacts() {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className='flex flex-wrap gap-2'>
       {contactList.map(({ name, href }) => (
         <Link key={name} href={href}>
           {name}
         </Link>
       ))}
     </div>
-  );
+  )
 }

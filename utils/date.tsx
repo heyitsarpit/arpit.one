@@ -1,6 +1,6 @@
 export const visibleDate = (date: string) => {
-  const d = new Date(date);
-  if (!d.getFullYear()) return <span>{date}</span>;
+  const d = new Date(date)
+  if (!d.getFullYear()) return <span>{date}</span>
 
   return (
     <>
@@ -8,10 +8,10 @@ export const visibleDate = (date: string) => {
       <span>/</span>
       {d.getFullYear() % 100}
     </>
-  );
-};
+  )
+}
 
 export const a11yDate = (date: string) => {
-  const d = new Date(date);
-  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
-};
+  const d = new Date(date)
+  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`
+}

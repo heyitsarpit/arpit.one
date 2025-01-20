@@ -5,11 +5,7 @@
   "main": "index.js",
   "author": "Arpit<arpitbharti@gmail.com>",
   "license": "MIT",
-  "keywords": [
-    "next",
-    "react",
-    "typescript"
-  ],
+  "keywords": ["next", "react", "typescript"],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -60,8 +56,6 @@
     }
   },
   "lint-staged": {
-    "./**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ]
+    "./**/*.{js,jsx,ts,tsx}": ["eslint --fix"]
   }
 }

@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
-import { a11yDate, visibleDate } from '@/utils/date';
+import { a11yDate, visibleDate } from '@/utils/date'
 
 const experience = [
   {
@@ -19,7 +19,8 @@ const experience = [
     link: 'https://www.rage.trade/',
     startDate: 'november 1, 2021',
     endDate: 'may 9, 2024',
-    details: 'Built and scaled a cross chain perpetual swap aggregation platform to $1B+ in Volume'
+    details:
+      'Built and scaled a cross chain perpetual swap aggregation platform to $1B+ in Volume'
   },
   {
     company: 'Antillia',
@@ -28,7 +29,8 @@ const experience = [
     position: 'Fullstack Developer',
     startDate: 'november 1, 2020',
     endDate: 'november 1, 2021',
-    details: 'Building customizable video chat applications, similar to zoom or google meet.'
+    details:
+      'Building customizable video chat applications, similar to zoom or google meet.'
   },
   {
     company: 'QuillHash',
@@ -37,7 +39,8 @@ const experience = [
     position: 'Fullstack Developer',
     startDate: 'June 16, 2020',
     endDate: 'October 29, 2020',
-    details: 'Maintainer of the backend and web app for zeptagram, a crypto enabled music service.'
+    details:
+      'Maintainer of the backend and web app for zeptagram, a crypto enabled music service.'
   },
   {
     company: 'Mozilla',
@@ -48,10 +51,10 @@ const experience = [
     endDate: 'September 03, 2019',
     details: (
       <>
-        Proposed and developed system to auto update firefox public suffix list. Successfully
-        delivered in firefox 70.{' '}
-        <Link href="/posts/gsoc-2019" className="link-btn">
-            All my work is public and open source.
+        Proposed and developed system to auto update firefox public suffix list.
+        Successfully delivered in firefox 70.{' '}
+        <Link href='/posts/gsoc-2019' className='link-btn'>
+          All my work is public and open source.
         </Link>
       </>
     )
@@ -65,7 +68,7 @@ const experience = [
   //   details:
   //     'Solved problems of demurrage claims in the oil shipping industry with the help of ethereum smart contracts'
   // }
-];
+]
 
 export function Experience() {
   return (
@@ -73,22 +76,24 @@ export function Experience() {
       {experience.map(({ company, details, endDate, position, startDate }) => (
         <li
           key={company}
-          className="pb-2 pl-0 mb-4 border-b dark:border-stone-900 border-stone-200 before:contents">
+          className='pb-2 pl-0 mb-4 border-b dark:border-stone-900 border-stone-200 before:contents'>
           <section>
-            <h3 className="m-0 text-base font-normal">{position}</h3>
-            <div className="flex justify-between text-sm text-stone-600 dark:text-stone-400 ">
+            <h3 className='m-0 text-base font-normal'>{position}</h3>
+            <div className='flex justify-between text-sm text-stone-600 dark:text-stone-400 '>
               <div>{company}</div>
               <div>
-                <time dateTime={a11yDate(startDate)}>{visibleDate(startDate)}</time>
+                <time dateTime={a11yDate(startDate)}>
+                  {visibleDate(startDate)}
+                </time>
                 {' - '}
                 <time dateTime={a11yDate(endDate)}>{visibleDate(endDate)}</time>
               </div>
             </div>
 
-            <p className="mt-4 text-sm">{details}</p>
+            <p className='mt-4 text-sm'>{details}</p>
           </section>
         </li>
       ))}
     </ul>
-  );
+  )
 }

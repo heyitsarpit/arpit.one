@@ -1,9 +1,9 @@
-code[class*='language-'],
-pre[class*='language-'] {
+code[class*="language-"],
+pre[class*="language-"] {
   color: var(--syntax-primary);
 
   background: none;
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.85rem;
 
   text-align: left;
@@ -16,22 +16,22 @@ pre[class*='language-'] {
   hyphens: none;
 }
 
-pre[class*='language-']::selection,
-pre[class*='language-'] ::selection,
-code[class*='language-']::selection,
-code[class*='language-'] ::selection {
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
   color: var(--color-background);
   background: var(--color-text);
 }
 
 @media print {
-  code[class*='language-'],
-  pre[class*='language-'] {
+  code[class*="language-"],
+  pre[class*="language-"] {
     text-shadow: none;
   }
 }
 /* Code blocks */
-pre[class*='language-'] {
+pre[class*="language-"] {
   position: relative;
 
   padding: 1em;
@@ -44,7 +44,7 @@ pre[class*='language-'] {
 }
 
 @media screen and (max-width: 700px) {
-  pre[class*='language-'] {
+  pre[class*="language-"] {
     margin: 0.5em 0;
     border-radius: 0;
     position: relative;
@@ -54,13 +54,13 @@ pre[class*='language-'] {
   }
 }
 
-:not(pre) > code[class*='language-'],
-pre[class*='language-'] {
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
   background: var(--syntax-background);
 }
 
 /* Inline code */
-:not(pre) > code[class*='language-'] {
+:not(pre) > code[class*="language-"] {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;

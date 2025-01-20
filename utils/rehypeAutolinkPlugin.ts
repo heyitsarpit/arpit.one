@@ -7,4 +7,4 @@ export const autoLinkHeadingsOptions = {
     type: 'text',
     value: '#'
   }
-};
+}

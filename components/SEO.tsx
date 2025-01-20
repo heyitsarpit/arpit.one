@@ -1,11 +1,11 @@
-import { DefaultSeo } from 'next-seo';
+import { DefaultSeo } from 'next-seo'
 
 export const SEO: React.FC = () => {
   return (
     <DefaultSeo
-      title="Arpit"
-      description="Software Developer"
-      canonical="https://www.arpit.one/"
+      title='Arpit'
+      description='Software Developer'
+      canonical='https://www.arpit.one/'
       openGraph={{
         url: 'https://www.arpit.one/',
         title: 'Arpit',
@@ -34,5 +34,5 @@ export const SEO: React.FC = () => {
         cardType: 'summary_large_image'
       }}
     />
-  );
-};
+  )
+}

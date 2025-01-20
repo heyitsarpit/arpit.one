@@ -23,7 +23,6 @@
   border: 3px solid transparent;
 }
 
-
 @layer base {
   body.light {
     color-scheme: light;
@@ -89,15 +88,16 @@
   }
 
   html {
-    font: 100%/1.75;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New,
-      monospace;
+    font: 100% / 1.75;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      Liberation Mono, Courier New, monospace;
     font-stretch: 25% 150%;
   }
 
   @supports (font-variation-settings: normal) {
     html {
-      font: 100%/1.75 'iA Quattro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      font:
+        100% / 1.75 "iA Quattro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
         Liberation Mono, Courier New, monospace;
       font-stretch: 25% 150%;
     }
@@ -173,15 +173,15 @@
   article :not(pre) > code {
     background: var(--syntax-background);
 
-    font-family: 'Fira Code', monospace;
+    font-family: "Fira Code", monospace;
     @apply rounded-sm mx-1 py-[2px] px-2 text-sm text-stone-800 dark:text-stone-200;
   }
   article :not(pre) > code::before {
-    content: '`';
+    content: "`";
   }
 
   article :not(pre) > code::after {
-    content: '`';
+    content: "`";
   }
 
   article blockquote {
@@ -189,7 +189,7 @@
   }
 
   article blockquote::before {
-    content: '';
+    content: "";
     @apply absolute top-0 left-0 inline-block w-1 h-full bg-[color:var(--color-text)];
   }
 
@@ -198,7 +198,7 @@
   }
 
   article li::before {
-    content: '—';
+    content: "—";
     @apply absolute left-1 opacity-90;
   }
 }

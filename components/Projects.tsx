@@ -18,41 +18,41 @@ export const projects = [
     live: 'https://link.springer.com/chapter/10.1007/978-981-15-8335-3_48',
     source: 'https://github.com/heyitsarpit/ad-recommendation'
   }
-];
+]
 
 const SourceIcon = () => (
   <svg
-    aria-label="code icon"
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-3 h-3"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor">
+    aria-label='code icon'
+    xmlns='http://www.w3.org/2000/svg'
+    className='w-3 h-3'
+    fill='none'
+    viewBox='0 0 24 24'
+    stroke='currentColor'>
     <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      strokeLinecap='round'
+      strokeLinejoin='round'
       strokeWidth={2}
-      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+      d='M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'
     />
   </svg>
-);
+)
 
 const LiveIcon = () => (
   <svg
-    aria-label="lightning icon"
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-3 h-3"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor">
+    aria-label='lightning icon'
+    xmlns='http://www.w3.org/2000/svg'
+    className='w-3 h-3'
+    fill='none'
+    viewBox='0 0 24 24'
+    stroke='currentColor'>
     <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      strokeLinecap='round'
+      strokeLinejoin='round'
       strokeWidth={2}
-      d="M13 10V3L4 14h7v7l9-11h-7z"
+      d='M13 10V3L4 14h7v7l9-11h-7z'
     />
   </svg>
-);
+)
 
 export function Projects() {
   return (
@@ -60,17 +60,17 @@ export function Projects() {
       {projects.map(({ details, live, source, title }) => (
         <li
           key={title}
-          className="pb-2 pl-0 mb-4 text-sm border-b before:contents dark:border-stone-900 border-stone-200">
+          className='pb-2 pl-0 mb-4 text-sm border-b before:contents dark:border-stone-900 border-stone-200'>
           <section>
-            <div className="flex justify-between">
-              <h3 className="m-0 text-base font-normal">{title}</h3>
-              <div className="flex gap-2">
+            <div className='flex justify-between'>
+              <h3 className='m-0 text-base font-normal'>{title}</h3>
+              <div className='flex gap-2'>
                 {source ? (
                   <a
                     href={source}
-                    className="flex items-center gap-1 link-btn"
-                    target="_blank"
-                    rel="noopener noreferrer">
+                    className='flex items-center gap-1 link-btn'
+                    target='_blank'
+                    rel='noopener noreferrer'>
                     <span>source</span>
                     <SourceIcon />
                   </a>
@@ -78,9 +78,9 @@ export function Projects() {
                 {live ? (
                   <a
                     href={live}
-                    className="flex items-center gap-1 link-btn"
-                    target="_blank"
-                    rel="noopener noreferrer">
+                    className='flex items-center gap-1 link-btn'
+                    target='_blank'
+                    rel='noopener noreferrer'>
                     <span>live</span>
                     <LiveIcon />
                   </a>
@@ -92,5 +92,5 @@ export function Projects() {
         </li>
       ))}
     </ul>
-  );
+  )
 }
