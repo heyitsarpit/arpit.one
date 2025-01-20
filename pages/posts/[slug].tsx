@@ -1,5 +1,5 @@
 import { getMDXComponent } from 'mdx-bundler/client';
-import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
+import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { useMemo } from 'react';
 
 import { components } from '@/components/MDXComponents';
