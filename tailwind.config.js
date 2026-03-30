@@ -1,5 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const colors = require('tailwindcss/colors');
+const {
+  lightBlue,
+  warmGray,
+  trueGray,
+  coolGray,
+  blueGray,
+  ...supportedColors
+} = colors;
 
 module.exports = {
   content: [
@@ -12,7 +20,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ...colors,
+        ...supportedColors,
         primary: 'var(--color-text)',
         secondary: 'var(--color-text-secondary)',
         bg: 'var(--color-background)',

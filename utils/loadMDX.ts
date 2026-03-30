@@ -39,11 +39,11 @@ export async function loadMDX(source: string) {
  * Get meta data of all posts
  */
 export const getAllPostsMeta = async () => {
-  const allPostPaths = await glob(`${PostPath}/**/*.mdx`)
+  const allPostPaths = await glob('**/*.mdx', { cwd: PostPath })
 
   return allPostPaths
     .map((postPath): PostMeta => {
-      const post = fs.readFileSync(path.join(RootPath, postPath), 'utf-8')
+      const post = fs.readFileSync(path.join(PostPath, postPath), 'utf-8')
 
       const slug = path.basename(postPath).replace('.mdx', '')
       const meta = matter(post).data
