@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 type LinkProps = {
   href: string
   children: React.ReactNode
@@ -6,7 +8,7 @@ type LinkProps = {
 export function Link({ href, children }: LinkProps) {
   return (
     <a
-      className='px-2 py-1 link-btn'
+      className='site-inline-link'
       rel='noopener noreferrer'
       target='_blank'
       href={href}>
@@ -35,13 +37,33 @@ const contactList = [
 ]
 
 export function Contacts() {
+  const [copied, setCopied] = useState(false)
+
+  const copyEmail = async () => {
+    await navigator.clipboard?.writeText('arpitbharti73@gmail.com')
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 1600)
+  }
+
   return (
-    <div className='flex flex-wrap gap-2'>
-      {contactList.map(({ name, href }) => (
-        <Link key={name} href={href}>
-          {name}
-        </Link>
-      ))}
+    <div className='site-contacts'>
+      <p>
+        {contactList
+          .filter(({ name }) => name !== 'Email')
+          .map(({ name, href }) => (
+            <span key={name}>
+              <Link href={href}>{name}</Link>{' '}
+            </span>
+          ))}
+      </p>
+      <p>
+        <a className='site-inline-link' href='mailto:arpitbharti73@gmail.com'>
+          arpitbharti73@gmail.com
+        </a>{' '}
+        <button type='button' className='site-copy-button' onClick={copyEmail}>
+          ({copied ? 'copied' : 'copy'})
+        </button>
+      </p>
     </div>
   )
 }

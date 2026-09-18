@@ -6,6 +6,7 @@ import { useMemo } from 'react'
 
 import { Contacts } from '@/components/Contacts'
 import { Experience } from '@/components/Experience'
+import { HomeImageRail } from '@/components/HomeImageRail'
 import { components } from '@/components/MDXComponents'
 import { Projects } from '@/components/Projects'
 import { Spacer } from '@/components/Spacer'
@@ -20,7 +21,14 @@ export const getStaticProps = async () => {
   return { props: { code } }
 }
 
-const mdxComponents = { ...components, Experience, Projects, Contacts, Spacer }
+const mdxComponents = {
+  ...components,
+  Experience,
+  Projects,
+  Contacts,
+  HomeImageRail,
+  Spacer
+}
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -28,7 +36,7 @@ export default function Home({ code }: Props) {
   const Component = useMemo(() => getMDXComponent(code), [code])
 
   return (
-    <article className='max-w-[840px] mx-auto pt-12 pb-28 px-5'>
+    <article className='site-home'>
       <Component components={mdxComponents} />
     </article>
   )
