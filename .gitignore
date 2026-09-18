@@ -24,6 +24,8 @@ out
 
 .linaria-cache
 
+.art-preview/
+
 public/*.js
 public/*.js.map
 public/robots.txt

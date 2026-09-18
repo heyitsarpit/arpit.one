@@ -20,25 +20,13 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/utils/*": [
-        "utils/*"
-      ],
-      "@/public/*": [
-        "public/*"
-      ]
+      "@/components/*": ["components/*"],
+      "@/utils/*": ["utils/*"],
+      "@/data/*": ["data/*"],
+      "@/public/*": ["public/*"]
     },
     "incremental": true
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "mdx.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "mdx.ts", "**/*.ts", "**/*.tsx"]
 }
