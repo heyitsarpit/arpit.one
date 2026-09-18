@@ -11,6 +11,7 @@ log
 
 # Secret environement variables
 .env
+.env*.local
 
 # Deployemt related
 .now

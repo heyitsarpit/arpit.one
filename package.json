@@ -5,17 +5,14 @@
   "main": "index.js",
   "author": "Arpit<arpitbharti@gmail.com>",
   "license": "MIT",
-  "keywords": [
-    "next",
-    "react",
-    "typescript"
-  ],
+  "keywords": ["next", "react", "typescript"],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
     "build:art": "esno utils/buildArt.ts",
+    "spotify:sync": "node --env-file=.env.local scripts/syncSpotifyPlaylists.mjs",
     "format": "biome format --write .",
     "lint": "biome lint --write ."
   },
@@ -60,8 +57,6 @@
     }
   },
   "lint-staged": {
-    "./**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ]
+    "./**/*.{js,jsx,ts,tsx}": ["eslint --fix"]
   }
 }
