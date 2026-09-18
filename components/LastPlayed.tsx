@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
 
 type Track = {
   title: string
@@ -15,35 +15,30 @@ type ApiState = {
   error?: string
 }
 
+const fetchRecentlyPlayed = async (): Promise<ApiState> => {
+  const response = await fetch('/api/spotify/recently-played')
+  const payload = (await response.json()) as ApiState
+
+  if (!response.ok && payload.configured !== false) {
+    throw new Error(payload.error || 'Spotify history could not be loaded.')
+  }
+
+  return payload
+}
+
 const LastPlayed: React.FC = () => {
-  const [state, setState] = useState<ApiState | null>(null)
-
-  useEffect(() => {
-    let cancelled = false
-
-    fetch('/api/spotify/recently-played')
-      .then(async (response) => {
-        const payload = (await response.json()) as ApiState
-        if (!response.ok && !payload.error && payload.configured !== false) {
-          throw new Error('Spotify history could not be loaded.')
-        }
-        return payload
-      })
-      .then((payload) => {
-        if (!cancelled) setState(payload)
-      })
-      .catch((error: Error) => {
-        if (!cancelled) {
-          setState({ configured: true, track: null, error: error.message })
-        }
-      })
-
-    return () => {
-      cancelled = true
-    }
-  }, [])
+  const {
+    data: state,
+    error,
+    isPending
+  } = useQuery({
+    queryKey: ['spotify', 'recently-played'],
+    queryFn: fetchRecentlyPlayed,
+    staleTime: 60 * 1000
+  })
 
   const track = state?.track
+  const errorMessage = state?.error || error?.message
 
   return (
     <aside
@@ -51,14 +46,16 @@ const LastPlayed: React.FC = () => {
       aria-labelledby='last-played-title'>
       <h2 id='last-played-title'>Last played</h2>
 
-      {!state ? <p className='site-spotify-status'>Checking Spotify…</p> : null}
+      {isPending && !state ? (
+        <p className='site-spotify-status'>Checking Spotify…</p>
+      ) : null}
 
       {state && !state.configured ? (
         <p className='site-spotify-status'>Spotify activity is unavailable.</p>
       ) : null}
 
-      {state?.error ? (
-        <p className='site-spotify-status'>{state.error}</p>
+      {errorMessage ? (
+        <p className='site-spotify-status'>{errorMessage}</p>
       ) : null}
 
       {state?.configured && !state.error && !track ? (

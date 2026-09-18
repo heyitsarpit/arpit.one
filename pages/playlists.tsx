@@ -3,8 +3,11 @@ import path from 'node:path'
 import type { InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'
 
-import LastPlayed from '@/components/LastPlayed'
 import PlaylistExplorer from '@/components/PlaylistExplorer'
+import PlaylistPageNav from '@/components/PlaylistPageNav'
+import PlaylistsLayout, {
+  type PageWithLayout
+} from '@/components/PlaylistsLayout'
 import type { StoredPlaylistLibrary } from '@/utils/playlists'
 
 export const getStaticProps = async () => {
@@ -18,7 +21,7 @@ export const getStaticProps = async () => {
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const Playlists: React.FC<Props> = ({ library }) => {
+const Playlists: React.FC<Props> & PageWithLayout = ({ library }) => {
   return (
     <>
       <NextSeo
@@ -26,15 +29,15 @@ const Playlists: React.FC<Props> = ({ library }) => {
         canonical='https://www.arpit.one/playlists'
         openGraph={{ url: 'https://www.arpit.one/playlists' }}
       />
-      <div className='site-playlists'>
-        <LastPlayed />
-        <header className='site-playlists-header'>
-          <h1 className='site-section-title'>Playlists</h1>
-        </header>
-        <PlaylistExplorer playlists={library.playlists} />
-      </div>
+      <header className='site-playlists-header'>
+        <h1 className='site-section-title'>Playlists</h1>
+        <PlaylistPageNav active='playlists' />
+      </header>
+      <PlaylistExplorer playlists={library.playlists} />
     </>
   )
 }
+
+Playlists.getLayout = (page) => <PlaylistsLayout>{page}</PlaylistsLayout>
 
 export default Playlists
