@@ -1,6 +1,6 @@
 code[class*="language-"],
 pre[class*="language-"] {
-  color: var(--syntax-primary);
+  color: var(--page-text);
 
   background: none;
   font-family: "Fira Code", monospace;
@@ -20,8 +20,8 @@ pre[class*="language-"]::selection,
 pre[class*="language-"] ::selection,
 code[class*="language-"]::selection,
 code[class*="language-"] ::selection {
-  color: var(--color-background);
-  background: var(--color-text);
+  color: var(--page-text-highlight-text);
+  background: var(--page-text-highlight);
 }
 
 @media print {
@@ -37,7 +37,9 @@ pre[class*="language-"] {
   padding: 1em;
   overflow: auto;
   margin: 1.5em 0;
-  border-radius: 6px;
+  border: 1px solid var(--page-border);
+  border-left: 3px solid var(--page-highlight);
+  border-radius: 0;
 
   transition: 500ms;
   transition-property: background, color;
@@ -56,13 +58,15 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: var(--syntax-background);
+  background: color-mix(in srgb, var(--page-text) 8%, transparent);
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-  padding: 0.1em;
-  border-radius: 0.3em;
+  padding: 0.1em 0.25em;
+  background: color-mix(in srgb, var(--page-highlight) 14%, transparent);
+  border-bottom: 1px dotted var(--page-highlight);
+  border-radius: 0;
   white-space: normal;
 }
 
@@ -70,40 +74,40 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: var(--syntax-comment);
+  color: var(--page-muted);
 }
 
 .token.punctuation {
-  color: var(--syntax-keyword);
+  color: var(--page-muted);
   font-weight: 300;
 }
 
 .token.plain-text {
-  color: var(--syntax-text);
+  color: var(--page-text);
 }
 
 .token.selector,
 .token.tag {
-  color: var(--syntax-html-tag);
+  color: var(--page-highlight);
 }
 
 .token.property {
-  color: var(--syntax-operator);
+  color: var(--page-text);
 }
 
 .token.number {
-  color: var(--syntax-number);
+  color: var(--page-highlight);
 }
 
 .token.boolean {
-  color: var(--syntax-boolean);
+  color: var(--page-highlight);
 }
 
 .token.constant,
 .token.symbol,
 .token.attr-name,
 .token.deleted {
-  color: var(--syntax-number);
+  color: var(--page-highlight);
   font-style: italic;
 }
 
@@ -112,7 +116,7 @@ pre[class*="language-"] {
 .token.attr-value,
 .token.builtin,
 .token.inserted {
-  color: var(--syntax-string);
+  color: var(--page-highlight);
 }
 
 .token.operator,
@@ -120,7 +124,7 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: var(--syntax-operator);
+  color: var(--page-text);
 }
 
 .token.operator {
@@ -129,23 +133,23 @@ pre[class*="language-"] {
 
 .token.atrule,
 .token.keyword {
-  color: var(--syntax-keyword);
+  color: var(--page-highlight);
   font-weight: 300;
 }
 
 .token.class-name {
-  color: var(--syntax-operator);
+  color: var(--page-text);
 }
 
 .token.function {
-  color: var(--syntax-operator);
+  color: var(--page-text);
   font-weight: 500;
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  color: var(--syntax-keyword);
+  color: var(--page-highlight);
 }
 
 .token.important,
@@ -162,8 +166,8 @@ pre[class*="language-"] {
 }
 
 .mdx-marker {
-  background: #303240;
-  border-left: 3px solid var(--syntax-operator);
+  background: color-mix(in srgb, var(--page-highlight) 14%, transparent);
+  border-left: 3px solid var(--page-highlight);
   margin-left: calc(-1em - 0.149%);
   margin-right: calc(-1em - 2%);
 }
@@ -198,7 +202,7 @@ pre.line-numbers > code {
 
 .line-numbers-rows > span:before {
   content: counter(linenumber);
-  color: var(--syntax-comment);
+  color: var(--page-muted);
   display: block;
   padding-right: 0.8em;
   text-align: right;

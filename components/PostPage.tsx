@@ -21,19 +21,16 @@ export function PostPage({ meta, children }: Props) {
       <Head>
         <link rel='stylesheet' href='/styles/prism.css' />
       </Head>
-      <article className='max-w-[840px] mx-auto pt-12 pb-28  px-5'>
-        <div>
-          <h1 className='mb-1 text-3xl font-black capitalize md:text-4xl'>
-            {meta.title}
-          </h1>
-          <div className='flex items-center pt-4 pb-8 text-sm font-thin uppercase text-stone-500 dark:text-stone-400'>
-            <time dateTime={validDate(meta.date)}>
-              {formateDateFull(meta.date)}
-            </time>
-          </div>
-          <p className='italic'>{meta.description}</p>
-        </div>
-        {children}
+      <article className='site-post-page'>
+        <header className='site-post-header'>
+          <p className='site-section-kicker'>Writing</p>
+          <h1 className='site-post-title'>{meta.title}</h1>
+          <time className='site-post-meta' dateTime={validDate(meta.date)}>
+            {formateDateFull(meta.date)}
+          </time>
+          <p className='site-post-description'>{meta.description}</p>
+        </header>
+        <div className='site-post-body'>{children}</div>
       </article>
     </>
   )

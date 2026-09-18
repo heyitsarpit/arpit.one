@@ -13,13 +13,11 @@ export const getStaticProps = async () => {
 
 const PostPreview: React.FC<PostMeta> = ({ slug, title, date }) => {
   return (
-    <li className='flex items-center p-1 my-8'>
-      <p className='text-sm mr-8 min-w-[50px]'>
-        <time dateTime={validDate(date)}>{formateDatePreview(date)}</time>
-      </p>
-      <Link
-        href={`posts/${slug}`}
-        className='font-light capitalize transition-colors duration-200 rounded outline-none link-btn'>
+    <li className='site-post-row'>
+      <time className='site-post-date' dateTime={validDate(date)}>
+        {formateDatePreview(date)}
+      </time>
+      <Link href={`/posts/${slug}`} className='site-inline-link'>
         {title}
       </Link>
     </li>
@@ -36,20 +34,20 @@ const PostPreviewList: React.FC<{ posts: PostMeta[] }> = ({ posts }) => {
   }
 
   return (
-    <>
+    <div className='site-post-list'>
       {Object.entries(postsByYear)
         .reverse()
-        .map(([year, posts]) => (
-          <div key={year} className='w-full'>
-            <h2 className='pl-1 text-lg font-semibold'>{year}</h2>
+        .map(([year, yearPosts]) => (
+          <section key={year} className='site-post-year'>
+            <h2>{year}</h2>
             <ul>
-              {posts.map((post) => (
+              {yearPosts.map((post) => (
                 <PostPreview key={post.slug} {...post} />
               ))}
             </ul>
-          </div>
+          </section>
         ))}
-    </>
+    </div>
   )
 }
 
@@ -63,7 +61,9 @@ const Posts: React.FC<Props> = ({ posts }) => {
         canonical='https://www.arpit.one/posts'
         openGraph={{ url: 'https://www.arpit.one/posts' }}
       />
-      <div className='sm:max-w-[840px] m-auto px-5 py-16 flex flex-col justify-center items-center'>
+      <div className='site-posts'>
+        <p className='site-section-kicker'>Index</p>
+        <h1 className='site-section-title'>Writing</h1>
         <PostPreviewList posts={posts} />
       </div>
     </>

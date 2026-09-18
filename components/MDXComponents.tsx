@@ -8,14 +8,14 @@ export const components = {
       return (
         <a
           href={href}
-          className='link-btn'
+          className='site-inline-link'
           target='_blank'
           rel='noopener noreferrer'
           {...props}
         />
       )
     }
-    return <Link href={href} {...props} />
+    return <Link href={href} className='site-inline-link' {...props} />
   },
   img: ({ ...props }: { children: React.ReactNode }) => (
     <div className='my-10'>

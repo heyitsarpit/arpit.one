@@ -1,36 +1,79 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { type CSSProperties, useState } from 'react'
 
-import ThemeSwitch from './ThemeSwitch'
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/posts', label: 'Index' },
+  { href: '/art', label: 'Art' },
+  { href: '/curated', label: 'Curated' },
+  { href: '/playlists', label: 'Playlists' }
+]
 
 const Nav: React.FC = () => {
   const router = useRouter()
-
-  const isActive = (pathname: string) => {
-    return router.asPath.includes(pathname)
-  }
+  const [isOpen, setIsOpen] = useState(false)
+  const isCurrent = (href: string) =>
+    href === '/'
+      ? router.pathname === '/'
+      : router.pathname === href || router.pathname.startsWith(`${href}/`)
+  const activeNavIndex = Math.max(
+    navItems.findIndex(({ href }) => isCurrent(href)),
+    0
+  )
+  const navStyle = {
+    '--nav-active-offset': `${activeNavIndex * 38}px`
+  } as CSSProperties
 
   return (
-    <header className='relative w-full h-16'>
-      <div className='fixed h-16 z-40 w-full flex justify-between backdrop-blur-[20px] backdrop-saturate-150 bg-white/50 dark:bg-[#0D0D1050]'>
-        <nav className='w-full sm:max-w-[840px] m-auto flex px-5 justify-between items-center '>
-          <Link href='/' title='Home' aria-label='Home'>
-            HOME
-          </Link>
-          <div className='flex items-center gap-10'>
-            {['/posts', '/art'].map((path) => (
-              <Link
-                key={path}
-                href={path}
-                className={`capitalize ${isActive(path) ? '' : 'opacity-50'}`}>
-                {path.replace('/', '')}
-              </Link>
-            ))}
+    <header className='site-nav'>
+      <nav
+        className='site-nav-desktop'
+        style={navStyle}
+        aria-label='Main navigation'>
+        {navItems.map(({ href, label }) => (
+          <span key={href} className='site-nav-item'>
+            <span className='site-nav-bullet-space' aria-hidden='true' />
+            <Link
+              href={href}
+              className='site-nav-link'
+              aria-current={isCurrent(href) ? 'page' : undefined}>
+              {label}
+            </Link>
+          </span>
+        ))}
+        <span className='site-nav-active-dot' aria-hidden='true' />
+      </nav>
 
-            <ThemeSwitch />
-          </div>
+      <button
+        type='button'
+        className='site-nav-toggle'
+        aria-expanded={isOpen}
+        aria-controls='site-nav-menu'
+        aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
+        onClick={() => setIsOpen((open) => !open)}>
+        <span />
+        <span />
+        <span />
+      </button>
+
+      {isOpen ? (
+        <nav
+          id='site-nav-menu'
+          className='site-nav-menu'
+          aria-label='Main navigation'>
+          {navItems.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className='site-nav-link'
+              aria-current={isCurrent(href) ? 'page' : undefined}
+              onClick={() => setIsOpen(false)}>
+              {label}
+            </Link>
+          ))}
         </nav>
-      </div>
+      ) : null}
     </header>
   )
 }

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap");
+
 @font-face {
   font-family: "iA Quattro";
   font-stretch: 25% 150%;
@@ -101,4 +103,13 @@
   font-display: swap;
   font-weight: 400;
   src: url(/fonts/JetBrainsMono-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Interdisplay";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("https://cdn.prod.website-files.com/5e88a75bf99d7ccf3c6d4094/5f6f517ca33194b425f0d4e1_InterDisplay-Regular.woff2")
+    format("woff2");
 }
