@@ -5,6 +5,19 @@ import glob from 'tiny-glob'
 
 const RootDir = '.'
 
+const videoPosterOverrides: Record<string, string> = {
+  '2017-12-10_17-50-19_UTC.jpg': '2020-04-23_13-38-29_UTC.mp4',
+  '2018-07-21_15-09-51_UTC.jpg': '2018-09-21_06-47-38_UTC.mp4',
+  '2018-09-21_06-47-38_UTC.jpg': '2018-07-21_15-09-51_UTC.mp4',
+  '2020-04-23_13-38-29_UTC.jpg': '2017-12-10_17-50-19_UTC.mp4'
+}
+
+const videoRatioOverrides: Record<string, number> = {
+  '2018-01-30_05-04-40_UTC.jpg': 1,
+  '2018-02-10_09-16-27_UTC.jpg': 1,
+  '2018-09-21_06-47-38_UTC.jpg': 1
+}
+
 function doubleDigit(n: number) {
   return n > 9 ? `${n}` : `0${n}`
 }
@@ -40,22 +53,16 @@ async function buildArt() {
     count += 1
   }
 
-  count = 1
-  const posterNames: string[] = []
   const videoPaths: string[] = []
   for (const poster of videoPosters) {
-    const name = `poster${doubleDigit(count)}`
-    posterNames.push(name)
-    exports.push(`import ${name} from '../public/art/${poster}';\n`)
-    count += 1
     videoPaths.push(
-      `["/art/${poster.replace('.jpg', '.mp4')}", ${name}.blurDataURL]`
+      `["/art/${videoPosterOverrides[poster] ?? poster.replace('.jpg', '.mp4')}", "/art/${poster}", ${videoRatioOverrides[poster] ?? 16 / 9}]`
     )
   }
 
   exports.push(`\nexport const images = [${imgNames.toString()}];\n`)
   exports.push(
-    `\nexport const videos: Array<[string, string | undefined]> = [${videoPaths.toString()}];\n`
+    `\nexport const videos: Array<[string, string, number]> = [${videoPaths.toString()}];\n`
   )
 
   await fs.writeFile(join('.', 'utils', 'arts.ts'), exports, 'utf-8')

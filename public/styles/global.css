@@ -392,7 +392,7 @@ body,
 
 .site-art-toolbar {
   display: flex;
-  margin-bottom: 48px;
+  margin-bottom: 72px;
   align-items: end;
   justify-content: space-between;
   gap: 32px;
@@ -410,18 +410,11 @@ body,
   margin: 0;
   color: var(--page-text);
   font-family: Interdisplay, Inter, sans-serif;
-  font-size: 32px;
+  font-size: clamp(32px, 4vw, 52px);
   font-weight: 400;
   line-height: 1.2;
 }
 
-.site-art-view-switcher {
-  display: flex;
-  gap: 20px;
-}
-
-.site-art-view-switcher button,
-.site-art-slide-arrow,
 .site-art-lightbox-arrow,
 .site-art-lightbox-close {
   padding: 0;
@@ -432,40 +425,218 @@ body,
   cursor: pointer;
 }
 
-.site-art-view-switcher button {
-  border-bottom: 1px dotted transparent;
+.site-art-layout-toggle {
+  z-index: 20;
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 4px;
+  background: var(--page-background);
+  border: 1px solid var(--page-border);
 }
 
-.site-art-view-switcher button:hover,
-.site-art-view-switcher button.is-active {
-  border-bottom-color: var(--page-text);
+.site-art-layout-toggle button {
+  display: inline-grid;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  place-items: center;
+  color: var(--page-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.site-art-layout-toggle button:hover,
+.site-art-layout-toggle button.is-active {
+  color: var(--page-text);
+  border-color: var(--page-border);
+}
+
+.site-art-layout-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+}
+
+.site-art-timeline {
+  display: grid;
+  gap: clamp(64px, 9vw, 132px);
+}
+
+.site-art-timeline-group {
+  position: relative;
+}
+
+.site-art-timeline-date {
+  position: absolute;
+  top: -32px;
+  left: 0;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding-right: 12px;
+  pointer-events: none;
+  background: var(--page-background);
+}
+
+.site-art-timeline-date time {
+  color: var(--page-text);
+  font: 14px / 1.3 Interdisplay, Inter, sans-serif;
+}
+
+.site-art-curator {
+  max-width: 760px;
+  margin-bottom: 72px;
+  padding: 20px;
+  border: 1px solid var(--page-border);
+}
+
+.site-art-curator-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.site-art-curator-header h2 {
+  margin: 0;
+  color: var(--page-text);
+  font: 24px / 1.2 Interdisplay, Inter, sans-serif;
+}
+
+.site-art-curator-header button,
+.site-art-curator-reset,
+.site-art-curator li button {
+  padding: 6px 8px;
+  color: var(--page-text);
+  font: 12px / 1.2 Inter, sans-serif;
+  background: transparent;
+  border: 1px solid var(--page-border);
+  cursor: pointer;
+}
+
+.site-art-curator-header button:hover,
+.site-art-curator-reset:hover,
+.site-art-curator li button:hover:not(:disabled) {
+  border-color: var(--page-text);
+}
+
+.site-art-curator-help {
+  max-width: 560px;
+  margin: 16px 0 24px;
+  color: var(--page-muted);
+  font: 13px / 1.5 Inter, sans-serif;
+}
+
+.site-art-curator-help code {
+  margin-left: 4px;
+  color: var(--page-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+}
+
+.site-art-curator-groups {
+  display: grid;
+  gap: 12px;
+}
+
+.site-art-curator-groups details {
+  border-top: 1px solid var(--page-border);
+}
+
+.site-art-curator-groups summary {
+  padding: 12px 0;
+  color: var(--page-text);
+  font: 14px / 1.3 Interdisplay, Inter, sans-serif;
+  cursor: pointer;
+}
+
+.site-art-curator-groups ol {
+  display: grid;
+  margin: 0;
+  padding: 0 0 12px;
+  gap: 8px;
+  list-style: none;
+}
+
+.site-art-curator-groups li {
+  display: flex;
+  min-width: 0;
+  gap: 8px;
+  align-items: center;
+}
+
+.site-art-curator-preview {
+  position: relative;
+  display: block;
+  width: 64px;
+  height: 48px;
+  flex: 0 0 64px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--page-text) 12%, transparent);
+}
+
+.site-art-curator-preview img,
+.site-art-curator-preview video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.site-art-curator-item {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  color: var(--page-muted);
+  font: 12px / 1.3 Inter, sans-serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.site-art-curator li button:disabled {
+  color: var(--page-muted);
+  cursor: default;
+  opacity: 0.4;
+}
+
+.site-art-curator-reset {
+  margin-top: 4px;
+  color: var(--page-muted);
 }
 
 .site-art-grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: clamp(24px, 3vw, 52px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 52px) clamp(20px, 2.5vw, 40px);
   align-items: start;
+}
+
+.site-art-grid--small {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+}
+
+.site-art-card--wide {
+  grid-column: 1 / -1;
 }
 
 .site-art-card {
   display: block;
   width: 100%;
+  min-width: 0;
   padding: 0;
-  grid-column: span 4;
   color: var(--page-text);
   text-align: left;
   background: transparent;
   border: 0;
   cursor: zoom-in;
-}
-
-.site-art-card[data-size="wide"] {
-  grid-column: span 6;
-}
-
-.site-art-card[data-size="tall"] {
-  grid-column: span 3;
 }
 
 .site-art-media {
@@ -474,7 +645,6 @@ body,
   width: 100%;
   overflow: hidden;
   background: color-mix(in srgb, var(--page-text) 92%, transparent);
-  box-shadow: 0 20px 60px color-mix(in srgb, var(--page-text) 28%, transparent);
 }
 
 .site-art-media img,
@@ -485,78 +655,30 @@ body,
   object-fit: contain;
 }
 
-.site-art-card:hover .site-art-media,
-.site-art-filmstrip button:hover .site-art-media {
-  box-shadow: 0 20px 60px color-mix(in srgb, var(--page-text) 42%, transparent);
-}
-
-.site-art-card-meta {
-  display: block;
-  margin-top: 12px;
-  color: var(--page-muted);
-  font-family: Inter, sans-serif;
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-.site-art-slideshow {
+.site-art-play-button {
+  position: absolute;
+  inset: 0;
   display: grid;
-  grid-template-columns: 40px minmax(0, 1fr) 40px;
-  gap: 16px;
-  align-items: center;
+  place-items: center;
+  color: #fff;
+  pointer-events: none;
 }
 
-.site-art-slide {
-  min-width: 0;
-  padding: 0;
-  color: var(--page-text);
-  text-align: left;
-  background: transparent;
-  border: 0;
-  cursor: zoom-in;
+.site-art-play-icon {
+  width: clamp(24px, 3vw, 40px);
+  height: clamp(24px, 3vw, 40px);
+  filter: drop-shadow(0 2px 8px rgb(0 0 0 / 32%));
+  transition: transform 200ms ease;
 }
 
-.site-art-slide .site-art-media {
-  height: min(64vh, 720px);
-  background: color-mix(in srgb, var(--page-text) 8%, transparent);
-  box-shadow: none;
+.site-art-card:hover .site-art-play-icon,
+.site-art-card:focus-visible .site-art-play-icon {
+  transform: rotate(360deg);
 }
 
-.site-art-slide-arrow {
-  font-size: 28px;
-}
-
-.site-art-slide-arrow:hover,
 .site-art-lightbox-arrow:hover,
 .site-art-lightbox-close:hover {
   color: var(--page-highlight);
-}
-
-.site-art-filmstrip {
-  display: flex;
-  max-width: 100%;
-  margin-top: 28px;
-  padding-bottom: 8px;
-  grid-column: 1 / -1;
-  gap: 10px;
-  overflow-x: auto;
-}
-
-.site-art-filmstrip button {
-  width: 72px;
-  min-width: 72px;
-  padding: 0;
-  background: transparent;
-  border: 1px solid transparent;
-  cursor: pointer;
-}
-
-.site-art-filmstrip button.is-active {
-  border-color: var(--page-text);
-}
-
-.site-art-filmstrip .site-art-media {
-  box-shadow: none;
 }
 
 .site-art-lightbox {
@@ -599,10 +721,8 @@ body,
   object-fit: contain;
 }
 
-.site-art-lightbox-content p {
-  margin: 12px 0 0;
-  color: rgba(255, 255, 255, 0.62);
-  font: 13px / 1.4 Inter, sans-serif;
+.site-art-lightbox-content .site-art-lightbox-media[data-landscape="true"] {
+  min-width: min(60vw, 960px);
 }
 
 .site-art-lightbox-close {
@@ -804,22 +924,19 @@ body,
     align-items: flex-start;
   }
 
+  .site-art-layout-toggle {
+    top: 64px;
+    right: 20px;
+  }
+
   .site-art-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
 
-  .site-art-card[data-size="wide"] {
-    grid-column: span 2;
-  }
-
-  .site-art-slideshow {
-    grid-template-columns: 28px minmax(0, 1fr) 28px;
-    gap: 8px;
-  }
-
-  .site-art-slide .site-art-media {
-    height: 58vh;
+  .site-art-grid--small {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
   }
 
   .site-art-lightbox {
