@@ -3,6 +3,8 @@ import type { NextApiRequest } from 'next'
 
 export const spotifyScopes = [
   'user-read-recently-played',
+  'user-top-read',
+  'user-library-read',
   'user-read-private',
   'playlist-read-private',
   'playlist-read-collaborative'

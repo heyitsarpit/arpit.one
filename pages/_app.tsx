@@ -1,15 +1,27 @@
 import '@/public/styles/font.css'
 import '@/public/styles/global.css'
 
+import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import type { ReactElement } from 'react'
 
 import Nav from '@/components/Nav'
+import type { PageWithLayout } from '@/components/PlaylistsLayout'
 import { SEO } from '@/components/SEO'
 import { resolvePageTheme } from '@/utils/pageThemes'
+import {
+  queryCacheMaxAge,
+  queryClient,
+  queryPersister
+} from '@/utils/queryClient'
 
-const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+type AppPropsWithLayout = AppProps & {
+  Component: AppProps['Component'] & PageWithLayout
+}
+
+const MyApp: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
   const router = useRouter()
   const pageTheme = resolvePageTheme(router.asPath || router.pathname)
   const pageStyle = {
@@ -24,12 +36,24 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     color: pageTheme.text
   } as React.CSSProperties
 
+  const getLayout = Component.getLayout || ((page: ReactElement) => page)
+
   return (
-    <>
-      <Head>
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta name='theme-color' content={pageTheme.background} />
-        <style key='page-theme'>{`
+    <PersistQueryClientProvider
+      client={queryClient}
+      persistOptions={{
+        buster: 'spotify-query-cache-v1',
+        maxAge: queryCacheMaxAge,
+        persister: queryPersister,
+        dehydrateOptions: {
+          shouldDehydrateQuery: (query) => query.state.status === 'success'
+        }
+      }}>
+      <>
+        <Head>
+          <meta name='viewport' content='width=device-width, initial-scale=1' />
+          <meta name='theme-color' content={pageTheme.background} />
+          <style key='page-theme'>{`
             :root {
               --page-text: ${pageTheme.text};
               --page-background: ${pageTheme.background};
@@ -47,16 +71,17 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
               background-color: ${pageTheme.background};
             }
         `}</style>
-      </Head>
-      <SEO />
-      <div className='site-shell' style={pageStyle}>
-        <Nav />
-        <main className='site-main'>
-          <Component {...pageProps} />
-        </main>
-        <footer />
-      </div>
-    </>
+        </Head>
+        <SEO />
+        <div className='site-shell' style={pageStyle}>
+          <Nav />
+          <main className='site-main'>
+            {getLayout(<Component {...pageProps} />)}
+          </main>
+          <footer />
+        </div>
+      </>
+    </PersistQueryClientProvider>
   )
 }
 

@@ -22,11 +22,20 @@ if (missing.length > 0) {
   )
 }
 
-const spotifyFetch = async (url, options = {}) => {
+const spotifyFetch = async (url, options = {}, attempt = 0) => {
   const response = await fetch(url, options)
 
   if (response.status === 429) {
-    const retryAfter = response.headers.get('retry-after') || 'a short while'
+    const retryAfter = Number.parseInt(
+      response.headers.get('retry-after') || '',
+      10
+    )
+    if (attempt < 2 && Number.isFinite(retryAfter)) {
+      await new Promise((resolve) =>
+        setTimeout(resolve, (retryAfter + 1) * 1000)
+      )
+      return spotifyFetch(url, options, attempt + 1)
+    }
     throw new Error(`Spotify rate limit reached. Retry after ${retryAfter}.`)
   }
 
@@ -73,6 +82,28 @@ const getAllPages = async (url) => {
   return values
 }
 
+const getArtistImages = async (artistIds) => {
+  const images = new Map()
+
+  for (let index = 0; index < artistIds.length; index += 4) {
+    const ids = artistIds.slice(index, index + 4)
+    const artists = await Promise.all(
+      ids.map((artistId) =>
+        spotifyFetch(`${apiBase}/artists/${artistId}`, {
+          headers: authHeaders
+        })
+      )
+    )
+
+    for (const artist of artists) {
+      const image = artist.images?.[0]?.url
+      if (artist.id && image) images.set(artist.id, image)
+    }
+  }
+
+  return images
+}
+
 const allPlaylists = await getAllPages(
   `${apiBase}/me/playlists?limit=50&offset=0`
 )
@@ -97,7 +128,12 @@ for (const playlist of visiblePlaylists) {
         id: track.id,
         name: track.name || 'Untitled track',
         artists: (track.artists || []).map((artist) => artist.name),
+        artistIds: (track.artists || []).map((artist) => artist.id),
+        artistUrls: (track.artists || []).map(
+          (artist) => artist.external_urls?.spotify || ''
+        ),
         album: track.album?.name || 'Unknown album',
+        releaseYear: track.album?.release_date?.slice(0, 4) || '',
         albumImage: track.album?.images?.[0]?.url || '',
         url: track.external_urls?.spotify || ''
       }
@@ -111,6 +147,33 @@ for (const playlist of visiblePlaylists) {
     image: playlist.images?.[0]?.url || '',
     url: playlist.external_urls?.spotify || '',
     tracks
+  })
+}
+
+const artistCounts = new Map()
+for (const playlist of playlists) {
+  for (const track of playlist.tracks) {
+    for (const artistId of track.artistIds) {
+      if (artistId)
+        artistCounts.set(artistId, (artistCounts.get(artistId) || 0) + 1)
+    }
+  }
+}
+const artistIds = [...artistCounts.entries()]
+  .sort(([, left], [, right]) => right - left)
+  .slice(0, 10)
+  .map(([artistId]) => artistId)
+const artistImages = await getArtistImages(artistIds)
+
+for (const playlist of playlists) {
+  playlist.tracks = playlist.tracks.map((track) => {
+    const { artistIds: trackArtistIds, ...storedTrack } = track
+    return {
+      ...storedTrack,
+      artistImages: trackArtistIds.map(
+        (artistId) => artistImages.get(artistId) || ''
+      )
+    }
   })
 }
 

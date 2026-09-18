@@ -2,7 +2,10 @@ export type StoredPlaylistTrack = {
   id: string
   name: string
   artists: string[]
+  artistImages?: string[]
+  artistUrls?: string[]
   album: string
+  releaseYear?: string
   albumImage: string
   url: string
 }

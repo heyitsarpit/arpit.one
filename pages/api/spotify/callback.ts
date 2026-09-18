@@ -96,7 +96,7 @@ const Callback = async (req: NextApiRequest, res: NextApiResponse) => {
   const isLocalBootstrap =
     getSpotifyRedirectUri().startsWith('http://127.0.0.1:')
 
-  if (!process.env.SPOTIFY_REFRESH_TOKEN && isLocalBootstrap) {
+  if (isLocalBootstrap) {
     res.status(200)
     res.setHeader('Content-Type', 'text/html')
     res.send(tokenPage(refreshToken))

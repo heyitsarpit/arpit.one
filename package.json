@@ -5,7 +5,11 @@
   "main": "index.js",
   "author": "Arpit<arpitbharti@gmail.com>",
   "license": "MIT",
-  "keywords": ["next", "react", "typescript"],
+  "keywords": [
+    "next",
+    "react",
+    "typescript"
+  ],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -20,6 +24,9 @@
   },
   "dependencies": {
     "@react-hooks-library/core": "^0.6.2",
+    "@tanstack/query-sync-storage-persister": "^5.103.1",
+    "@tanstack/react-query": "^5.103.1",
+    "@tanstack/react-query-persist-client": "^5.103.1",
     "light-date": "^1.2.0",
     "mdx-bundler": "^10.0.3",
     "next": "^16.2.1",
@@ -61,6 +68,8 @@
     }
   },
   "lint-staged": {
-    "./**/*.{js,jsx,ts,tsx}": ["eslint --fix"]
+    "./**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
   }
 }
