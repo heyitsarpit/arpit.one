@@ -49,7 +49,6 @@ const LastPlayed: React.FC = () => {
     <aside
       className='site-last-played-layer'
       aria-labelledby='last-played-title'>
-      <p className='site-section-kicker'>In the rearview</p>
       <h2 id='last-played-title'>Last played</h2>
 
       {!state ? <p className='site-spotify-status'>Checking Spotify…</p> : null}
@@ -81,9 +80,11 @@ const LastPlayed: React.FC = () => {
             <span className='site-last-played-album'>{track.album}</span>
             {track.playedAt ? (
               <time dateTime={track.playedAt}>
-                {new Date(track.playedAt).toLocaleDateString(undefined, {
+                {new Date(track.playedAt).toLocaleString(undefined, {
                   month: 'short',
-                  day: 'numeric'
+                  day: 'numeric',
+                  hour: 'numeric',
+                  minute: '2-digit'
                 })}
               </time>
             ) : null}

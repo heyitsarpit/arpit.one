@@ -29,7 +29,6 @@ const Playlists: React.FC<Props> = ({ library }) => {
       <div className='site-playlists'>
         <LastPlayed />
         <header className='site-playlists-header'>
-          <p className='site-section-kicker'>A personal soundtrack</p>
           <h1 className='site-section-title'>Playlists</h1>
         </header>
         <PlaylistExplorer playlists={library.playlists} />

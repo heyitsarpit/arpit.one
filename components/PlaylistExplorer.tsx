@@ -1,9 +1,61 @@
-import { useMemo, useState } from 'react'
+import {
+  type CSSProperties,
+  type ReactNode,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from 'react'
 
 import type { StoredPlaylist } from '@/utils/playlists'
 
 type Props = {
   playlists: StoredPlaylist[]
+}
+
+type MarqueeTextProps = {
+  children: ReactNode
+  className?: string
+}
+
+const MarqueeText = ({ children, className = '' }: MarqueeTextProps) => {
+  const marqueeRef = useRef<HTMLSpanElement>(null)
+  const [distance, setDistance] = useState(0)
+
+  useEffect(() => {
+    const element = marqueeRef.current
+    if (!element) return
+
+    const measure = () => {
+      setDistance(Math.max(0, element.scrollWidth - element.clientWidth))
+    }
+
+    measure()
+
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', measure)
+      return () => window.removeEventListener('resize', measure)
+    }
+
+    const observer = new ResizeObserver(measure)
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+
+  const style = {
+    '--playlist-marquee-distance': `${distance}px`
+  } as CSSProperties
+
+  return (
+    <span
+      ref={marqueeRef}
+      className={`site-playlist-marquee${
+        distance > 1 ? ' is-overflowing' : ''
+      } ${className}`}
+      style={style}>
+      <span className='site-playlist-marquee-content'>{children}</span>
+    </span>
+  )
 }
 
 const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
@@ -84,24 +136,30 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
           <ol className='site-playlist-track-list'>
             {selectedPlaylist.tracks.map((track, index) => (
               <li key={`${track.id}-${index}`} className='site-playlist-track'>
-                {track.albumImage ? (
-                  <img
-                    src={track.albumImage}
-                    alt=''
-                    className='site-playlist-track-art'
-                  />
-                ) : (
-                  <span className='site-playlist-track-art is-empty' />
-                )}
                 <a
-                  className='site-playlist-track-main'
+                  className='site-playlist-track-card'
                   href={track.url || undefined}
                   target='_blank'
                   rel='noreferrer'>
-                  <strong>{track.name}</strong>
-                  <span>{track.artists.join(', ')}</span>
+                  {track.albumImage ? (
+                    <img
+                      src={track.albumImage}
+                      alt=''
+                      className='site-playlist-track-art'
+                    />
+                  ) : (
+                    <span className='site-playlist-track-art is-empty' />
+                  )}
+                  <span className='site-playlist-track-main'>
+                    <MarqueeText className='site-playlist-track-title'>
+                      {track.name}
+                    </MarqueeText>
+                    <MarqueeText>{track.artists.join(', ')}</MarqueeText>
+                    <MarqueeText className='site-playlist-track-album'>
+                      {track.album}
+                    </MarqueeText>
+                  </span>
                 </a>
-                <span className='site-playlist-track-album'>{track.album}</span>
               </li>
             ))}
           </ol>
