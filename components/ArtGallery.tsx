@@ -1,5 +1,12 @@
-import Image, { type StaticImageData } from 'next/image'
-import { useCallback, useEffect, useState } from 'react'
+import Image from 'next/image'
+import {
+  type KeyboardEvent as ReactKeyboardEvent,
+  type MouseEvent as ReactMouseEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
 
 import {
   type ArtCuration,
@@ -13,7 +20,9 @@ type ArtworkItem = {
   id: string
   shareId: string
   kind: 'artwork'
-  source: StaticImageData
+  source: string
+  width: number
+  height: number
   ratio: number
   timelineKey: string
   dateLabel: string
@@ -80,7 +89,9 @@ const artworkItems: ArtworkItem[] = images.map((image, index) => {
     id: `image-${index}-${image.src}`,
     shareId: `artwork-${date}-${index}`,
     kind: 'artwork',
-    source: image,
+    source: image.src,
+    width: image.width,
+    height: image.height,
     ratio: image.width / image.height,
     timelineKey: date.slice(0, 7),
     dateLabel: formatDate(date, false)
@@ -168,6 +179,9 @@ const getItemLabel = (item: ArtItem) => {
   return 'Artwork'
 }
 
+const getAccessibleItemLabel = (item: ArtItem) =>
+  `${getItemLabel(item)} from ${item.dateLabel}`
+
 const isLayoutMode = (value: string | null): value is LayoutMode =>
   value === 'curated' || value === 'small'
 
@@ -230,8 +244,7 @@ function ArtMedia({
         fill
         priority={priority}
         sizes={sizes}
-        placeholder='blur'
-        blurDataURL={item.source.blurDataURL}
+        unoptimized
       />
     )
   }
@@ -265,20 +278,25 @@ function ArtMedia({
   )
 }
 
-function LightboxMedia({ item }: { item: ArtItem }) {
+function LightboxMedia({
+  autoPlay,
+  item
+}: {
+  autoPlay: boolean
+  item: ArtItem
+}) {
   if (item.kind === 'artwork') {
     return (
       <Image
         src={item.source}
-        alt=''
-        width={item.source.width}
-        height={item.source.height}
+        alt={getAccessibleItemLabel(item)}
+        width={item.width}
+        height={item.height}
         className='site-art-lightbox-media'
         data-landscape={item.ratio > 1 ? 'true' : 'false'}
         sizes='92vw'
         priority
-        placeholder='blur'
-        blurDataURL={item.source.blurDataURL}
+        unoptimized
       />
     )
   }
@@ -287,7 +305,7 @@ function LightboxMedia({ item }: { item: ArtItem }) {
     return (
       <Image
         src={item.source}
-        alt={`${getDeviceName(item.camera)} photograph`}
+        alt={getAccessibleItemLabel(item)}
         width={item.width}
         height={item.height}
         className='site-art-lightbox-media'
@@ -307,8 +325,9 @@ function LightboxMedia({ item }: { item: ArtItem }) {
       className='site-art-lightbox-media'
       data-landscape='true'
       controls
-      autoPlay
+      autoPlay={autoPlay}
       playsInline
+      aria-label={`${getAccessibleItemLabel(item)} video`}
     />
   )
 }
@@ -401,6 +420,13 @@ export function ArtGallery() {
   const [layoutReady, setLayoutReady] = useState(false)
   const [urlReady, setUrlReady] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  const [motionPreference, setMotionPreference] = useState<
+    'unknown' | 'reduced' | 'full'
+  >('unknown')
+  const lightboxRef = useRef<HTMLDialogElement>(null)
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const openerRef = useRef<HTMLButtonElement | null>(null)
+  const wasLightboxOpenRef = useRef(false)
 
   const lightboxItem = lightboxIndex === null ? null : artItems[lightboxIndex]
 
@@ -466,6 +492,18 @@ export function ArtGallery() {
       // Local storage can be unavailable in private browsing contexts.
     }
   }, [curation, layoutMode, layoutReady])
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updateMotionPreference = () =>
+      setMotionPreference(mediaQuery.matches ? 'reduced' : 'full')
+
+    updateMotionPreference()
+    mediaQuery.addEventListener('change', updateMotionPreference)
+
+    return () =>
+      mediaQuery.removeEventListener('change', updateMotionPreference)
+  }, [])
 
   const updateCurationGroup = (
     date: string,
@@ -542,23 +580,77 @@ export const artCuration: ArtCuration = ${JSON.stringify(curation, null, 2)}
   }, [])
 
   useEffect(() => {
-    if (lightboxIndex === null) return
+    if (lightboxIndex !== null) {
+      wasLightboxOpenRef.current = true
+      closeButtonRef.current?.focus()
 
-    const previousOverflow = document.body.style.overflow
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setLightboxIndex(null)
-      if (event.key === 'ArrowLeft') moveLightbox(-1)
-      if (event.key === 'ArrowRight') moveLightbox(1)
+      const previousBodyOverflow = document.body.style.overflow
+      const previousDocumentOverflow = document.documentElement.style.overflow
+      document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+
+      return () => {
+        document.body.style.overflow = previousBodyOverflow
+        document.documentElement.style.overflow = previousDocumentOverflow
+      }
     }
 
-    document.body.style.overflow = 'hidden'
-    document.addEventListener('keydown', onKeyDown)
-
-    return () => {
-      document.body.style.overflow = previousOverflow
-      document.removeEventListener('keydown', onKeyDown)
+    if (wasLightboxOpenRef.current) {
+      wasLightboxOpenRef.current = false
+      openerRef.current?.focus()
+      openerRef.current = null
     }
-  }, [lightboxIndex, moveLightbox])
+  }, [lightboxIndex])
+
+  const openLightbox = (
+    event: ReactMouseEvent<HTMLButtonElement>,
+    index: number
+  ) => {
+    openerRef.current = event.currentTarget
+    setLightboxIndex(index)
+  }
+
+  const handleLightboxKeyDown = (
+    event: ReactKeyboardEvent<HTMLDialogElement>
+  ) => {
+    if (event.key === 'Escape') {
+      event.preventDefault()
+      setLightboxIndex(null)
+      return
+    }
+
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault()
+      moveLightbox(-1)
+      return
+    }
+
+    if (event.key === 'ArrowRight') {
+      event.preventDefault()
+      moveLightbox(1)
+      return
+    }
+
+    if (event.key !== 'Tab') return
+
+    const focusableElements = Array.from(
+      event.currentTarget.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), video[controls], [href], [tabindex]:not([tabindex="-1"])'
+      )
+    )
+    if (focusableElements.length === 0) return
+
+    const firstElement = focusableElements[0]
+    const lastElement = focusableElements[focusableElements.length - 1]
+
+    if (event.shiftKey && document.activeElement === firstElement) {
+      event.preventDefault()
+      lastElement.focus()
+    } else if (!event.shiftKey && document.activeElement === lastElement) {
+      event.preventDefault()
+      firstElement.focus()
+    }
+  }
 
   return (
     <div className='site-art'>
@@ -621,7 +713,7 @@ export const artCuration: ArtCuration = ${JSON.stringify(curation, null, 2)}
                         : ''
                     }`}
                     aria-label={`Open ${getItemLabel(item).toLowerCase()} from ${item.dateLabel}`}
-                    onClick={() => setLightboxIndex(itemIndex)}>
+                    onClick={(event) => openLightbox(event, itemIndex)}>
                     <span
                       className='site-art-media'
                       style={{ aspectRatio: item.ratio }}>
@@ -644,15 +736,21 @@ export const artCuration: ArtCuration = ${JSON.stringify(curation, null, 2)}
       </div>
 
       {lightboxItem ? (
-        // biome-ignore lint/a11y/useKeyWithClickEvents: The dialog backdrop closes on click; Escape is handled globally.
         <dialog
+          ref={lightboxRef}
           open
           className='site-art-lightbox'
-          aria-label='Full screen artwork'
+          aria-labelledby='site-art-lightbox-title'
+          aria-modal='true'
+          onKeyDown={handleLightboxKeyDown}
           onClick={(event) => {
             if (event.target === event.currentTarget) setLightboxIndex(null)
           }}>
+          <h2 id='site-art-lightbox-title' className='site-art-visually-hidden'>
+            {getAccessibleItemLabel(lightboxItem)}
+          </h2>
           <button
+            ref={closeButtonRef}
             type='button'
             className='site-art-lightbox-close'
             aria-label='Close full screen artwork'
@@ -675,7 +773,10 @@ export const artCuration: ArtCuration = ${JSON.stringify(curation, null, 2)}
             onClick={(event) => {
               if (event.target === event.currentTarget) setLightboxIndex(null)
             }}>
-            <LightboxMedia item={lightboxItem} />
+            <LightboxMedia
+              item={lightboxItem}
+              autoPlay={motionPreference === 'full'}
+            />
           </div>
           <button
             type='button'

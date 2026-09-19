@@ -159,7 +159,7 @@ const fetchSpotifyAlbums = async (): Promise<ApiState> => {
 }
 
 const SpotifyAlbums: React.FC = () => {
-  const [columns, setColumns] = useState(5)
+  const [columns, setColumns] = useState(7)
   const [sort, setSort] = useState<AlbumSort>('recent')
   const [group, setGroup] = useState<AlbumGroup>('none')
   const {
