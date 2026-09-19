@@ -47,12 +47,34 @@ type RepeatedTrack = {
 }
 
 const loadingRanks = Array.from({ length: 10 }, (_, index) => index)
+const parentheticalVersionSuffix =
+  /\s*[\[(](?=[^\])]*(?:\b(?:remaster(?:ed)?|live|unplugged|demo|mono|stereo|edit(?:ion)?|version|mix|rework|deluxe|bonus|alternate|radio|single|anniversary|session|take|rough|extended|explicit)\b))[^\])]*[\])]\s*/gi
+const dashedVersionSuffix =
+  /\s*[-–—]\s*(?:(?:\d{4}\s+)?(?:digital\s+)?remaster(?:ed)?|(?:\d{4}\s+)?remaster(?:ed)?|live(?:\s+at)?|unplugged|demo|mono|stereo|radio\s+edit|single\s+version|edit(?:ion)?|version|mix|rework|remix|deluxe(?:\s+edition)?|bonus(?:\s+track)?|alternate|anniversary|session|take|rough|extended|explicit).*$/i
+
+const normalizeTrackTitle = (title: string) => {
+  let normalized = title.normalize('NFKC').trim()
+
+  normalized = normalized.replace(parentheticalVersionSuffix, ' ')
+  normalized = normalized.replace(dashedVersionSuffix, '')
+
+  return normalized.toLocaleLowerCase().replace(/\s+/g, ' ').trim()
+}
 
 const getTrackKey = (
   track: StoredPlaylistLibrary['playlists'][number]['tracks'][number]
-) =>
-  track.id ||
-  `${track.name.toLocaleLowerCase()}::${track.artists.join(',').toLocaleLowerCase()}::${track.album.toLocaleLowerCase()}`
+) => {
+  const artistId = track.artistUrls?.[0]?.split('/').pop() || ''
+  const artist =
+    artistId ||
+    (track.artists[0] || '')
+      .normalize('NFKC')
+      .toLocaleLowerCase()
+      .replace(/\s+/g, ' ')
+      .trim()
+
+  return `${artist}::${normalizeTrackTitle(track.name)}`
+}
 
 const fetchSpotifyStats = async (range: Range): Promise<ApiState> => {
   const response = await fetch(`/api/spotify/stats?range=${range}`)
@@ -67,7 +89,6 @@ const fetchSpotifyStats = async (range: Range): Promise<ApiState> => {
 
 const SpotifyStats: React.FC<Props> = ({ library }) => {
   const [range, setRange] = useState<Range>('medium_term')
-  const [quietFavoriteSearch, setQuietFavoriteSearch] = useState('')
   const {
     data: state,
     error,
@@ -161,14 +182,24 @@ const SpotifyStats: React.FC<Props> = ({ library }) => {
     }
   }, [library])
 
-  const filteredQuietFavorites = useMemo(() => {
-    const query = quietFavoriteSearch.trim().toLocaleLowerCase()
-    const matches = libraryStats.quietFavorites.filter(({ track }) =>
-      track.name.toLocaleLowerCase().includes(query)
-    )
-
-    return query ? matches : matches.slice(0, 24)
-  }, [libraryStats.quietFavorites, quietFavoriteSearch])
+  const favoriteRows = useMemo(
+    () =>
+      libraryStats.quietFavorites
+        .slice(0, 50)
+        .map(({ track, playlistNames }) => ({
+          key: `repeated-${getTrackKey(track)}`,
+          name: track.name,
+          artists: track.artists,
+          album: track.album,
+          releaseYear: track.releaseYear || '',
+          image: track.albumImage,
+          url: track.url,
+          meta: `${playlistNames.length} ${
+            playlistNames.length === 1 ? 'playlist' : 'playlists'
+          }`
+        })),
+    [libraryStats.quietFavorites]
+  )
 
   const errorMessage = state?.error || (!state ? error?.message : undefined)
 
@@ -292,73 +323,54 @@ const SpotifyStats: React.FC<Props> = ({ library }) => {
       </section>
 
       <section
-        className='site-stats-collection site-stats-quiet-favorites'
-        aria-labelledby='quiet-favorites'>
-        <header className='site-stats-section-heading site-stats-quiet-heading'>
+        className='site-stats-collection site-stats-favorites'
+        aria-labelledby='most-repeated-songs'>
+        <header className='site-stats-section-heading'>
           <div>
             <p className='site-section-kicker'>Repeated across my playlists</p>
-            <h2 id='quiet-favorites'>Quiet favorites</h2>
+            <h2 id='most-repeated-songs'>Most repeated songs</h2>
           </div>
-          <label className='site-stats-search'>
-            <span className='sr-only'>Search song titles</span>
-            <input
-              type='search'
-              value={quietFavoriteSearch}
-              placeholder='Search songs'
-              onChange={(event) => setQuietFavoriteSearch(event.target.value)}
-            />
-          </label>
         </header>
-        {filteredQuietFavorites.length > 0 ? (
+        {favoriteRows.length > 0 ? (
           <ol className='site-stats-quiet-list'>
-            {filteredQuietFavorites.map(
-              ({ track, appearances, playlistNames }, index) => (
-                <li key={getTrackKey(track)}>
-                  <a
-                    className='site-stats-quiet-track-link'
-                    href={track.url || undefined}
-                    target='_blank'
-                    rel='noreferrer'>
-                    <span className='site-stats-quiet-rank'>
-                      {String(index + 1).padStart(2, '0')}
+            {favoriteRows.map((track, index) => (
+              <li key={track.key}>
+                <a
+                  className='site-stats-quiet-track-link'
+                  href={track.url || undefined}
+                  target='_blank'
+                  rel='noreferrer'>
+                  <span className='site-stats-quiet-rank'>
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  {track.image ? (
+                    <img
+                      className='site-stats-quiet-image'
+                      src={track.image}
+                      alt=''
+                    />
+                  ) : (
+                    <span className='site-stats-quiet-image-placeholder' />
+                  )}
+                  <span className='site-stats-quiet-copy'>
+                    <strong>{track.name}</strong>
+                    <span>
+                      {[
+                        track.artists.join(', '),
+                        track.album,
+                        track.releaseYear
+                      ]
+                        .filter(Boolean)
+                        .join(' · ')}
                     </span>
-                    {track.albumImage ? (
-                      <img
-                        className='site-stats-quiet-image'
-                        src={track.albumImage}
-                        alt=''
-                      />
-                    ) : (
-                      <span className='site-stats-quiet-image-placeholder' />
-                    )}
-                    <span className='site-stats-quiet-copy'>
-                      <strong>{track.name}</strong>
-                      <span>
-                        {[
-                          track.artists.join(', '),
-                          track.album,
-                          track.releaseYear
-                        ]
-                          .filter(Boolean)
-                          .join(' · ')}
-                      </span>
-                      <em>
-                        {`${playlistNames.length} playlists · ${appearances} ${
-                          appearances === 1 ? 'appearance' : 'appearances'
-                        }`}
-                      </em>
-                    </span>
-                  </a>
-                </li>
-              )
-            )}
+                    <em>{track.meta}</em>
+                  </span>
+                </a>
+              </li>
+            ))}
           </ol>
         ) : (
-          <p className='site-stats-empty'>
-            {quietFavoriteSearch
-              ? 'No repeated song matches that search.'
-              : 'No songs repeat across your playlists yet.'}
-          </p>
+          <p className='site-stats-empty'>No repeated songs found.</p>
         )}
       </section>
 
