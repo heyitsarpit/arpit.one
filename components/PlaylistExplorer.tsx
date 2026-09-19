@@ -95,10 +95,29 @@ const SpotifyLogoIcon = () => (
 const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
   const [selectedId, setSelectedId] = useState(playlists[0]?.id || '')
   const [viewMode, setViewMode] = useState<ViewMode>('cards')
+  const selectedPlaylistHeadingRef = useRef<HTMLHeadingElement>(null)
+  const shouldFocusSelectedHeading = useRef(false)
+  const handlePlaylistSelect = (id: string) => {
+    shouldFocusSelectedHeading.current = true
+    setSelectedId(id)
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'auto'
+        : 'smooth'
+    })
+  }
   const selectedPlaylist = useMemo(
     () => playlists.find((playlist) => playlist.id === selectedId),
     [playlists, selectedId]
   )
+
+  useEffect(() => {
+    if (!shouldFocusSelectedHeading.current || !selectedPlaylist) return
+
+    shouldFocusSelectedHeading.current = false
+    selectedPlaylistHeadingRef.current?.focus({ preventScroll: true })
+  }, [selectedPlaylist])
 
   if (!selectedPlaylist) {
     return (
@@ -126,7 +145,7 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
                     isSelected ? ' is-selected' : ''
                   }`}
                   aria-pressed={isSelected}
-                  onClick={() => setSelectedId(playlist.id)}>
+                  onClick={() => handlePlaylistSelect(playlist.id)}>
                   {playlist.image ? (
                     <img
                       src={playlist.image}
@@ -151,7 +170,9 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
       <section className='site-playlist-detail' aria-live='polite'>
         <header className='site-playlist-detail-header'>
           <div>
-            <h2>{selectedPlaylist.name}</h2>
+            <h2 ref={selectedPlaylistHeadingRef} tabIndex={-1}>
+              {selectedPlaylist.name}
+            </h2>
             {selectedPlaylist.description ? (
               <p className='site-playlist-description'>
                 {selectedPlaylist.description}
