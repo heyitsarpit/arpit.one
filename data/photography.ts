@@ -1,87 +1,13 @@
-const photographyAssetBaseUrl = 'https://assets.arpit.one/photography'
-
 export const photography = [
   {
-    id: 'DSCF1521',
-    url: `${photographyAssetBaseUrl}/DSCF1521.1f321d8cceec.avif`,
-    width: 4160,
-    height: 6240,
-    capturedDate: '2025-02-15',
-    sha256: '1f321d8cceec14abd1dc2e2e72ea9370af0989a3502f7e3e70c4e52446375768',
-    camera: {
-      make: 'FUJIFILM',
-      model: 'X-E4'
-    },
-    lens: {
-      make: 'SIGMA',
-      model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)'
-    },
-    settings: {
-      focalLength: '30.0 mm',
-      iso: 640,
-      aperture: 'f/3.6',
-      shutterSpeed: '1/180'
-    }
-  },
-  {
-    id: 'DSCF1545',
-    url: `${photographyAssetBaseUrl}/DSCF1545.b43def16eacd.avif`,
-    width: 4211,
-    height: 5074,
-    capturedDate: '2025-02-15',
-    sha256: 'b43def16eacdd2a7a61881a008ea0236d2e0cc5eb6fee6579ac29b95e5120d2f',
-    camera: {
-      make: 'FUJIFILM',
-      model: 'X-E4'
-    },
-    lens: {
-      make: 'SIGMA',
-      model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)'
-    },
-    settings: {
-      focalLength: '30.0 mm',
-      iso: 640,
-      aperture: 'f/4',
-      shutterSpeed: '1/100'
-    }
-  },
-  {
-    id: 'DSCF1549',
-    url: `${photographyAssetBaseUrl}/DSCF1549.9ce7b2f656b3.avif`,
-    width: 5289,
-    height: 4211,
-    capturedDate: '2025-02-15',
-    sha256: '9ce7b2f656b356b2e9434eea53d8631b36cae6c9c3a03ce922fcf9d762b4eafe',
-    camera: {
-      make: 'FUJIFILM',
-      model: 'X-E4'
-    },
-    lens: {
-      make: 'SIGMA',
-      model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)'
-    },
-    settings: {
-      focalLength: '30.0 mm',
-      iso: 1250,
-      aperture: 'f/4',
-      shutterSpeed: '1/100'
-    }
-  },
-  {
     id: 'DSCF6055',
-    url: `${photographyAssetBaseUrl}/DSCF6055.612a2a5c67c1.avif`,
+    url: 'https://assets.arpit.one/photography/DSCF6055.612a2a5c67c1.avif',
     width: 4160,
     height: 6240,
     capturedDate: '2026-09-12',
     sha256: '612a2a5c67c1da9072a3c2a0ed30eabed21d9bb78820cf44ef7296e425e5854c',
-    camera: {
-      make: 'FUJIFILM',
-      model: 'X-E4'
-    },
-    lens: {
-      make: 'SIGMA',
-      model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)'
-    },
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
     settings: {
       focalLength: '30.0 mm',
       iso: 640,
@@ -90,16 +16,60 @@ export const photography = [
     }
   },
   {
+    id: 'DSCF6057',
+    url: 'https://assets.arpit.one/photography/DSCF6057.ae7a738149f1.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2026-09-12',
+    sha256: 'ae7a738149f1eff1690f48dfef6e7d98fc7f73c5116a18439c3d5d2d552caa09',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/4.5',
+      shutterSpeed: '1/2900',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'IMG_3478',
+    url: 'https://assets.arpit.one/photography/IMG_3478.43a0c474c4de.avif',
+    width: 3024,
+    height: 2419,
+    capturedDate: '2026-09-12',
+    sha256: '43a0c474c4de938851272d406a6c48d10385a500e8dea2bd15931d2e34d5ca45',
+    camera: { make: 'Apple', model: 'iPhone 16 Pro' },
+    lens: {
+      make: 'Apple',
+      model: 'iPhone 16 Pro back triple camera 6.765mm f/1.78'
+    },
+    settings: {
+      focalLength: '6.8 mm',
+      focalLength35mm: '48 mm',
+      iso: 64,
+      aperture: 'f/1.8',
+      shutterSpeed: '1/7143',
+      exposureCompensation: 0,
+      exposureProgram: 'Program AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Auto',
+      flash: 'Off, Did not fire'
+    }
+  },
+  {
     id: 'IMG_3498',
-    url: `${photographyAssetBaseUrl}/IMG_3498.d21a742bf7f1.avif`,
+    url: 'https://assets.arpit.one/photography/IMG_3498.d21a742bf7f1.avif',
     width: 4032,
     height: 3024,
     capturedDate: '2026-09-12',
     sha256: 'd21a742bf7f1652ab0a6026b4cbdce711f3b683dd897e87231fa6264e234da15',
-    camera: {
-      make: 'Apple',
-      model: 'iPhone 16 Pro'
-    },
+    camera: { make: 'Apple', model: 'iPhone 16 Pro' },
     lens: {
       make: 'Apple',
       model: 'iPhone 16 Pro back triple camera 15.66mm f/2.8'
@@ -110,5 +80,1478 @@ export const photography = [
       aperture: 'f/2.8',
       shutterSpeed: '1/1395'
     }
+  },
+  {
+    id: 'FzyonNUaIAAgQG9',
+    url: 'https://assets.arpit.one/photography/FzyonNUaIAAgQG9.250a9e4c628d.avif',
+    width: 1536,
+    height: 2048,
+    capturedDate: '2023-05',
+    sha256: '250a9e4c628dbbc024dacae43a8aedd880f5394c15132f20461865f5bd74cdce',
+    camera: {},
+    lens: {},
+    settings: {}
+  },
+  {
+    id: 'GIEqrjnWIAAf8aH',
+    url: 'https://assets.arpit.one/photography/GIEqrjnWIAAf8aH.01a26541467c.avif',
+    width: 1536,
+    height: 2048,
+    capturedDate: '2023-05',
+    sha256: '01a26541467caca2a8bcdae296691d0a5e228e4042e544d8b900d323c1604680',
+    camera: {},
+    lens: {},
+    settings: {}
+  },
+  {
+    id: 'DSCF1551',
+    url: 'https://assets.arpit.one/photography/DSCF1551.069828a520ad.avif',
+    width: 2106,
+    height: 2446,
+    capturedDate: '2025-02',
+    sha256: '069828a520ad6f649fb2a5e71e223bea96e3176ec6cb9c9819441ab7e080fa5d',
+    camera: {},
+    lens: {},
+    settings: {}
+  },
+  {
+    id: 'DSCF2108',
+    url: 'https://assets.arpit.one/photography/DSCF2108.2447f1f93449.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2025-08-31',
+    sha256: '2447f1f9344967ac57755981303170e3e3d0251cd3d530bbeadb8d827dd74b72',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/4',
+      shutterSpeed: '1/1100',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF2165',
+    url: 'https://assets.arpit.one/photography/DSCF2165.a0c7c33178ba.avif',
+    width: 6211,
+    height: 4141,
+    capturedDate: '2025-08-31',
+    sha256: 'a0c7c33178bad84affce2c51f5412565ee391fad91961411cb9e3c4df022abda',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 1250,
+      aperture: 'f/2.8',
+      shutterSpeed: '1/100',
+      exposureCompensation: -1,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF2176',
+    url: 'https://assets.arpit.one/photography/DSCF2176.aed287cdf244.avif',
+    width: 6447,
+    height: 4003,
+    capturedDate: '2025-08-31',
+    sha256: 'aed287cdf2440f13bfffa936c4dc5c6ca313a8221b1600799a3950ccf7ef6210',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 800,
+      aperture: 'f/2',
+      shutterSpeed: '1/100',
+      exposureCompensation: -1,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF2181-2',
+    url: 'https://assets.arpit.one/photography/DSCF2181%202.39e4f7f50b49.avif',
+    width: 6447,
+    height: 3246,
+    capturedDate: '2025-08-31',
+    sha256: '39e4f7f50b49d7e2fd893102425a378bd875041efa6a9b45bedc26d59999be31',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/2',
+      shutterSpeed: '1/140',
+      exposureCompensation: -1,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF2189-1',
+    url: 'https://assets.arpit.one/photography/DSCF2189%201.16728bed5e69.avif',
+    width: 6447,
+    height: 4211,
+    capturedDate: '2025-08-31',
+    sha256: '16728bed5e693164b4ec2cfdcd3a25ebd625b559681aebcabfcd76b35ac4ac19',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 1000,
+      aperture: 'f/4',
+      shutterSpeed: '1/100',
+      exposureCompensation: -2,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF2217',
+    url: 'https://assets.arpit.one/photography/DSCF2217.9fdce9957777.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2025-08-31',
+    sha256: '9fdce99577777742ad37db5f0118ce539fa6a38fdfab0ec8e228fd2d67caa98c',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 10000,
+      aperture: 'f/2',
+      shutterSpeed: '1/100',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1947-1',
+    url: 'https://assets.arpit.one/photography/DSCF1947%201.01c1cc456876.avif',
+    width: 5915,
+    height: 3943,
+    capturedDate: '2025-04-30',
+    sha256: '01c1cc4568763d3abb80c6d0ed7700d6acb530e4ab3dca1fec23f35bae3c0662',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: '30.0 mm f/1.4' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 1250,
+      aperture: 'f/5',
+      shutterSpeed: 1,
+      exposureCompensation: 0,
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1906',
+    url: 'https://assets.arpit.one/photography/DSCF1906.b24aac8ff1de.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-04-29',
+    sha256: 'b24aac8ff1de0d9e3960ed7b6b7ac5571592707ab4cab0dd83ae1bfa2dea5c1a',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/1.8',
+      shutterSpeed: '1/4000',
+      exposureCompensation: -0.67,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1908',
+    url: 'https://assets.arpit.one/photography/DSCF1908.815acef0ab2c.avif',
+    width: 6089,
+    height: 4028,
+    capturedDate: '2025-04-29',
+    sha256: '815acef0ab2ce44d4c21f092d6d8d6818ddea6071c18735153fa1a316f35f977',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'SIGMA 30mm F1.4 DC DN | Contemporary 016' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/1.8',
+      shutterSpeed: '1/1500',
+      exposureCompensation: -2,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1909',
+    url: 'https://assets.arpit.one/photography/DSCF1909.9a7099655b6d.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-04-29',
+    sha256: '9a7099655b6d52c2ef9f6476d911d79ea9dd3639e3219a95c86304ce279ef8f5',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'SIGMA 30mm F1.4 DC DN | Contemporary 016' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/3.2',
+      shutterSpeed: '1/220',
+      exposureCompensation: -2,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1911',
+    url: 'https://assets.arpit.one/photography/DSCF1911.8bc3a8492984.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2025-04-29',
+    sha256: '8bc3a84929843c7e414e51dff72dc450ad174c2255a96ecacafa58ce03bdf5cf',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'SIGMA 30mm F1.4 DC DN | Contemporary 016' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/3.2',
+      shutterSpeed: '1/240',
+      exposureCompensation: -1,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1920',
+    url: 'https://assets.arpit.one/photography/DSCF1920.cd7670fdcb2f.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2025-04-29',
+    sha256: 'cd7670fdcb2fe310d38239e81dab58b7b156059c14640ae7750a537feb9c5882',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'SIGMA 30mm F1.4 DC DN | Contemporary 016' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 320,
+      aperture: 'f/4',
+      shutterSpeed: '1/4000',
+      exposureCompensation: -2,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1923',
+    url: 'https://assets.arpit.one/photography/DSCF1923.6ba3d9d80cab.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-04-29',
+    sha256: '6ba3d9d80cabb46b0bcf8abcd2c75b0dc436b6c52ed98d01785e5888d16afcb9',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'SIGMA 30mm F1.4 DC DN | Contemporary 016' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 320,
+      aperture: 'f/4',
+      shutterSpeed: '1/4000',
+      exposureCompensation: -2,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'IMG_1075',
+    url: 'https://assets.arpit.one/photography/IMG_1075.514276d87c2e.avif',
+    width: 3024,
+    height: 4032,
+    capturedDate: '2025-04-29',
+    sha256: '514276d87c2e22ce850372c8a78c90f0861aab19ca6cadbac478552edb1eabf5',
+    camera: { make: 'Apple', model: 'iPhone 16 Pro' },
+    lens: {
+      make: 'Apple',
+      model: 'iPhone 16 Pro back triple camera 15.66mm f/2.8'
+    },
+    settings: {
+      focalLength: '15.7 mm',
+      focalLength35mm: '120 mm',
+      iso: 50,
+      aperture: 'f/2.8',
+      shutterSpeed: '1/1916',
+      exposureCompensation: 0,
+      exposureProgram: 'Program AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Auto',
+      flash: 'Off, Did not fire'
+    }
+  },
+  {
+    id: 'DSCF1872',
+    url: 'https://assets.arpit.one/photography/DSCF1872.1d0d9fff5531.avif',
+    width: 6447,
+    height: 4211,
+    capturedDate: '2025-04-28',
+    sha256: '1d0d9fff55312497cfa0d3c639a44f2c0d477112592d34c3fb533f0d6a76fbd3',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 6400,
+      aperture: 'f/1.4',
+      shutterSpeed: '1/100',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Auto',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1873',
+    url: 'https://assets.arpit.one/photography/DSCF1873.a88d37c6f0c1.avif',
+    width: 6447,
+    height: 4211,
+    capturedDate: '2025-04-28',
+    sha256: 'a88d37c6f0c1dfb06163fb9801233946b63e872436e9562d3223cf557cdc73a0',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/2',
+      shutterSpeed: 0.5,
+      exposureCompensation: -1,
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Auto',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1880',
+    url: 'https://assets.arpit.one/photography/DSCF1880.dd37512c721b.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-04-28',
+    sha256: 'dd37512c721b08e9140c6727a1066c0abb053711e29ad0328e9a0b714b8114b1',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 12800,
+      aperture: 'f/2',
+      shutterSpeed: '1/125',
+      exposureCompensation: 0,
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Auto',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1887',
+    url: 'https://assets.arpit.one/photography/DSCF1887.122d9daaf577.avif',
+    width: 5920,
+    height: 3946,
+    capturedDate: '2025-04-28',
+    sha256: '122d9daaf577a525f45459652696c4ea1e2e24e23adaadddc6e06e506c04b7b3',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 12800,
+      aperture: 'f/2',
+      shutterSpeed: '1/125',
+      exposureCompensation: 0,
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Auto',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1890',
+    url: 'https://assets.arpit.one/photography/DSCF1890.1c8ce63ab772.avif',
+    width: 5711,
+    height: 4130,
+    capturedDate: '2025-04-28',
+    sha256: '1c8ce63ab77204fba0ce11cc290bc46b373f109c7b05fb9d962424b0367c7e26',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 12800,
+      aperture: 'f/2',
+      shutterSpeed: '1/125',
+      exposureCompensation: 0,
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Auto',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1893',
+    url: 'https://assets.arpit.one/photography/DSCF1893.d9d9c4d0c008.avif',
+    width: 6079,
+    height: 4052,
+    capturedDate: '2025-04-28',
+    sha256: 'd9d9c4d0c0088a34359346fc7b9c532ced2477e8947d9341413105198c4341a1',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 12800,
+      aperture: 'f/2',
+      shutterSpeed: '1/125',
+      exposureCompensation: 0,
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Auto',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1897',
+    url: 'https://assets.arpit.one/photography/DSCF1897.20c31c6f416e.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2025-04-28',
+    sha256: '20c31c6f416ea6dc21de90ac2b062d410db429cb35f7e0dc50fa2f39b8ec3094',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 800,
+      aperture: 'f/2',
+      shutterSpeed: '1/8',
+      exposureCompensation: 0,
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Auto',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1442',
+    url: 'https://assets.arpit.one/photography/DSCF1442.4942c739f704.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-02-15',
+    sha256: '4942c739f704bab4c69e7ce44efcb65711230d7d1536c541823e6cfc7122c414',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/1.4',
+      shutterSpeed: '1/3800',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1452',
+    url: 'https://assets.arpit.one/photography/DSCF1452.f05ca1589ab6.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2025-02-15',
+    sha256: 'f05ca1589ab61a0d5420814aea90828d4c01c67ec0eed5f26c8fc91e06dd7e18',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/3.2',
+      shutterSpeed: '1/280',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1465',
+    url: 'https://assets.arpit.one/photography/DSCF1465.dfe7d3e73832.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-02-15',
+    sha256: 'dfe7d3e738320f06efef48ad6c56eec0ffc64ce4bff886218d1a0dea8d90cb56',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/2.8',
+      shutterSpeed: '1/680',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1470',
+    url: 'https://assets.arpit.one/photography/DSCF1470.73d37fc9e14c.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-02-15',
+    sha256: '73d37fc9e14cf114dd6a5b96679bbe32a241005f3f581aee91b2819496ec7004',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/5.6',
+      shutterSpeed: '1/150',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1474',
+    url: 'https://assets.arpit.one/photography/DSCF1474.e13d301b1475.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-02-15',
+    sha256: 'e13d301b14753251bec6ea43276631bcb9e0ddf2cd6aeebfb07dc960943b0fc6',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/4',
+      shutterSpeed: '1/280',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1475',
+    url: 'https://assets.arpit.one/photography/DSCF1475.c3e1873dc76e.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-02-15',
+    sha256: 'c3e1873dc76ee0fd613dfdc4ae787b99433ca9679f6b563d3b30772bc2a96b4a',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/2.8',
+      shutterSpeed: '1/480',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1480',
+    url: 'https://assets.arpit.one/photography/DSCF1480.2a50a2216e9a.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-02-15',
+    sha256: '2a50a2216e9abc62b8a86071be6794f2a9dcb34a3d12c838246c038e3f563c36',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/4',
+      shutterSpeed: '1/640',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1484',
+    url: 'https://assets.arpit.one/photography/DSCF1484.1948ee94dc34.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-02-15',
+    sha256: '1948ee94dc34df978f91ceda6ae327996824113c38a5a79b567dedf89009303c',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/1.6',
+      shutterSpeed: '1/4000',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1516',
+    url: 'https://assets.arpit.one/photography/DSCF1516.f80ed39e0c41.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2025-02-15',
+    sha256: 'f80ed39e0c419d58457e281b7940daee70d697930a27b40badc9f2bf0b932929',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/2.5',
+      shutterSpeed: '1/400',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1517',
+    url: 'https://assets.arpit.one/photography/DSCF1517.6011944fde76.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2025-02-15',
+    sha256: '6011944fde7660256297cd29b6e91ce2a1c4afea03981b75b85af41744d50dd9',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/2.5',
+      shutterSpeed: '1/220',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1518',
+    url: 'https://assets.arpit.one/photography/DSCF1518.e8815b36daf1.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-02-15',
+    sha256: 'e8815b36daf11ef5360fb2e35c9dc0540272a7d6e0c1dc3fd546e566291e17a3',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/2.5',
+      shutterSpeed: '1/210',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1521',
+    url: 'https://assets.arpit.one/photography/DSCF1521.1f321d8cceec.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-02-15',
+    sha256: '1f321d8cceec14abd1dc2e2e72ea9370af0989a3502f7e3e70c4e52446375768',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/3.6',
+      shutterSpeed: '1/180',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1545',
+    url: 'https://assets.arpit.one/photography/DSCF1545.b43def16eacd.avif',
+    width: 4211,
+    height: 5074,
+    capturedDate: '2025-02-15',
+    sha256: 'b43def16eacdd2a7a61881a008ea0236d2e0cc5eb6fee6579ac29b95e5120d2f',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/4',
+      shutterSpeed: '1/100',
+      exposureCompensation: -0.33,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1549',
+    url: 'https://assets.arpit.one/photography/DSCF1549.9ce7b2f656b3.avif',
+    width: 5289,
+    height: 4211,
+    capturedDate: '2025-02-15',
+    sha256: '9ce7b2f656b356b2e9434eea53d8631b36cae6c9c3a03ce922fcf9d762b4eafe',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      iso: 1250,
+      aperture: 'f/4',
+      shutterSpeed: '1/100'
+    }
+  },
+  {
+    id: 'DSCF1622',
+    url: 'https://assets.arpit.one/photography/DSCF1622.60ee5350cacb.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-02-15',
+    sha256: '60ee5350cacbda1c8bdff885fba1f281e9869dbd284ec64b07b8e867dba25a05',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 12800,
+      aperture: 'f/3.6',
+      shutterSpeed: '1/4000',
+      exposureCompensation: '+0.33',
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1675',
+    url: 'https://assets.arpit.one/photography/DSCF1675.4279c25a4f20.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2025-02-15',
+    sha256: '4279c25a4f201f7a40c281f4c3f7e10b1d5430ee6dbde5167cfd64c1df946a9a',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 12800,
+      aperture: 'f/2',
+      shutterSpeed: '1/180',
+      exposureCompensation: '+0.33',
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1704',
+    url: 'https://assets.arpit.one/photography/DSCF1704.4027d704ac7e.avif',
+    width: 4211,
+    height: 4036,
+    capturedDate: '2025-02-15',
+    sha256: '4027d704ac7e25cd79fc0459a6973a3e1a43470481db2504e8efcf5841b0f8de',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 12800,
+      aperture: 'f/2',
+      shutterSpeed: '1/500',
+      exposureCompensation: '+0.33',
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1800-copy',
+    url: 'https://assets.arpit.one/photography/DSCF1800%20copy.d28d8e8ce026.avif',
+    width: 6063,
+    height: 3473,
+    capturedDate: '2025-02-15',
+    sha256: 'd28d8e8ce0263dfd86f693783a7fd9f5064622a71db7815c196ed1ea040b3df7',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 12800,
+      aperture: 'f/5',
+      shutterSpeed: '1/100',
+      exposureCompensation: '+0.33',
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1804-1',
+    url: 'https://assets.arpit.one/photography/DSCF1804%201.bc2dd2eaeb94.avif',
+    width: 4061,
+    height: 5600,
+    capturedDate: '2025-02-15',
+    sha256: 'bc2dd2eaeb947879a5d7603a78b27e0dbbf369123739a90d2fd11f6db9e3956a',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 12800,
+      aperture: 'f/5',
+      shutterSpeed: '1/40',
+      exposureCompensation: '+0.33',
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1820',
+    url: 'https://assets.arpit.one/photography/DSCF1820.c41de408f29d.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2025-02-15',
+    sha256: 'c41de408f29dd42189e2cac68d11a83e8e14e94a2e45afc798cb09ee9f5dbe34',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 12800,
+      aperture: 'f/4',
+      shutterSpeed: '1/15',
+      exposureCompensation: '+0.33',
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF2591',
+    url: 'https://assets.arpit.one/photography/DSCF2591.04ae96bbc423.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2024-12-22',
+    sha256: '04ae96bbc42320e845b06d4f3ac1f21469087f7d75b26de1ed5ec9948f610c16',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 5000,
+      aperture: 'f/2.2',
+      shutterSpeed: '1/100',
+      exposureCompensation: '+0.33',
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1625-1',
+    url: 'https://assets.arpit.one/photography/DSCF1625%201.eea395d1508b.avif',
+    width: 4816,
+    height: 3853,
+    capturedDate: '2023-12-25',
+    sha256: 'eea395d1508b82a9b1d106d13781ee448e9ad28acb0ac04af40cd6089b62b8a1',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/1.4',
+      shutterSpeed: '1/240',
+      exposureCompensation: -1,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1627',
+    url: 'https://assets.arpit.one/photography/DSCF1627.85598eb11e9d.avif',
+    width: 4888,
+    height: 3911,
+    capturedDate: '2023-12-25',
+    sha256: '85598eb11e9dcd9c4f8ee01f4f27e1b76e76ba3c99d8c19cb83237431e6e80fe',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/1.4',
+      shutterSpeed: '1/250',
+      exposureCompensation: -1,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1632',
+    url: 'https://assets.arpit.one/photography/DSCF1632.2cb79b1e7a36.avif',
+    width: 5264,
+    height: 4211,
+    capturedDate: '2023-12-25',
+    sha256: '2cb79b1e7a36c905bf5c2ef22fb85379e3ef831665404077b81605293e51014b',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/1.4',
+      shutterSpeed: '1/200',
+      exposureCompensation: -1,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1637',
+    url: 'https://assets.arpit.one/photography/DSCF1637.498624e7143c.avif',
+    width: 5264,
+    height: 4211,
+    capturedDate: '2023-12-25',
+    sha256: '498624e7143c744ceba8f663eac259b8ab6e20994c00b4fcf6373d9a54c5f260',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 12800,
+      aperture: 'f/16',
+      shutterSpeed: '1/30',
+      exposureCompensation: -1,
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1716-1',
+    url: 'https://assets.arpit.one/photography/DSCF1716%201.f82fe6be2bdc.avif',
+    width: 6317,
+    height: 4211,
+    capturedDate: '2023-12-25',
+    sha256: 'f82fe6be2bdcbff63e1d84afed852786b41e0fbb861946acea3149604eec76d6',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 5000,
+      aperture: 'f/16',
+      shutterSpeed: '1/8',
+      exposureCompensation: -1,
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1724',
+    url: 'https://assets.arpit.one/photography/DSCF1724.bd9315acaf47.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2023-12-25',
+    sha256: 'bd9315acaf47db4ded7e1119af43f7bce8178406a4bc8a55bf0d39ea013d267b',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 4000,
+      aperture: 'f/16',
+      shutterSpeed: '1/8',
+      exposureCompensation: -1,
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1525-2',
+    url: 'https://assets.arpit.one/photography/DSCF1525%202.2e8a8ed18bd0.avif',
+    width: 3316,
+    height: 4160,
+    capturedDate: '2023-11-24',
+    sha256: '2e8a8ed18bd06640f2cc229e8be0d2d35d8d047502d37947a837258ff344f130',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/1.4',
+      shutterSpeed: '1/100',
+      exposureCompensation: -1,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1188',
+    url: 'https://assets.arpit.one/photography/DSCF1188.6ccd4f42b755.avif',
+    width: 4211,
+    height: 6447,
+    capturedDate: '2023-09-17',
+    sha256: '6ccd4f42b755d84b1b3c63e8782bd3a49d0e0e31e1ecc919ccf1808d6f461f0d',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/3.2',
+      shutterSpeed: '1/3200',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1193',
+    url: 'https://assets.arpit.one/photography/DSCF1193.2a9050415204.avif',
+    width: 5264,
+    height: 4211,
+    capturedDate: '2023-09-17',
+    sha256: '2a9050415204af991c39025458206ca011946469462d2f48f03ffac7cf3c2e4f',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/3.2',
+      shutterSpeed: '1/4000',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1197',
+    url: 'https://assets.arpit.one/photography/DSCF1197.750cb1ea34d1.avif',
+    width: 4160,
+    height: 4160,
+    capturedDate: '2023-09-17',
+    sha256: '750cb1ea34d14070ab72d3680de4cf1f303945e136e003c160ef05e077569967',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'SIGMA 30mm F1.4 DC DN | Contemporary 016' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/3.2',
+      shutterSpeed: '1/2000',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1202',
+    url: 'https://assets.arpit.one/photography/DSCF1202.67a6b44c86cd.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2023-09-17',
+    sha256: '67a6b44c86cdd154d01dff7c53487c772f2edb127d07b94aca9e29bf7d13f105',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 1000,
+      aperture: 'f/3.2',
+      shutterSpeed: '1/100',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1208',
+    url: 'https://assets.arpit.one/photography/DSCF1208.38f6b0bf80b3.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2023-09-17',
+    sha256: '38f6b0bf80b3b18127988bec91a6d7b4f1e84a9ed683b8467aa5f67f058be0eb',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/3.2',
+      shutterSpeed: '1/100',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1210',
+    url: 'https://assets.arpit.one/photography/DSCF1210.3716e285c930.avif',
+    width: 3989,
+    height: 5983,
+    capturedDate: '2023-09-17',
+    sha256: '3716e285c9309a227f952a1046fd31513ec87dee22913b030b1396ef6f98cd7f',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/3.2',
+      shutterSpeed: '1/4000',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1217',
+    url: 'https://assets.arpit.one/photography/DSCF1217.49c6228d529e.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2023-09-17',
+    sha256: '49c6228d529efdad2e72b4fd4da739d12540b3086725e6ee95a8438227a2300f',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/3.2',
+      shutterSpeed: '1/4000',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1227',
+    url: 'https://assets.arpit.one/photography/DSCF1227.33d5afa1119a.avif',
+    width: 6240,
+    height: 4160,
+    capturedDate: '2023-09-17',
+    sha256: '33d5afa1119a95c605c81d2306ee0225901d6e136f4b3dc0d4c28ca71ef5e5ae',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/3.2',
+      shutterSpeed: '1/4000',
+      exposureCompensation: -3,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1294',
+    url: 'https://assets.arpit.one/photography/DSCF1294.3bb647cf1723.avif',
+    width: 5395,
+    height: 3596,
+    capturedDate: '2023-09-17',
+    sha256: '3bb647cf1723961d6c90201c772311c40140a9b623bea1184791db0943ba726f',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/8',
+      shutterSpeed: '1/1400',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1321',
+    url: 'https://assets.arpit.one/photography/DSCF1321.1cbc75afe741.avif',
+    width: 5264,
+    height: 4211,
+    capturedDate: '2023-09-17',
+    sha256: '1cbc75afe741390f42a1a4e047e37a743f11a9b70078fd2dcd96a0863c2bad57',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/1.8',
+      shutterSpeed: '1/4000',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1329-2',
+    url: 'https://assets.arpit.one/photography/DSCF1329%202.aa4751fd9196.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2023-09-17',
+    sha256: 'aa4751fd91960521c77722bc9c006164c99c0c0a874685e027ddbda1e3c168ae',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/2.5',
+      shutterSpeed: '1/4000',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1355',
+    url: 'https://assets.arpit.one/photography/DSCF1355.07b70f6bc5e8.avif',
+    width: 5264,
+    height: 4211,
+    capturedDate: '2023-09-17',
+    sha256: '07b70f6bc5e8056f68d96ddd3f502ace635515651e77b8018cd77d6a94b21c67',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/8',
+      shutterSpeed: '1/950',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1368',
+    url: 'https://assets.arpit.one/photography/DSCF1368.417a2e766dcd.avif',
+    width: 4130,
+    height: 3304,
+    capturedDate: '2023-09-17',
+    sha256: '417a2e766dcda823bd779580d13b8f302273761b6a3d2c967043d867dd71eca3',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/8',
+      shutterSpeed: '1/850',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1400',
+    url: 'https://assets.arpit.one/photography/DSCF1400.270332d0f15d.avif',
+    width: 5264,
+    height: 4211,
+    capturedDate: '2023-09-17',
+    sha256: '270332d0f15df437063915cc9de2522b21e0b26e0445b338dcbb93231826e949',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/10',
+      shutterSpeed: '1/350',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF1074',
+    url: 'https://assets.arpit.one/photography/DSCF1074.a8b1e19729eb.avif',
+    width: 4902,
+    height: 3676,
+    capturedDate: '2023-06-25',
+    sha256: 'a8b1e19729eb118158826fccdced054411e5076794c642cc2857f1f4dec400c7',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/1.4',
+      shutterSpeed: '1/1600',
+      exposureCompensation: 0,
+      exposureProgram: 'Aperture-priority AE',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF0869',
+    url: 'https://assets.arpit.one/photography/DSCF0869.1d0b18dc2ec8.avif',
+    width: 4160,
+    height: 6240,
+    capturedDate: '2023-04-09',
+    sha256: '1d0b18dc2ec82ce26a1d7637a801c5600d0a834db52d5e2de676e2390dabb7a4',
+    camera: { make: 'FUJIFILM', model: 'X-E4' },
+    lens: { make: 'SIGMA', model: 'Sigma 30mm F1.4 DC DN | C (Fujifilm X)' },
+    settings: {
+      focalLength: '30.0 mm',
+      focalLength35mm: '45 mm',
+      iso: 640,
+      aperture: 'f/1.4',
+      shutterSpeed: '1/125',
+      exposureCompensation: 0,
+      exposureProgram: 'Manual',
+      meteringMode: 'Multi-segment',
+      whiteBalance: 'Manual',
+      flash: 'No Flash'
+    }
+  },
+  {
+    id: 'DSCF0639',
+    url: 'https://assets.arpit.one/photography/DSCF0639.5585da924b01.avif',
+    width: 2304,
+    height: 1506,
+    capturedDate: '2023-02-05',
+    sha256: '5585da924b018322d678607a1f3a58f4b5bdacc6fac28be12dff171f7dc63461',
+    camera: {},
+    lens: {},
+    settings: {}
   }
 ] as const
+
+// Generated from the reviewed photography batch; upload metadata remains private.

@@ -10,8 +10,11 @@ import {
 
 import {
   type ArtCuration,
-  type CuratedSpan,
-  artCuration
+  type ArtView,
+  type CurationGroup,
+  type LayoutItem,
+  artCuration,
+  normalizeArtCuration
 } from '@/data/artCuration'
 import { photography } from '@/data/photography'
 import { images, videos } from '@/utils/arts'
@@ -55,11 +58,13 @@ type PhotographyItem = {
 }
 
 type ArtItem = ArtworkItem | MotionItem | PhotographyItem
-type CuratedPlacement = {
+type LayoutPlacement = {
   item: ArtItem
-  span: CuratedSpan
+  layout: LayoutItem
 }
-type LayoutMode = 'curated' | 'small'
+type LayoutMode = ArtView
+const layoutStorageKey = 'art-layout-mode-v3'
+const curationStorageKey = 'art-curation-v3'
 
 const sourceDatePattern = /(\d{4}-\d{2}-\d{2})/
 
@@ -77,10 +82,18 @@ const formatDate = (date: string, includeDay = true) => {
 const getDateFromSource = (source: string) =>
   source.match(sourceDatePattern)?.[1] ?? '1970-01-01'
 
-const getDeviceName = (device: { make: string; model: string }) =>
-  device.model.toLowerCase().startsWith(device.make.toLowerCase())
-    ? device.model
-    : `${device.make} ${device.model}`
+const getDeviceName = (device: { make?: string; model?: string }) => {
+  const make = device.make?.trim()
+  const model = device.model?.trim()
+
+  if (!make && !model) return 'Unknown camera'
+  if (!make) return model
+  if (!model) return make
+
+  return model.toLowerCase().startsWith(make.toLowerCase())
+    ? model
+    : `${make} ${model}`
+}
 
 const artworkItems: ArtworkItem[] = images.map((image, index) => {
   const date = getDateFromSource(image.src)
@@ -150,28 +163,46 @@ const timelineGroups = artItems.reduce<
   return groups
 }, [])
 
-const getCuratedPlacements = (
+const getLayoutPlacements = (
   group: { date: string; items: ArtItem[] },
+  view: ArtView,
   manifest: ArtCuration
-): CuratedPlacement[] => {
+): LayoutPlacement[] => {
   const itemsById = new Map(group.items.map((item) => [item.id, item]))
-  const configured = manifest[group.date] ?? []
+  const configured = [...(manifest[view][group.date] ?? [])].sort(
+    (first, second) =>
+      first.y === second.y ? first.x - second.x : first.y - second.y
+  )
   const configuredIds = new Set<string>()
-  const placements: CuratedPlacement[] = []
+  const placements: LayoutPlacement[] = []
 
   for (const entry of configured) {
     const item = itemsById.get(entry.id)
     if (!item || configuredIds.has(entry.id)) continue
     configuredIds.add(entry.id)
-    placements.push({ item, span: entry.span })
+    placements.push({ item, layout: entry })
   }
 
-  for (const item of group.items) {
-    if (!configuredIds.has(item.id)) placements.push({ item, span: 'half' })
-  }
+  for (const item of group.items)
+    if (!configuredIds.has(item.id))
+      placements.push({
+        item,
+        layout: {
+          id: item.id,
+          x: 0,
+          y: 0,
+          w: 12,
+          h: Math.max(4, Math.round(12 / item.ratio))
+        }
+      })
 
   return placements
 }
+
+const curationGroups: CurationGroup[] = timelineGroups.map((group) => ({
+  date: group.date,
+  items: group.items.map((item) => ({ id: item.id, ratio: item.ratio }))
+}))
 
 const getItemLabel = (item: ArtItem) => {
   if (item.kind === 'motion') return 'Motion'
@@ -183,10 +214,10 @@ const getAccessibleItemLabel = (item: ArtItem) =>
   `${getItemLabel(item)} from ${item.dateLabel}`
 
 const isLayoutMode = (value: string | null): value is LayoutMode =>
-  value === 'curated' || value === 'small'
+  value === 'big' || value === 'small'
 
 function LayoutIcon({ mode }: { mode: LayoutMode }) {
-  if (mode === 'curated') {
+  if (mode === 'big') {
     return (
       <svg viewBox='0 0 24 24' aria-hidden='true'>
         <rect x='3' y='3' width='18' height='9' rx='1' />
@@ -332,91 +363,11 @@ function LightboxMedia({
   )
 }
 
-function CuratorPanel({
-  curation,
-  onExport,
-  onMove,
-  onReset,
-  onToggleSpan
-}: {
-  curation: ArtCuration
-  onExport: () => void
-  onMove: (date: string, index: number, direction: number) => void
-  onReset: (date: string) => void
-  onToggleSpan: (date: string, index: number) => void
-}) {
-  return (
-    <aside className='site-art-curator'>
-      <div className='site-art-curator-header'>
-        <div>
-          <p className='site-art-kicker'>Development only</p>
-          <h2>Curate order</h2>
-        </div>
-        <button type='button' onClick={onExport}>
-          Export manifest
-        </button>
-      </div>
-      <p className='site-art-curator-help'>
-        Move items, choose a wide span, then export the manifest into
-        <code>data/artCuration.ts</code>.
-      </p>
-      <div className='site-art-curator-groups'>
-        {timelineGroups.map((group) => {
-          const placements = getCuratedPlacements(group, curation)
-
-          return (
-            <details key={group.date} open>
-              <summary>{group.items[0]?.dateLabel}</summary>
-              <ol>
-                {placements.map((placement, index) => (
-                  <li key={placement.item.id}>
-                    <span className='site-art-curator-preview'>
-                      <ArtMedia item={placement.item} sizes='64px' />
-                    </span>
-                    <span className='site-art-curator-item'>
-                      {getItemLabel(placement.item)}
-                    </span>
-                    <button
-                      type='button'
-                      aria-label={`Move ${getItemLabel(placement.item).toLowerCase()} up`}
-                      disabled={index === 0}
-                      onClick={() => onMove(group.date, index, -1)}>
-                      ↑
-                    </button>
-                    <button
-                      type='button'
-                      aria-label={`Move ${getItemLabel(placement.item).toLowerCase()} down`}
-                      disabled={index === placements.length - 1}
-                      onClick={() => onMove(group.date, index, 1)}>
-                      ↓
-                    </button>
-                    <button
-                      type='button'
-                      aria-label={`Set ${getItemLabel(placement.item).toLowerCase()} ${placement.span === 'wide' ? 'half width' : 'wide'}`}
-                      onClick={() => onToggleSpan(group.date, index)}>
-                      {placement.span === 'wide' ? 'Wide' : 'Half'}
-                    </button>
-                  </li>
-                ))}
-              </ol>
-              <button
-                type='button'
-                className='site-art-curator-reset'
-                onClick={() => onReset(group.date)}>
-                Reset month
-              </button>
-            </details>
-          )
-        })}
-      </div>
-    </aside>
-  )
-}
-
 export function ArtGallery() {
-  const [layoutMode, setLayoutMode] = useState<LayoutMode>('curated')
-  const [curation, setCuration] = useState<ArtCuration>(artCuration)
-  const [editorEnabled, setEditorEnabled] = useState(false)
+  const [layoutMode, setLayoutMode] = useState<LayoutMode>('big')
+  const [curation, setCuration] = useState<ArtCuration>(() =>
+    normalizeArtCuration(artCuration, curationGroups)
+  )
   const [layoutReady, setLayoutReady] = useState(false)
   const [urlReady, setUrlReady] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
@@ -463,20 +414,15 @@ export function ArtGallery() {
 
   useEffect(() => {
     try {
-      const storedLayout = window.localStorage.getItem('art-layout-mode')
+      const storedLayout = window.localStorage.getItem(layoutStorageKey)
       if (isLayoutMode(storedLayout)) setLayoutMode(storedLayout)
 
-      const storedCuration = window.localStorage.getItem('art-curation')
+      const storedCuration = window.localStorage.getItem(curationStorageKey)
       if (storedCuration) {
         const parsedCuration = JSON.parse(storedCuration) as ArtCuration
         if (parsedCuration && typeof parsedCuration === 'object')
-          setCuration(parsedCuration)
+          setCuration(normalizeArtCuration(parsedCuration, curationGroups))
       }
-
-      setEditorEnabled(
-        process.env.NODE_ENV === 'development' &&
-          new URLSearchParams(window.location.search).get('edit') === '1'
-      )
     } catch {
       // Local storage can be unavailable in private browsing contexts.
     }
@@ -486,8 +432,8 @@ export function ArtGallery() {
   useEffect(() => {
     if (!layoutReady) return
     try {
-      window.localStorage.setItem('art-layout-mode', layoutMode)
-      window.localStorage.setItem('art-curation', JSON.stringify(curation))
+      window.localStorage.setItem(layoutStorageKey, layoutMode)
+      window.localStorage.setItem(curationStorageKey, JSON.stringify(curation))
     } catch {
       // Local storage can be unavailable in private browsing contexts.
     }
@@ -504,73 +450,6 @@ export function ArtGallery() {
     return () =>
       mediaQuery.removeEventListener('change', updateMotionPreference)
   }, [])
-
-  const updateCurationGroup = (
-    date: string,
-    update: (placements: CuratedPlacement[]) => CuratedPlacement[]
-  ) => {
-    const group = timelineGroups.find(
-      (timelineGroup) => timelineGroup.date === date
-    )
-    if (!group) return
-
-    setCuration((current) => ({
-      ...current,
-      [date]: update(getCuratedPlacements(group, current)).map(
-        ({ item, span }) => ({ id: item.id, span })
-      )
-    }))
-  }
-
-  const moveCuratedItem = (date: string, index: number, direction: number) => {
-    updateCurationGroup(date, (placements) => {
-      const nextIndex = index + direction
-      if (nextIndex < 0 || nextIndex >= placements.length) return placements
-
-      const nextPlacements = [...placements]
-      const [movedPlacement] = nextPlacements.splice(index, 1)
-      nextPlacements.splice(nextIndex, 0, movedPlacement)
-      return nextPlacements
-    })
-  }
-
-  const toggleCuratedSpan = (date: string, index: number) => {
-    updateCurationGroup(date, (placements) =>
-      placements.map((placement, placementIndex) =>
-        placementIndex === index
-          ? { ...placement, span: placement.span === 'wide' ? 'half' : 'wide' }
-          : placement
-      )
-    )
-  }
-
-  const resetCuratedMonth = (date: string) => {
-    setCuration((current) => {
-      const nextCuration = { ...current }
-      delete nextCuration[date]
-      return nextCuration
-    })
-  }
-
-  const exportCuration = () => {
-    const file = `export type CuratedSpan = 'half' | 'wide'
-
-export type CuratedEntry = {
-  id: string
-  span: CuratedSpan
-}
-
-export type ArtCuration = Record<string, CuratedEntry[]>
-
-export const artCuration: ArtCuration = ${JSON.stringify(curation, null, 2)}
-`
-    const url = URL.createObjectURL(new Blob([file], { type: 'text/plain' }))
-    const link = document.createElement('a')
-    link.href = url
-    link.download = 'artCuration.ts'
-    link.click()
-    URL.revokeObjectURL(url)
-  }
 
   const moveLightbox = useCallback((direction: number) => {
     setLightboxIndex((currentIndex) => {
@@ -660,32 +539,21 @@ export const artCuration: ArtCuration = ${JSON.stringify(curation, null, 2)}
           <h1>Art &amp; photography</h1>
         </div>
         <div className='site-art-layout-toggle' aria-label='Artwork layout'>
-          {(['curated', 'small'] as const).map((mode) => (
+          {(['big', 'small'] as const).map((mode) => (
             <button
               key={mode}
               type='button'
               className={layoutMode === mode ? 'is-active' : ''}
-              aria-label={
-                mode === 'small' ? 'Small grid layout' : 'Curated layout'
-              }
+              aria-label={`${mode} curated layout`}
               aria-pressed={layoutMode === mode}
-              title={mode === 'small' ? 'Small grid' : 'Curated'}
+              title={mode === 'small' ? 'Small' : 'Big'}
               onClick={() => setLayoutMode(mode)}>
               <LayoutIcon mode={mode} />
+              <span>{mode === 'small' ? 'Small' : 'Big'}</span>
             </button>
           ))}
         </div>
       </header>
-
-      {editorEnabled ? (
-        <CuratorPanel
-          curation={curation}
-          onExport={exportCuration}
-          onMove={moveCuratedItem}
-          onReset={resetCuratedMonth}
-          onToggleSpan={toggleCuratedSpan}
-        />
-      ) : null}
 
       <div className='site-art-timeline'>
         {timelineGroups.map((group) => (
@@ -696,40 +564,38 @@ export const artCuration: ArtCuration = ${JSON.stringify(curation, null, 2)}
               </time>
             </div>
             <div className={`site-art-grid site-art-grid--${layoutMode}`}>
-              {(layoutMode === 'curated'
-                ? getCuratedPlacements(group, curation)
-                : group.items.map((item) => ({ item, span: 'half' as const }))
-              ).map((placement, index) => {
-                const item = placement.item
-                const itemIndex = artItems.indexOf(item)
+              {getLayoutPlacements(group, layoutMode, curation).map(
+                (placement, index) => {
+                  const item = placement.item
+                  const itemIndex = artItems.indexOf(item)
 
-                return (
-                  <button
-                    key={item.id}
-                    type='button'
-                    className={`site-art-card${
-                      layoutMode === 'curated' && placement.span === 'wide'
-                        ? ' site-art-card--wide'
-                        : ''
-                    }`}
-                    aria-label={`Open ${getItemLabel(item).toLowerCase()} from ${item.dateLabel}`}
-                    onClick={(event) => openLightbox(event, itemIndex)}>
-                    <span
-                      className='site-art-media'
-                      style={{ aspectRatio: item.ratio }}>
-                      <ArtMedia
-                        item={item}
-                        sizes={
-                          layoutMode === 'small'
-                            ? '(max-width: 479px) 45vw, (max-width: 900px) 30vw, 22vw'
-                            : '(max-width: 479px) 92vw, 45vw'
-                        }
-                        priority={itemIndex < 4 || index < 2}
-                      />
-                    </span>
-                  </button>
-                )
-              })}
+                  return (
+                    <button
+                      key={item.id}
+                      type='button'
+                      className='site-art-card'
+                      aria-label={`Open ${getItemLabel(item).toLowerCase()} from ${item.dateLabel}`}
+                      style={
+                        {
+                          '--art-column': placement.layout.x + 1,
+                          '--art-row': placement.layout.y + 1,
+                          '--art-span': placement.layout.w,
+                          '--art-height': placement.layout.h,
+                          '--art-ratio': item.ratio
+                        } as React.CSSProperties
+                      }
+                      onClick={(event) => openLightbox(event, itemIndex)}>
+                      <span className='site-art-media'>
+                        <ArtMedia
+                          item={item}
+                          sizes='(max-width: 479px) 92vw, (max-width: 900px) 75vw, 45vw'
+                          priority={itemIndex < 4 || index < 2}
+                        />
+                      </span>
+                    </button>
+                  )
+                }
+              )}
             </div>
           </section>
         ))}
