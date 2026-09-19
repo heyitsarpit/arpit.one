@@ -132,7 +132,13 @@ const AlbumCard: React.FC<{ album: Album }> = ({ album }) => (
       target='_blank'
       rel='noreferrer'>
       {album.image ? (
-        <img className='site-album-art' src={album.image} alt='' />
+        <img
+          className='site-album-art'
+          src={album.image}
+          alt=''
+          loading='lazy'
+          decoding='async'
+        />
       ) : (
         <span className='site-album-art-placeholder' />
       )}

@@ -259,7 +259,12 @@ const SpotifyStats: React.FC<Props> = ({ library }) => {
                           rel='noreferrer'>
                           <span className='site-stats-rank'>{index + 1}</span>
                           {artist.image ? (
-                            <img src={artist.image} alt='' />
+                            <img
+                              src={artist.image}
+                              alt=''
+                              loading='lazy'
+                              decoding='async'
+                            />
                           ) : (
                             <span className='site-stats-image-placeholder' />
                           )}
@@ -295,7 +300,12 @@ const SpotifyStats: React.FC<Props> = ({ library }) => {
                           rel='noreferrer'>
                           <span className='site-stats-rank'>{index + 1}</span>
                           {track.image ? (
-                            <img src={track.image} alt='' />
+                            <img
+                              src={track.image}
+                              alt=''
+                              loading='lazy'
+                              decoding='async'
+                            />
                           ) : (
                             <span className='site-stats-image-placeholder' />
                           )}
@@ -348,6 +358,8 @@ const SpotifyStats: React.FC<Props> = ({ library }) => {
                       className='site-stats-quiet-image'
                       src={track.image}
                       alt=''
+                      loading='lazy'
+                      decoding='async'
                     />
                   ) : (
                     <span className='site-stats-quiet-image-placeholder' />
@@ -397,6 +409,8 @@ const SpotifyStats: React.FC<Props> = ({ library }) => {
                     className='site-stats-loved-artist-image'
                     src={stats.image}
                     alt=''
+                    loading='lazy'
+                    decoding='async'
                   />
                 ) : (
                   <span className='site-stats-loved-artist-image-placeholder' />

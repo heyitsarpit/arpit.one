@@ -1,6 +1,3 @@
-import fs from 'node:fs'
-import path from 'node:path'
-import type { InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'
 
 import PlaylistExplorer from '@/components/PlaylistExplorer'
@@ -8,20 +5,11 @@ import PlaylistPageNav from '@/components/PlaylistPageNav'
 import PlaylistsLayout, {
   type PageWithLayout
 } from '@/components/PlaylistsLayout'
-import type { StoredPlaylistLibrary } from '@/utils/playlists'
+import { usePlaylistLibrary } from '@/utils/playlistQuery'
 
-export const getStaticProps = async () => {
-  const file = path.resolve(process.cwd(), 'data', 'spotify-playlists.json')
-  const library = JSON.parse(
-    fs.readFileSync(file, 'utf-8')
-  ) as StoredPlaylistLibrary
+const Playlists: React.FC & PageWithLayout = () => {
+  const { data: library, error, isPending } = usePlaylistLibrary()
 
-  return { props: { library } }
-}
-
-type Props = InferGetStaticPropsType<typeof getStaticProps>
-
-const Playlists: React.FC<Props> & PageWithLayout = ({ library }) => {
   return (
     <>
       <NextSeo
@@ -33,7 +21,13 @@ const Playlists: React.FC<Props> & PageWithLayout = ({ library }) => {
         <h1 className='site-section-title'>Playlists</h1>
         <PlaylistPageNav active='playlists' />
       </header>
-      <PlaylistExplorer playlists={library.playlists} />
+      {isPending ? (
+        <p className='site-spotify-status'>Loading playlists…</p>
+      ) : error ? (
+        <p className='site-spotify-status'>{error.message}</p>
+      ) : library ? (
+        <PlaylistExplorer playlists={library.playlists} />
+      ) : null}
     </>
   )
 }

@@ -1,12 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import {
-  getSpotifyClientId,
-  getSpotifyConfigError,
-  getSpotifyRefreshToken,
-  rememberSpotifyRefreshToken,
-  spotifyBasicAuth
-} from '@/utils/spotify'
+import { getSpotifyAccessToken, getSpotifyConfigError } from '@/utils/spotify'
 
 type SpotifyAlbum = {
   id?: string
@@ -25,7 +19,26 @@ type SpotifySavedAlbum = {
 
 type SpotifySavedAlbumsPayload = {
   items?: SpotifySavedAlbum[]
+  limit?: number
   next?: string | null
+  total?: number
+}
+
+type AlbumsPage = {
+  payload: SpotifySavedAlbumsPayload | null
+  response: Response
+}
+
+const fetchAlbumsPage = async (
+  url: string,
+  headers: HeadersInit
+): Promise<AlbumsPage> => {
+  const response = await fetch(url, { headers })
+  const payload = response.ok
+    ? ((await response.json()) as SpotifySavedAlbumsPayload)
+    : null
+
+  return { payload, response }
 }
 
 const Albums = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -44,20 +57,9 @@ const Albums = async (req: NextApiRequest, res: NextApiResponse) => {
     return
   }
 
-  const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
-    method: 'POST',
-    headers: {
-      Authorization: spotifyBasicAuth(),
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token: getSpotifyRefreshToken(),
-      client_id: getSpotifyClientId()
-    })
-  })
+  const accessToken = await getSpotifyAccessToken()
 
-  if (!tokenResponse.ok) {
+  if (!accessToken) {
     res.status(502).json({
       configured: true,
       error: 'Spotify access could not be refreshed.'
@@ -65,24 +67,7 @@ const Albums = async (req: NextApiRequest, res: NextApiResponse) => {
     return
   }
 
-  const tokenPayload = (await tokenResponse.json()) as {
-    access_token?: string
-    refresh_token?: string
-  }
-
-  if (tokenPayload.refresh_token) {
-    rememberSpotifyRefreshToken(tokenPayload.refresh_token)
-  }
-
-  if (!tokenPayload.access_token) {
-    res.status(502).json({
-      configured: true,
-      error: 'Spotify returned no access token.'
-    })
-    return
-  }
-
-  const headers = { Authorization: `Bearer ${tokenPayload.access_token}` }
+  const headers = { Authorization: `Bearer ${accessToken}` }
   const albums: Array<{
     id: string
     name: string
@@ -93,19 +78,19 @@ const Albums = async (req: NextApiRequest, res: NextApiResponse) => {
     url: string
     addedAt: string
   }> = []
-  let nextUrl: string | null =
-    'https://api.spotify.com/v1/me/albums?limit=50&offset=0'
+  const firstPage = await fetchAlbumsPage(
+    'https://api.spotify.com/v1/me/albums?limit=50&offset=0',
+    headers
+  )
 
-  while (nextUrl) {
-    const albumsResponse = await fetch(nextUrl, { headers })
-
+  const handlePageError = (albumsResponse: Response) => {
     if (albumsResponse.status === 403) {
       res.status(403).json({
         configured: true,
         error:
           'Saved albums need one reauthorization with the user-library-read permission.'
       })
-      return
+      return true
     }
 
     if (albumsResponse.status === 429) {
@@ -115,7 +100,7 @@ const Albums = async (req: NextApiRequest, res: NextApiResponse) => {
         configured: true,
         error: 'Spotify rate limit reached. Try again shortly.'
       })
-      return
+      return true
     }
 
     if (!albumsResponse.ok) {
@@ -123,12 +108,50 @@ const Albums = async (req: NextApiRequest, res: NextApiResponse) => {
         configured: true,
         error: 'Saved Spotify albums could not be loaded.'
       })
-      return
+      return true
     }
 
-    const albumsPayload =
-      (await albumsResponse.json()) as SpotifySavedAlbumsPayload
+    return false
+  }
 
+  if (handlePageError(firstPage.response) || !firstPage.payload) return
+
+  const firstPayload = firstPage.payload
+  const limit = firstPayload.limit || 50
+  const total = firstPayload.total || 0
+  const pages: SpotifySavedAlbumsPayload[] = [firstPayload]
+
+  if (total > 0) {
+    const pageUrls = Array.from(
+      { length: Math.max(0, Math.ceil(total / limit) - 1) },
+      (_, index) =>
+        `https://api.spotify.com/v1/me/albums?limit=${limit}&offset=${(index + 1) * limit}`
+    )
+
+    for (let index = 0; index < pageUrls.length; index += 4) {
+      const pageResults = await Promise.all(
+        pageUrls
+          .slice(index, index + 4)
+          .map((url) => fetchAlbumsPage(url, headers))
+      )
+
+      for (const page of pageResults) {
+        if (handlePageError(page.response) || !page.payload) return
+        pages.push(page.payload)
+      }
+    }
+  } else {
+    let nextUrl = firstPayload.next || null
+
+    while (nextUrl) {
+      const page = await fetchAlbumsPage(nextUrl, headers)
+      if (handlePageError(page.response) || !page.payload) return
+      pages.push(page.payload)
+      nextUrl = page.payload.next || null
+    }
+  }
+
+  for (const albumsPayload of pages) {
     for (const item of albumsPayload.items || []) {
       const album = item.album
       if (!album) continue
@@ -147,11 +170,12 @@ const Albums = async (req: NextApiRequest, res: NextApiResponse) => {
         addedAt: item.added_at || ''
       })
     }
-
-    nextUrl = albumsPayload.next || null
   }
 
-  res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=900')
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=300, stale-while-revalidate=900'
+  )
   res.status(200).json({ configured: true, albums })
 }
 

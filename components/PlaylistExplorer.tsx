@@ -132,6 +132,8 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
                       src={playlist.image}
                       alt=''
                       className='site-playlist-list-image'
+                      loading='lazy'
+                      decoding='async'
                     />
                   ) : (
                     <span className='site-playlist-list-image is-empty' />
@@ -204,6 +206,8 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
                         src={track.albumImage}
                         alt=''
                         className='site-playlist-track-art'
+                        loading='lazy'
+                        decoding='async'
                       />
                     ) : (
                       <span className='site-playlist-track-art is-empty' />
@@ -243,6 +247,8 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
                           src={track.albumImage}
                           alt=''
                           className='site-playlist-table-art'
+                          loading='lazy'
+                          decoding='async'
                         />
                       ) : (
                         <span className='site-playlist-table-art is-empty' />

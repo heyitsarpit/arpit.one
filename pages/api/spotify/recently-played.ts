@@ -1,12 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import {
-  getSpotifyClientId,
-  getSpotifyConfigError,
-  getSpotifyRefreshToken,
-  rememberSpotifyRefreshToken,
-  spotifyBasicAuth
-} from '@/utils/spotify'
+import { getSpotifyAccessToken, getSpotifyConfigError } from '@/utils/spotify'
 
 type SpotifyRecentItem = {
   played_at?: string
@@ -38,20 +32,9 @@ const RecentlyPlayed = async (req: NextApiRequest, res: NextApiResponse) => {
     return
   }
 
-  const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
-    method: 'POST',
-    headers: {
-      Authorization: spotifyBasicAuth(),
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: new URLSearchParams({
-      grant_type: 'refresh_token',
-      refresh_token: getSpotifyRefreshToken(),
-      client_id: getSpotifyClientId()
-    })
-  })
+  const accessToken = await getSpotifyAccessToken()
 
-  if (!tokenResponse.ok) {
+  if (!accessToken) {
     res.status(502).json({
       configured: true,
       error: 'Spotify access could not be refreshed.'
@@ -59,27 +42,10 @@ const RecentlyPlayed = async (req: NextApiRequest, res: NextApiResponse) => {
     return
   }
 
-  const tokenPayload = (await tokenResponse.json()) as {
-    access_token?: string
-    refresh_token?: string
-  }
-
-  if (tokenPayload.refresh_token) {
-    rememberSpotifyRefreshToken(tokenPayload.refresh_token)
-  }
-
-  if (!tokenPayload.access_token) {
-    res.status(502).json({
-      configured: true,
-      error: 'Spotify returned no access token.'
-    })
-    return
-  }
-
   const recentResponse = await fetch(
     'https://api.spotify.com/v1/me/player/recently-played?limit=1',
     {
-      headers: { Authorization: `Bearer ${tokenPayload.access_token}` }
+      headers: { Authorization: `Bearer ${accessToken}` }
     }
   )
 
@@ -105,7 +71,10 @@ const RecentlyPlayed = async (req: NextApiRequest, res: NextApiResponse) => {
   }
   const item = recentPayload.items?.find(({ track }) => track?.type === 'track')
 
-  res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300')
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=60, stale-while-revalidate=300'
+  )
   res.status(200).json({
     configured: true,
     track: item?.track
