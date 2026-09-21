@@ -124,6 +124,55 @@ const galleryGroups = galleryItems.reduce<GalleryGroup[]>((groups, item) => {
   return groups
 }, [])
 
+const doubleWidthShareIds = new Set([
+  'photography-IMG_3498',
+  'photography-DSCF6057',
+  'photography-DSCF2181-2',
+  'photography-DSCF2217',
+  'photography-DSCF1911',
+  'photography-DSCF1549',
+  'photography-DSCF1800-copy',
+  'photography-DSCF1637',
+  'photography-DSCF1355',
+  'photography-DSCF1400',
+  'photography-DSCF1368',
+  'photography-DSCF1217',
+  'photography-DSCF0639',
+  'photography-DSCF1716-1',
+  'photography-DSCF1551',
+  'photography-DSCF1517',
+  'photography-DSCF2189-1',
+  'photography-DSCF1890',
+  'artwork-2017-05-23-21',
+  'artwork-2017-06-03-19',
+  'artwork-2017-06-03-20',
+  'photography-DSCF1545'
+])
+
+type GalleryRow = { items: GalleryItem[]; isWideRow: boolean }
+
+const isDoubleWidthItem = (item: GalleryItem) =>
+  doubleWidthShareIds.has(item.shareId)
+
+const getGalleryRows = (items: GalleryItem[]): GalleryRow[] => {
+  const wideItems = items.filter(isDoubleWidthItem)
+
+  if (wideItems.length < 2) return [{ items, isWideRow: false }]
+
+  const firstWideIndex = items.findIndex(isDoubleWidthItem)
+
+  return [
+    { items: items.slice(0, firstWideIndex), isWideRow: false },
+    { items: wideItems, isWideRow: true },
+    {
+      items: items
+        .slice(firstWideIndex)
+        .filter((item) => !isDoubleWidthItem(item)),
+      isWideRow: false
+    }
+  ].filter(({ items: rowItems }) => rowItems.length > 0)
+}
+
 const focusRingClassName =
   'focus-visible:outline-2 focus-visible:outline-[color:var(--page-highlight)] focus-visible:outline-offset-3'
 
@@ -309,15 +358,68 @@ export function ArtGalleryGrid() {
   }
 
   const activeItem = lightboxIndex === null ? null : galleryItems[lightboxIndex]
+
+  const renderGalleryItem = (item: GalleryItem) => {
+    const index = galleryItems.indexOf(item)
+
+    return (
+      <figure
+        className={`relative m-0 min-w-0 overflow-hidden bg-[color-mix(in_srgb,var(--page-text)_8%,var(--page-background))] ${isDoubleWidthItem(item) ? 'md:col-span-2' : ''}`}
+        key={item.id}>
+        {item.kind === 'video' ? (
+          <>
+            {/* biome-ignore lint/a11y/useMediaCaption: These art videos are visual-only and contain no dialogue. */}
+            <video
+              className='block h-auto w-full object-cover [aspect-ratio:var(--art-video-ratio)]'
+              src={item.src}
+              poster={item.poster}
+              controls
+              playsInline
+              preload='none'
+              aria-label={item.alt}
+              style={
+                {
+                  '--art-video-ratio': item.ratio
+                } as CSSProperties
+              }
+            />
+            <button
+              type='button'
+              className={`absolute right-3 top-3 grid h-10 w-10 place-items-center border border-white/70 bg-black/55 text-xl leading-none text-white backdrop-blur-sm hover:bg-black/80 ${focusRingClassName}`}
+              aria-label={`Open ${item.alt} fullscreen`}
+              onClick={(event) => openLightbox(event, index)}>
+              ⛶
+            </button>
+          </>
+        ) : (
+          <button
+            type='button'
+            className={`group block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left ${focusRingClassName}`}
+            aria-label={`Open ${item.alt} fullscreen`}
+            onClick={(event) => openLightbox(event, index)}>
+            <Image
+              className='block h-auto w-full transition-transform duration-300 group-hover:scale-[1.015]'
+              src={item.src}
+              alt={item.alt}
+              width={item.width}
+              height={item.height}
+              sizes='(max-width: 767px) 100vw, (max-width: 1200px) 33vw, 25vw'
+              priority={index === 0}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              unoptimized
+            />
+          </button>
+        )}
+      </figure>
+    )
+  }
+
   return (
     <>
       <section
         className='box-border min-h-screen ml-[max(150px,calc(8vw+120px))] bg-[color:var(--page-background)] pb-[10vw] pl-0 pr-[6vw] pt-[8vw] text-[color:var(--page-text)] max-[767px]:ml-0 max-[767px]:px-5 max-[767px]:pb-[20vw] max-[767px]:pt-[30vw]'
         aria-labelledby='art-title'>
         <header className='mb-[clamp(36px,6vw,72px)]'>
-          <p className='m-0 mb-2 font-ui text-sm leading-[1.5] text-[color:var(--page-muted)]'>
-            Archive / Gallery
-          </p>
           <h1
             id='art-title'
             className='m-0 font-display text-[clamp(32px,4vw,52px)] font-normal leading-[1.2]'>
@@ -337,61 +439,18 @@ export function ArtGalleryGrid() {
                   </time>
                 </div>
 
-                <div className='grid grid-cols-[repeat(auto-fill,minmax(min(100%,240px),1fr))] items-start gap-[clamp(10px,1.5vw,20px)]'>
-                  {group.items.map((item) => {
-                    const index = galleryItems.indexOf(item)
-
-                    return (
-                      <figure
-                        className='relative m-0 min-w-0 overflow-hidden bg-[color-mix(in_srgb,var(--page-text)_8%,var(--page-background))]'
-                        key={item.id}>
-                        {item.kind === 'video' ? (
-                          <>
-                            {/* biome-ignore lint/a11y/useMediaCaption: These art videos are visual-only and contain no dialogue. */}
-                            <video
-                              className='block h-auto w-full object-cover [aspect-ratio:var(--art-video-ratio)]'
-                              src={item.src}
-                              poster={item.poster}
-                              controls
-                              playsInline
-                              preload='none'
-                              aria-label={item.alt}
-                              style={
-                                {
-                                  '--art-video-ratio': item.ratio
-                                } as CSSProperties
-                              }
-                            />
-                            <button
-                              type='button'
-                              className={`absolute right-3 top-3 grid h-10 w-10 place-items-center border border-white/70 bg-black/55 text-xl leading-none text-white backdrop-blur-sm hover:bg-black/80 ${focusRingClassName}`}
-                              aria-label={`Open ${item.alt} fullscreen`}
-                              onClick={(event) => openLightbox(event, index)}>
-                              ⛶
-                            </button>
-                          </>
-                        ) : (
-                          <button
-                            type='button'
-                            className={`group block w-full cursor-zoom-in border-0 bg-transparent p-0 text-left ${focusRingClassName}`}
-                            aria-label={`Open ${item.alt} fullscreen`}
-                            onClick={(event) => openLightbox(event, index)}>
-                            <Image
-                              className='block h-auto w-full transition-transform duration-300 group-hover:scale-[1.015]'
-                              src={item.src}
-                              alt={item.alt}
-                              width={item.width}
-                              height={item.height}
-                              sizes='(max-width: 767px) 100vw, (max-width: 1200px) 33vw, 25vw'
-                              priority={index === 0}
-                              loading={index === 0 ? 'eager' : 'lazy'}
-                              unoptimized
-                            />
-                          </button>
-                        )}
-                      </figure>
-                    )
-                  })}
+                <div className='grid gap-[clamp(10px,1.5vw,20px)]'>
+                  {getGalleryRows(group.items).map((row, rowIndex) => (
+                    <div
+                      className={
+                        row.isWideRow
+                          ? 'grid grid-cols-1 items-start gap-[clamp(10px,1.5vw,20px)] md:grid-cols-4'
+                          : 'grid grid-cols-[repeat(auto-fill,minmax(min(100%,240px),1fr))] items-start gap-[clamp(10px,1.5vw,20px)]'
+                      }
+                      key={`${group.key}-${row.isWideRow ? 'wide' : rowIndex}`}>
+                      {row.items.map(renderGalleryItem)}
+                    </div>
+                  ))}
                 </div>
               </section>
             ))}
