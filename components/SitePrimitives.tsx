@@ -45,7 +45,7 @@ export function SectionHeading({
       ) : null}
       <Heading
         id={id}
-        className={`m-0 block font-display text-[28px] font-normal leading-[1.35] tracking-normal text-[color:var(--page-text)] ${titleClassName}`}>
+        className={`m-0 block font-editorial text-[28px] font-normal leading-[1.35] tracking-normal text-[color:var(--page-text)] ${titleClassName}`}>
         {children}
       </Heading>
     </div>

@@ -149,29 +149,8 @@ const doubleWidthShareIds = new Set([
   'photography-DSCF1545'
 ])
 
-type GalleryRow = { items: GalleryItem[]; isWideRow: boolean }
-
 const isDoubleWidthItem = (item: GalleryItem) =>
   doubleWidthShareIds.has(item.shareId)
-
-const getGalleryRows = (items: GalleryItem[]): GalleryRow[] => {
-  const wideItems = items.filter(isDoubleWidthItem)
-
-  if (wideItems.length < 2) return [{ items, isWideRow: false }]
-
-  const firstWideIndex = items.findIndex(isDoubleWidthItem)
-
-  return [
-    { items: items.slice(0, firstWideIndex), isWideRow: false },
-    { items: wideItems, isWideRow: true },
-    {
-      items: items
-        .slice(firstWideIndex)
-        .filter((item) => !isDoubleWidthItem(item)),
-      isWideRow: false
-    }
-  ].filter(({ items: rowItems }) => rowItems.length > 0)
-}
 
 const focusRingClassName =
   'focus-visible:outline-2 focus-visible:outline-[color:var(--page-highlight)] focus-visible:outline-offset-3'
@@ -364,7 +343,7 @@ export function ArtGalleryGrid() {
 
     return (
       <figure
-        className={`relative m-0 min-w-0 overflow-hidden bg-[color-mix(in_srgb,var(--page-text)_8%,var(--page-background))] ${isDoubleWidthItem(item) ? 'md:col-span-2' : ''}`}
+        className={`relative m-0 min-w-0 overflow-hidden bg-[color-mix(in_srgb,var(--page-text)_8%,var(--page-background))] ${isDoubleWidthItem(item) ? 'site-art-masonry-wide' : ''}`}
         key={item.id}>
         {item.kind === 'video' ? (
           <>
@@ -422,7 +401,7 @@ export function ArtGalleryGrid() {
         <header className='mb-[clamp(36px,6vw,72px)]'>
           <h1
             id='art-title'
-            className='m-0 font-display text-[clamp(32px,4vw,52px)] font-normal leading-[1.2]'>
+            className='m-0 font-editorial text-[clamp(32px,4vw,52px)] font-normal leading-[1.2]'>
             Art &amp; photography
           </h1>
         </header>
@@ -439,18 +418,8 @@ export function ArtGalleryGrid() {
                   </time>
                 </div>
 
-                <div className='grid gap-[clamp(10px,1.5vw,20px)]'>
-                  {getGalleryRows(group.items).map((row, rowIndex) => (
-                    <div
-                      className={
-                        row.isWideRow
-                          ? 'grid grid-cols-1 items-start gap-[clamp(10px,1.5vw,20px)] md:grid-cols-4'
-                          : 'grid grid-cols-[repeat(auto-fill,minmax(min(100%,240px),1fr))] items-start gap-[clamp(10px,1.5vw,20px)]'
-                      }
-                      key={`${group.key}-${row.isWideRow ? 'wide' : rowIndex}`}>
-                      {row.items.map(renderGalleryItem)}
-                    </div>
-                  ))}
+                <div className='site-art-masonry'>
+                  {group.items.map(renderGalleryItem)}
                 </div>
               </section>
             ))}

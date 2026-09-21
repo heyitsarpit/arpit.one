@@ -1,17 +1,24 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const colors = require('tailwindcss/colors');
+const colors = require('tailwindcss/colors')
 const deprecatedColorNames = new Set([
   'lightBlue',
   'warmGray',
   'trueGray',
   'coolGray',
   'blueGray'
-]);
+])
 const supportedColors = Object.fromEntries(
   Object.keys(colors)
     .filter((name) => !deprecatedColorNames.has(name))
     .map((name) => [name, colors[name]])
-);
+)
+const neueMontrealFontStack = ['Neue Montreal', 'Arial', 'sans-serif']
+const sourceSerifFontStack = [
+  'Source Serif 4 Variable',
+  'Source Serif 4',
+  'Georgia',
+  'serif'
+]
 
 module.exports = {
   content: [
@@ -33,11 +40,21 @@ module.exports = {
         accent: 'var(--color-link-posts)'
       },
       fontFamily: {
-        body: ['Newsreader', 'Georgia', 'serif'],
-        code: ['Fira Code', 'monospace'],
-        display: ['Interdisplay', 'Inter', 'sans-serif'],
-        ia: ['iA Quattro', 'ui-monospace', 'monospace'],
-        ui: ['Inter', 'sans-serif']
+        body: sourceSerifFontStack,
+        editorial: ['Editorial New', 'Georgia', 'serif'],
+        code: [
+          'ui-monospace',
+          'SFMono-Regular',
+          'Menlo',
+          'Monaco',
+          'Consolas',
+          'Liberation Mono',
+          'monospace'
+        ],
+        display: neueMontrealFontStack,
+        sans: neueMontrealFontStack,
+        serif: sourceSerifFontStack,
+        ui: neueMontrealFontStack
       },
       animation: {
         gradient: 'gradient 10s ease infinite',
@@ -57,7 +74,8 @@ module.exports = {
         }
       },
       backgroundImage: {
-        iridescent: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)'
+        iridescent:
+          'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)'
       },
       backgroundSize: {
         'zoom-350': '350% 350%',
@@ -69,4 +87,4 @@ module.exports = {
     extend: {}
   },
   plugins: []
-};
+}

@@ -2,6 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/neue-montreal/PPNeueMontreal-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/neue-montreal/PPNeueMontreal-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/neue-montreal/PPNeueMontreal-SemiBold.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/neue-montreal/PPNeueMontreal-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Editorial New";
+  src: url("/fonts/editorial-new/PPEditorialNew-Regular.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Editorial New";
+  src: url("/fonts/editorial-new/PPEditorialNew-Medium.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Editorial New";
+  src: url("/fonts/editorial-new/PPEditorialNew-Bold.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Editorial New";
+  src: url("/fonts/editorial-new/PPEditorialNew-Italic.woff") format("woff");
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+}
+
 @layer base {
   :root {
     --page-text: #000;
@@ -21,7 +85,7 @@
   }
 
   html {
-    @apply font-ia leading-7;
+    @apply font-sans leading-7;
   }
 
   body {
@@ -61,5 +125,76 @@
   select,
   textarea {
     font: inherit;
+  }
+}
+
+.site-art-masonry {
+  column-width: 240px;
+  column-gap: clamp(10px, 1.5vw, 20px);
+}
+
+.site-art-masonry > figure {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 clamp(10px, 1.5vw, 20px);
+  break-inside: avoid;
+  vertical-align: top;
+}
+
+@supports (display: grid-lanes) {
+  .site-art-masonry {
+    display: grid-lanes;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    column-gap: clamp(10px, 1.5vw, 20px);
+    row-gap: clamp(10px, 1.5vw, 20px);
+  }
+
+  .site-art-masonry > figure {
+    display: block;
+    width: auto;
+    margin: 0;
+  }
+
+  .site-art-masonry-wide {
+    grid-column: span 2;
+  }
+}
+
+@supports not (display: grid-lanes) {
+  .site-art-masonry:has(> .site-art-masonry-wide) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: clamp(10px, 1.5vw, 20px);
+    align-items: start;
+  }
+
+  .site-art-masonry:has(> .site-art-masonry-wide) > figure {
+    display: block;
+    width: auto;
+    margin: 0;
+  }
+
+  .site-art-masonry-wide {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .site-art-masonry {
+    column-count: 1;
+  }
+
+  .site-art-masonry:has(> .site-art-masonry-wide) {
+    display: block;
+  }
+
+  .site-art-masonry:has(> .site-art-masonry-wide) > figure {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 clamp(10px, 1.5vw, 20px);
+  }
+
+  .site-art-masonry-wide {
+    grid-column: auto;
   }
 }
