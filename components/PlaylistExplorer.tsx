@@ -192,7 +192,7 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
         <header className='mb-8 flex items-start justify-between gap-6 max-lg:block'>
           <div>
             <h2
-              className='m-0 font-editorial text-[28px] font-normal leading-[1.3] text-[color:var(--page-text)]'
+              className='m-0 font-display text-[28px] font-normal leading-[1.3] text-[color:var(--page-text)]'
               ref={selectedPlaylistHeadingRef}
               tabIndex={-1}>
               {selectedPlaylist.name}

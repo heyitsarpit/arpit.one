@@ -401,7 +401,7 @@ export function ArtGalleryGrid() {
         <header className='mb-[clamp(36px,6vw,72px)]'>
           <h1
             id='art-title'
-            className='m-0 font-editorial text-[clamp(32px,4vw,52px)] font-normal leading-[1.2]'>
+            className='m-0 font-display text-[clamp(32px,4vw,52px)] font-normal leading-[1.2]'>
             Art &amp; photography
           </h1>
         </header>

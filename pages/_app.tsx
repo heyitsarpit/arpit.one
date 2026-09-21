@@ -1,4 +1,3 @@
-import '@/public/styles/font.css'
 import '@/styles/tailwind.css'
 
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
@@ -23,6 +22,7 @@ type AppPropsWithLayout = AppProps & {
 
 const MyApp: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
   const router = useRouter()
+
   const pageTheme = resolvePageTheme(router.asPath || router.pathname)
   const pageStyle = {
     '--page-text': pageTheme.text,

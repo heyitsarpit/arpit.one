@@ -13,12 +13,6 @@ const supportedColors = Object.fromEntries(
     .map((name) => [name, colors[name]])
 )
 const neueMontrealFontStack = ['Neue Montreal', 'Arial', 'sans-serif']
-const sourceSerifFontStack = [
-  'Source Serif 4 Variable',
-  'Source Serif 4',
-  'Georgia',
-  'serif'
-]
 
 module.exports = {
   content: [
@@ -40,8 +34,7 @@ module.exports = {
         accent: 'var(--color-link-posts)'
       },
       fontFamily: {
-        body: sourceSerifFontStack,
-        editorial: ['Editorial New', 'Georgia', 'serif'],
+        body: neueMontrealFontStack,
         code: [
           'ui-monospace',
           'SFMono-Regular',
@@ -53,7 +46,7 @@ module.exports = {
         ],
         display: neueMontrealFontStack,
         sans: neueMontrealFontStack,
-        serif: sourceSerifFontStack,
+        serif: neueMontrealFontStack,
         ui: neueMontrealFontStack
       },
       animation: {

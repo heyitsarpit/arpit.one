@@ -34,38 +34,6 @@
   font-weight: 700;
 }
 
-@font-face {
-  font-family: "Editorial New";
-  src: url("/fonts/editorial-new/PPEditorialNew-Regular.woff") format("woff");
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Editorial New";
-  src: url("/fonts/editorial-new/PPEditorialNew-Medium.woff") format("woff");
-  font-style: normal;
-  font-display: swap;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Editorial New";
-  src: url("/fonts/editorial-new/PPEditorialNew-Bold.woff") format("woff");
-  font-style: normal;
-  font-display: swap;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Editorial New";
-  src: url("/fonts/editorial-new/PPEditorialNew-Italic.woff") format("woff");
-  font-style: italic;
-  font-display: swap;
-  font-weight: 400;
-}
-
 @layer base {
   :root {
     --page-text: #000;

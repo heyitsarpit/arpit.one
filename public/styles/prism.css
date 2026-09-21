@@ -3,7 +3,7 @@ pre[class*="language-"] {
   color: var(--page-text);
 
   background: none;
-  font-family: "Fira Code", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   font-size: 0.85rem;
 
   text-align: left;

@@ -1,9 +1,8 @@
 const TypefaceList = [
-  'Inter',
-  'iA Quattro',
-  'Cormorant Garamond',
-  'ET Book',
-  'JetBrains Mono'
+  {
+    label: 'Neue Montreal',
+    family: '"Neue Montreal", Arial, sans-serif'
+  }
 ]
 
 function Typefaces() {
@@ -13,14 +12,14 @@ function Typefaces() {
       <ul className='grid grid-cols-1 sm:grid-cols-3'>
         {TypefaceList.map((typeface) => (
           <li
-            key={typeface}
-            style={{ fontFamily: typeface }}
+            key={typeface.label}
+            style={{ fontFamily: typeface.family }}
             className='relative flex items-center p-6 my-6 text-lg rounded-md group before:contents'>
             <p className='absolute h-full transition-opacity group-hover:opacity-0'>
-              {typeface}
+              {typeface.label}
             </p>
             <p className='absolute transition-all translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100'>
-              You reading an example for the typeface {typeface}
+              You reading an example for the typeface {typeface.label}
             </p>
           </li>
         ))}

@@ -96,9 +96,8 @@
 
   @supports (font-variation-settings: normal) {
     html {
-      font:
-        100% / 1.75 "iA Quattro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        Liberation Mono, Courier New, monospace;
+      font: 100% / 1.75;
+      font-family: "Neue Montreal", Arial, sans-serif;
       font-stretch: 25% 150%;
     }
   }
@@ -174,7 +173,7 @@
   article :not(pre) > code {
     background: var(--syntax-background);
 
-    font-family: "Fira Code", monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     @apply rounded-sm mx-1 py-[2px] px-2 text-sm text-stone-800 dark:text-stone-200;
   }
   article :not(pre) > code::before {
@@ -318,7 +317,7 @@ body {
   display: block;
   margin: 0 4px 16px 0;
   color: var(--page-text);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
@@ -346,7 +345,7 @@ body {
 .site-home .site-name {
   margin: 0 0 84px;
   color: var(--page-text);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
@@ -360,7 +359,7 @@ body {
   display: block;
   margin: 0;
   color: var(--page-text);
-  font-family: Interdisplay, Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 28px;
   font-weight: 400;
   letter-spacing: 0;
@@ -388,7 +387,7 @@ body {
 .site-art-kicker {
   margin: 0 0 8px;
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -396,7 +395,7 @@ body {
 .site-art-toolbar h1 {
   margin: 0;
   color: var(--page-text);
-  font-family: Interdisplay, Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: clamp(32px, 4vw, 52px);
   font-weight: 400;
   line-height: 1.2;
@@ -406,7 +405,7 @@ body {
 .site-art-lightbox-close {
   padding: 0;
   color: var(--page-text);
-  font: 16px / 1.4 Inter, sans-serif;
+  font: 16px / 1.4 "Neue Montreal", Arial, sans-serif;
   background: transparent;
   border: 0;
   cursor: pointer;
@@ -455,7 +454,7 @@ body {
 }
 
 .site-art-layout-toggle button span {
-  font: 12px / 1 Inter, sans-serif;
+  font: 12px / 1 "Neue Montreal", Arial, sans-serif;
 }
 
 .site-art-layout-toggle svg {
@@ -489,7 +488,7 @@ body {
 
 .site-art-timeline-date time {
   color: var(--page-text);
-  font: 14px / 1.3 Interdisplay, Inter, sans-serif;
+  font: 14px / 1.3 "Neue Montreal", Arial, sans-serif;
 }
 
 .site-art-grid {
@@ -660,7 +659,7 @@ body {
 
 .site-details {
   color: var(--page-text);
-  font-family: Newsreader, Georgia, serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: -0.015em;
@@ -956,7 +955,7 @@ body {
   display: block;
   margin: 0 0 24px;
   color: var(--page-text);
-  font-family: Interdisplay, Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 1.35;
@@ -973,7 +972,7 @@ body {
 .site-playlist-card-heading h3 {
   margin: 0;
   color: var(--page-text);
-  font-family: Newsreader, Georgia, serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 22px;
   font-weight: 400;
   line-height: 1.35;
@@ -982,7 +981,7 @@ body {
 .site-playlist-card-heading p {
   margin: 4px 0 0;
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 13px;
   line-height: 1.5;
 }
@@ -1045,7 +1044,7 @@ body {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 13px;
   line-height: 1.5;
 }
@@ -1077,14 +1076,14 @@ body {
 
 .site-spotify-status {
   margin: 0;
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 13px;
   line-height: 1.6;
 }
 
 .site-spotify-status code {
   color: var(--page-text);
-  font-family: "Fira Code", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   font-size: 0.9em;
 }
 
@@ -1111,7 +1110,7 @@ body {
   display: block;
   margin: 0;
   color: var(--page-text);
-  font-family: Interdisplay, Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 1.35;
@@ -1147,7 +1146,7 @@ body {
 
 .site-playlists-page-nav a {
   color: var(--page-text);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.4;
   text-decoration: none;
@@ -1177,7 +1176,7 @@ body {
 .site-stats-top section h3 {
   margin: 0;
   color: var(--page-text);
-  font-family: Interdisplay, Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 22px;
   font-weight: 400;
   line-height: 1.35;
@@ -1198,7 +1197,7 @@ body {
 .site-stats-top-header h2 {
   margin: 0;
   color: var(--page-text);
-  font-family: Interdisplay, Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 22px;
   font-weight: 400;
   line-height: 1.35;
@@ -1225,7 +1224,7 @@ body {
 .site-stats-range-switcher button {
   padding: 0 0 4px;
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 12px;
   background: transparent;
   border: 0;
@@ -1247,7 +1246,7 @@ body {
 .site-stats-refresh-status {
   margin: 0 0 20px;
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 12px;
 }
 
@@ -1288,7 +1287,7 @@ body {
 
 .site-stats-rank {
   color: var(--page-muted);
-  font-family: "Fira Code", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   font-size: 11px;
   text-align: right;
 }
@@ -1312,7 +1311,7 @@ body {
   align-items: center;
   color: var(--page-text);
   background: transparent;
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.4;
   border-radius: 14px;
@@ -1425,7 +1424,7 @@ body {
 
 .site-stats-quiet-rank {
   color: var(--page-muted);
-  font-family: "Fira Code", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   font-size: 11px;
   text-align: right;
 }
@@ -1456,7 +1455,7 @@ body {
 }
 
 .site-stats-quiet-copy strong {
-  font-family: Interdisplay, Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
 }
@@ -1464,7 +1463,7 @@ body {
 .site-stats-quiet-copy span,
 .site-stats-quiet-copy em {
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 11px;
   font-style: normal;
 }
@@ -1472,7 +1471,7 @@ body {
 .site-stats-empty {
   margin: 0;
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 13px;
 }
 
@@ -1504,7 +1503,7 @@ body {
   padding: 12px 16px;
   align-items: center;
   color: var(--page-text);
-  font-family: Interdisplay, Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 20px;
   border-radius: 14px;
   text-decoration: none;
@@ -1526,7 +1525,7 @@ body {
 
 .site-stats-loved-artist-rank {
   color: var(--page-muted);
-  font-family: "Fira Code", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   font-size: 11px;
   text-align: right;
 }
@@ -1555,7 +1554,7 @@ body {
 
 .site-stats-loved-artist-copy em {
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 12px;
   font-style: normal;
 }
@@ -1640,7 +1639,7 @@ body {
 .site-playlist-list-copy strong {
   overflow: hidden;
   color: inherit;
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
@@ -1706,7 +1705,7 @@ body {
 .site-playlist-detail-header h2 {
   margin: 0;
   color: var(--page-text);
-  font-family: Interdisplay, Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 28px;
   font-weight: 400;
   line-height: 1.3;
@@ -1716,7 +1715,7 @@ body {
   max-width: 520px;
   margin: 12px 0 0;
   color: var(--page-muted);
-  font-family: Newsreader, Georgia, serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 17px;
   line-height: 1.5;
 }
@@ -1727,7 +1726,7 @@ body {
   gap: 7px;
   align-items: center;
   margin-top: 16px;
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 13px;
 }
 
@@ -1778,7 +1777,7 @@ body {
   min-height: 26px;
   padding: 0 16px 5px 0;
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 12px;
   line-height: 1;
   background: transparent;
@@ -1923,7 +1922,7 @@ body {
 .site-album-group-title {
   margin: 0 0 20px;
   color: var(--page-text);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -1965,7 +1964,7 @@ body {
   flex-direction: column;
   gap: 3px;
   padding: 12px 4px 4px;
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 13px;
   line-height: 1.4;
 }
@@ -2069,7 +2068,7 @@ body {
   flex-direction: column;
   margin-top: 12px;
   color: inherit;
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -2124,7 +2123,7 @@ body {
 .site-playlist-table-header {
   padding: 0 12px 10px;
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -2145,7 +2144,7 @@ body {
 .site-playlist-table-row {
   padding: 8px 12px;
   color: var(--page-text);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 13px;
   line-height: 1.4;
   border-radius: 10px;
@@ -2220,7 +2219,7 @@ body {
 .site-section-kicker {
   margin: 0 0 16px;
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -2230,7 +2229,7 @@ body {
   display: block;
   margin: 0;
   color: var(--page-text);
-  font-family: Interdisplay, Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 28px;
   font-weight: 400;
   letter-spacing: 0;
@@ -2249,7 +2248,7 @@ body {
   display: block;
   margin: 0 0 16px;
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
@@ -2268,7 +2267,7 @@ body {
   margin: 0 0 16px;
   padding: 0;
   color: var(--page-text);
-  font-family: Newsreader, Georgia, serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6;
 }
@@ -2281,7 +2280,7 @@ body {
   width: 52px;
   flex: 0 0 52px;
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 13px;
   line-height: 1.5;
 }
@@ -2302,7 +2301,7 @@ body {
   display: block;
   margin-top: 16px;
   color: var(--page-muted);
-  font-family: Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 13px;
   line-height: 1.5;
 }
@@ -2310,7 +2309,7 @@ body {
 .site-post-description {
   margin: 32px 0 0;
   color: var(--page-text);
-  font-family: Newsreader, Georgia, serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 20px;
   font-style: normal;
   line-height: 1.5;
@@ -2318,7 +2317,7 @@ body {
 
 .site-post-body {
   color: var(--page-text);
-  font-family: Newsreader, Georgia, serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-size: 18px;
   letter-spacing: -0.015em;
   line-height: 1.6;
@@ -2332,7 +2331,7 @@ body {
   display: block;
   margin: 64px 0 16px;
   color: var(--page-text);
-  font-family: Interdisplay, Inter, sans-serif;
+  font-family: "Neue Montreal", Arial, sans-serif;
   font-weight: 400;
   line-height: 1.35;
 }
@@ -2387,7 +2386,7 @@ body {
 .site-post-body :not(pre) > code {
   padding: 0.1em 0.25em;
   color: var(--page-text);
-  font-family: "Fira Code", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   font-size: 0.9em;
   background: color-mix(in srgb, var(--page-highlight) 14%, transparent);
   border-bottom: 1px dotted var(--page-highlight);
