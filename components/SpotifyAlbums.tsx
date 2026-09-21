@@ -262,7 +262,7 @@ const SpotifyAlbums: React.FC = () => {
               step='1'
               value={columns}
               aria-label='Album density'
-              className='m-0 h-[14px] w-32 cursor-pointer accent-[color:var(--page-highlight)]'
+              className='m-0 h-[2px] w-24 cursor-pointer accent-[color:var(--page-highlight)]'
               onChange={(event) => setColumns(Number(event.target.value))}
             />
           </div>
