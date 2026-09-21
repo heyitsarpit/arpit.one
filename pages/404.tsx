@@ -1,11 +1,13 @@
 import Link from 'next/link'
 
+import { solidActionLinkClassName } from '@/components/SitePrimitives'
+
 export default function NotFound() {
   return (
     <div className='max-w-[840px] mx-auto py-12 px-5 flex flex-col gap-8 justify-center items-center'>
       <h1 className='text-3xl'>404</h1>
       <p>You are trying to visit a page that does not exists.</p>
-      <Link href='/' className='link-btn'>
+      <Link href='/' className={solidActionLinkClassName}>
         Go Home
       </Link>
     </div>

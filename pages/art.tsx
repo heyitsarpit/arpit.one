@@ -1,5 +1,5 @@
-import { ArtGallery } from '@/components/ArtGallery'
+import { ArtGalleryGrid } from '@/components/ArtGalleryGrid'
 
-const Art: React.FC = () => <ArtGallery />
+const Art: React.FC = () => <ArtGalleryGrid />
 
 export default Art

@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const colors = require('tailwindcss/colors');
-const {
-  lightBlue,
-  warmGray,
-  trueGray,
-  coolGray,
-  blueGray,
-  ...supportedColors
-} = colors;
+const deprecatedColorNames = new Set([
+  'lightBlue',
+  'warmGray',
+  'trueGray',
+  'coolGray',
+  'blueGray'
+]);
+const supportedColors = Object.fromEntries(
+  Object.keys(colors)
+    .filter((name) => !deprecatedColorNames.has(name))
+    .map((name) => [name, colors[name]])
+);
 
 module.exports = {
   content: [
@@ -28,14 +32,28 @@ module.exports = {
         muted: 'var(--color-muted)',
         accent: 'var(--color-link-posts)'
       },
+      fontFamily: {
+        body: ['Newsreader', 'Georgia', 'serif'],
+        code: ['Fira Code', 'monospace'],
+        display: ['Interdisplay', 'Inter', 'sans-serif'],
+        ia: ['iA Quattro', 'ui-monospace', 'monospace'],
+        ui: ['Inter', 'sans-serif']
+      },
       animation: {
-        gradient: 'gradient 10s ease infinite'
+        gradient: 'gradient 10s ease infinite',
+        marquee: 'site-playlist-marquee 7s ease-in-out infinite alternate'
       },
       keyframes: {
         gradient: {
           '0%': { 'background-position': '0% 100%' },
           '50%': { 'background-position': '100% 50%' },
           '100%': { 'background-position': '0% 100%' }
+        },
+        'site-playlist-marquee': {
+          '0%, 12%': { transform: 'translateX(0)' },
+          '88%, 100%': {
+            transform: 'translateX(calc(-1 * var(--playlist-marquee-distance)))'
+          }
         }
       },
       backgroundImage: {

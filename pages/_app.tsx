@@ -1,5 +1,5 @@
 import '@/public/styles/font.css'
-import '@/public/styles/global.css'
+import '@/styles/tailwind.css'
 
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
 import type { AppProps } from 'next/app'
@@ -49,11 +49,10 @@ const MyApp: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
           shouldDehydrateQuery: (query) => query.state.status === 'success'
         }
       }}>
-      <>
-        <Head>
-          <meta name='viewport' content='width=device-width, initial-scale=1' />
-          <meta name='theme-color' content={pageTheme.background} />
-          <style key='page-theme'>{`
+      <Head>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta name='theme-color' content={pageTheme.background} />
+        <style key='page-theme'>{`
             :root {
               --page-text: ${pageTheme.text};
               --page-background: ${pageTheme.background};
@@ -71,16 +70,17 @@ const MyApp: React.FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
               background-color: ${pageTheme.background};
             }
         `}</style>
-        </Head>
-        <SEO />
-        <div className='site-shell' style={pageStyle}>
-          <Nav />
-          <main className='site-main'>
-            {getLayout(<Component {...pageProps} />)}
-          </main>
-          <footer />
-        </div>
-      </>
+      </Head>
+      <SEO />
+      <div
+        className='min-h-screen w-full bg-[color:var(--page-background)] text-[color:var(--page-text)]'
+        style={pageStyle}>
+        <Nav />
+        <main className='w-full'>
+          {getLayout(<Component {...pageProps} />)}
+        </main>
+        <footer />
+      </div>
     </PersistQueryClientProvider>
   )
 }

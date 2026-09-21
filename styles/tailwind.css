@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --page-text: #000;
+    --page-background: #bac8d3;
+    --page-highlight: #0c6e99;
+    --page-text-highlight: #0c6e99;
+    --page-text-highlight-text: #fff;
+    --page-muted: rgb(0 0 0 / 62%);
+    --page-border: rgb(0 0 0 / 22%);
+  }
+
+  html,
+  body,
+  #__next {
+    @apply h-full w-full text-[14px] md:text-[16px];
+    scroll-behavior: smooth;
+  }
+
+  html {
+    @apply font-ia leading-7;
+  }
+
+  body {
+    @apply min-w-[320px] font-normal;
+    color: var(--page-text);
+    background: var(--page-background);
+    text-rendering: optimizeLegibility;
+  }
+
+  * {
+    scrollbar-color: var(--page-border) transparent;
+    scrollbar-width: thin;
+  }
+
+  *::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--page-border);
+    border: 3px solid transparent;
+    border-radius: 20px;
+  }
+
+  *::selection {
+    color: var(--page-text-highlight-text);
+    background: var(--page-text-highlight);
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+}

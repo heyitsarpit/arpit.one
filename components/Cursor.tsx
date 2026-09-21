@@ -1,20 +1,20 @@
 import { BreakPointHooks, breakpointsTailwind } from '@react-hooks-library/core'
-import { useRouter } from 'next/router'
 import { useEffect, useRef } from 'react'
 
 const { useSmaller } = BreakPointHooks(breakpointsTailwind)
 
 export function Cursor() {
   const ref = useRef<HTMLDivElement>(null)
-  const { route } = useRouter()
   const isMobile = useSmaller('md')
 
   useEffect(() => {
-    route
+    const previousBodyCursor = document.body.style.cursor
 
     if (isMobile) {
       document.body.style.cursor = 'auto'
-      return
+      return () => {
+        document.body.style.cursor = previousBodyCursor
+      }
     }
 
     document.body.style.cursor = 'none'
@@ -41,28 +41,31 @@ export function Cursor() {
 
     // called to reset to default position
 
-    const allLinks = Array.from(
-      document.querySelectorAll(
-        'a, button, input, textarea, [data-clickable="true"]'
-      )
-    )
+    const interactiveSelector =
+      'a, button, input, textarea, [data-clickable="true"]'
 
-    const handleLinks = () => {
-      allLinks.map((link) => {
-        link.setAttribute('style', 'cursor: none;')
+    const handlePointerOver = (event: PointerEvent) => {
+      if (!(event.target instanceof Element)) return
 
-        link.addEventListener('mouseenter', handleMouseEnter)
-        link.addEventListener('mouseleave', handleMouseLeave)
-      })
+      const interactive = event.target.closest(interactiveSelector)
+      const related =
+        event.relatedTarget instanceof Node ? event.relatedTarget : null
+
+      if (interactive && (!related || !interactive.contains(related))) {
+        handleMouseEnter()
+      }
     }
 
-    const unHandleLinks = () => {
-      allLinks.map((link) => {
-        link.setAttribute('style', 'cursor: auto;')
+    const handlePointerOut = (event: PointerEvent) => {
+      if (!(event.target instanceof Element)) return
 
-        link.removeEventListener('mouseenter', handleMouseEnter)
-        link.removeEventListener('mouseleave', handleMouseLeave)
-      })
+      const interactive = event.target.closest(interactiveSelector)
+      const related =
+        event.relatedTarget instanceof Node ? event.relatedTarget : null
+
+      if (interactive && (!related || !interactive.contains(related))) {
+        handleMouseLeave()
+      }
     }
 
     let lastScrollX = 0
@@ -95,22 +98,21 @@ export function Cursor() {
 
     const handleWindowEnter = () => {
       if (!ref.current) return
-      console.log('handleWindowEnter')
       ref.current.style.visibility = 'visible'
     }
     const handleWindowLeave = () => {
       if (!ref.current) return
-      console.log('handleWindowLeave')
       ref.current.style.visibility = 'hidden'
     }
 
     //////////////////////////////////////////////////////////////////
 
     handleMouseLeave()
-    handleLinks()
 
     window.addEventListener('mousemove', handleMouseMove)
     window.addEventListener('scroll', handleScroll)
+    document.addEventListener('pointerover', handlePointerOver)
+    document.addEventListener('pointerout', handlePointerOut)
 
     document.documentElement.addEventListener('mouseenter', handleWindowEnter)
     document.documentElement.addEventListener('mouseleave', handleWindowLeave)
@@ -118,6 +120,8 @@ export function Cursor() {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('pointerover', handlePointerOver)
+      document.removeEventListener('pointerout', handlePointerOut)
 
       document.documentElement.removeEventListener(
         'mouseenter',
@@ -127,10 +131,9 @@ export function Cursor() {
         'mouseleave',
         handleWindowLeave
       )
-
-      unHandleLinks()
+      document.body.style.cursor = previousBodyCursor
     }
-  }, [isMobile, route])
+  }, [isMobile])
 
   return (
     <div className='hidden md:block min-w-max'>

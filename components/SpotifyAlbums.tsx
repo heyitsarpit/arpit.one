@@ -1,5 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
-import { type CSSProperties, useState } from 'react'
+import Image from 'next/image'
+import { useState } from 'react'
+
+import {
+  focusRingClassName,
+  SectionHeading,
+  StatusMessage
+} from '@/components/SitePrimitives'
 
 type Album = {
   id: string
@@ -124,29 +131,58 @@ const groupAlbums = (albums: Album[], group: AlbumGroup) => {
     }))
 }
 
-const AlbumCard: React.FC<{ album: Album }> = ({ album }) => (
+const albumGridClasses: Record<number, string> = {
+  3: 'grid-cols-3 gap-x-6 gap-y-9',
+  4: 'grid-cols-4 gap-x-6 gap-y-9',
+  5: 'grid-cols-5 gap-x-6 gap-y-9',
+  6: 'grid-cols-6 gap-x-6 gap-y-9',
+  7: 'grid-cols-7 gap-x-[18px] gap-y-7',
+  8: 'grid-cols-8 gap-x-4 gap-y-6',
+  9: 'grid-cols-9 gap-x-[14px] gap-y-5',
+  10: 'grid-cols-10 gap-x-3 gap-y-4'
+}
+
+const AlbumCard: React.FC<{ album: Album; columns: number }> = ({
+  album,
+  columns
+}) => (
   <li>
     <a
-      className='site-album-card'
+      className={`${columns >= 7 ? 'rounded-none bg-transparent p-0 hover:bg-transparent' : 'rounded-2xl bg-[color-mix(in_srgb,var(--page-text)_4%,var(--page-background))] p-3 hover:bg-[color-mix(in_srgb,var(--page-highlight)_12%,var(--page-background))]'} block min-w-0 text-[color:var(--page-text)] no-underline transition-colors duration-200 focus-visible:bg-[color:var(--page-background)] ${focusRingClassName}`}
       href={album.url || undefined}
       target='_blank'
       rel='noreferrer'>
       {album.image ? (
-        <img
-          className='site-album-art'
+        <Image
+          className='block aspect-square w-full rounded-[10px] bg-[color-mix(in_srgb,var(--page-text)_9%,var(--page-background))] object-cover'
           src={album.image}
           alt=''
+          width={512}
+          height={512}
+          sizes='(max-width: 700px) 50vw, 20vw'
           loading='lazy'
-          decoding='async'
         />
       ) : (
-        <span className='site-album-art-placeholder' />
+        <span className='block aspect-square w-full rounded-[10px] bg-[color-mix(in_srgb,var(--page-text)_9%,var(--page-background))]' />
       )}
-      <span className='site-album-copy'>
-        <strong>{album.name}</strong>
-        <span>{album.artists.join(', ')}</span>
-        {album.releaseYear ? <em>{album.releaseYear}</em> : null}
-      </span>
+      {columns < 10 ? (
+        <span
+          className={`${columns >= 7 ? 'px-0' : 'px-1'} flex min-w-0 flex-col gap-[3px] pb-1 pt-3 font-ui text-[13px] leading-[1.4]`}>
+          <strong className='overflow-hidden text-ellipsis whitespace-nowrap font-medium hover:text-[color:var(--page-highlight)]'>
+            {album.name}
+          </strong>
+          {columns < 9 ? (
+            <span className='overflow-hidden text-ellipsis whitespace-nowrap text-[color:var(--page-muted)]'>
+              {album.artists.join(', ')}
+            </span>
+          ) : null}
+          {columns < 8 && album.releaseYear ? (
+            <em className='overflow-hidden text-ellipsis whitespace-nowrap text-[12px] not-italic text-[color:var(--page-muted)]'>
+              {album.releaseYear}
+            </em>
+          ) : null}
+        </span>
+      ) : null}
     </a>
   </li>
 )
@@ -184,26 +220,22 @@ const SpotifyAlbums: React.FC = () => {
       ? 'Spotify albums are unavailable.'
       : undefined) ||
     error?.message
-  const albumGridStyle = {
-    '--album-columns': columns
-  } as CSSProperties
-  const albumGridClassName = `site-album-grid site-album-grid-density-${columns}`
+  const albumGridClassName = `grid list-none m-0 p-0 ${albumGridClasses[columns]} max-[700px]:grid-cols-2 max-[700px]:gap-x-4 max-[700px]:gap-y-7`
   const albumGroups = groupAlbums(sortAlbums(albums, sort), group)
 
   return (
-    <section className='site-albums' aria-labelledby='saved-albums-title'>
-      <header className='site-albums-header'>
+    <section className='w-full pb-16' aria-labelledby='saved-albums-title'>
+      <header className='mb-9 flex items-end justify-between gap-6 max-[700px]:block'>
         <div>
-          <p className='site-section-kicker'>My Spotify library</p>
-          <h1 id='saved-albums-title' className='site-section-title'>
+          <SectionHeading kicker='My Spotify library' id='saved-albums-title'>
             Albums
-          </h1>
+          </SectionHeading>
         </div>
-        <div className='site-albums-meta'>
-          <div className='site-albums-browse-controls'>
+        <div className='flex flex-wrap items-end justify-end gap-[18px] max-[700px]:items-start max-[700px]:justify-start'>
+          <div className='flex flex-wrap items-center justify-end gap-3.5 max-[700px]:justify-start'>
             <select
               aria-label='Sort albums'
-              className='site-albums-select'
+              className='min-h-[26px] cursor-pointer rounded-none border-0 border-b border-[color-mix(in_srgb,var(--page-muted)_45%,transparent)] bg-transparent pb-[5px] pr-4 font-ui text-[12px] leading-none text-[color:var(--page-muted)] focus-visible:outline-2 focus-visible:outline-[color:var(--page-highlight)] focus-visible:outline-offset-4'
               value={sort}
               onChange={(event) => setSort(event.target.value as AlbumSort)}>
               <option value='recent'>Recently added</option>
@@ -213,7 +245,7 @@ const SpotifyAlbums: React.FC = () => {
             </select>
             <select
               aria-label='Group albums'
-              className='site-albums-select'
+              className='min-h-[26px] cursor-pointer rounded-none border-0 border-b border-[color-mix(in_srgb,var(--page-muted)_45%,transparent)] bg-transparent pb-[5px] pr-4 font-ui text-[12px] leading-none text-[color:var(--page-muted)] focus-visible:outline-2 focus-visible:outline-[color:var(--page-highlight)] focus-visible:outline-offset-4'
               value={group}
               onChange={(event) => setGroup(event.target.value as AlbumGroup)}>
               <option value='none'>No grouping</option>
@@ -221,7 +253,7 @@ const SpotifyAlbums: React.FC = () => {
               <option value='decade'>Group by decade</option>
             </select>
           </div>
-          <div className='site-albums-layout-control'>
+          <div className='flex items-center max-[700px]:hidden'>
             <input
               id='albums-per-row'
               type='range'
@@ -230,6 +262,7 @@ const SpotifyAlbums: React.FC = () => {
               step='1'
               value={columns}
               aria-label='Album density'
+              className='m-0 h-[14px] w-32 cursor-pointer accent-[color:var(--page-highlight)]'
               onChange={(event) => setColumns(Number(event.target.value))}
             />
           </div>
@@ -237,49 +270,53 @@ const SpotifyAlbums: React.FC = () => {
       </header>
 
       {errorMessage ? (
-        <p className='site-spotify-status site-albums-status'>{errorMessage}</p>
+        <StatusMessage className='min-h-40 py-8'>{errorMessage}</StatusMessage>
       ) : null}
 
       {!errorMessage && isPending && !state ? (
         <div
           className={`${albumGridClassName} is-loading`}
           data-density={columns}
-          style={albumGridStyle}
+          role='status'
           aria-label='Loading albums'>
           {loadingAlbums.map((album) => (
-            <div key={album} className='site-album-card' aria-hidden='true'>
-              <span className='site-album-art-placeholder' />
-              <span className='site-album-loading-line' />
-              <span className='site-album-loading-line is-short' />
+            <div
+              key={album}
+              className='block min-w-0 rounded-2xl bg-[color-mix(in_srgb,var(--page-text)_4%,var(--page-background))] p-3'
+              aria-hidden='true'>
+              <span className='block aspect-square w-full rounded-[10px] bg-[color-mix(in_srgb,var(--page-text)_9%,var(--page-background))] animate-pulse' />
+              <span className='mt-3 block h-3 w-[76%] rounded-full bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)] animate-pulse' />
+              <span className='mt-[7px] block h-3 w-[52%] rounded-full bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)] animate-pulse' />
             </div>
           ))}
         </div>
       ) : null}
 
       {!errorMessage && state && albums.length === 0 ? (
-        <p className='site-spotify-status site-albums-status'>
+        <StatusMessage className='min-h-40 py-8'>
           No saved albums found.
-        </p>
+        </StatusMessage>
       ) : null}
 
       {!errorMessage && state && albums.length > 0 ? (
-        <div className='site-album-groups'>
+        <div className='grid gap-14'>
           {albumGroups.map((albumGroup) => (
-            <section className='site-album-group' key={albumGroup.key}>
+            <section className='min-w-0' key={albumGroup.key}>
               {albumGroup.label ? (
-                <h2 className='site-album-group-title'>{albumGroup.label}</h2>
+                <h2 className='mb-5 font-ui text-lg font-medium tracking-[-0.02em] text-[color:var(--page-text)]'>
+                  {albumGroup.label}
+                </h2>
               ) : null}
               <ul
                 className={albumGridClassName}
                 data-density={columns}
-                style={albumGridStyle}
                 aria-label={
                   albumGroup.label
                     ? `${albumGroup.label} albums`
                     : 'Saved albums'
                 }>
                 {albumGroup.albums.map((album) => (
-                  <AlbumCard key={album.id} album={album} />
+                  <AlbumCard key={album.id} album={album} columns={columns} />
                 ))}
               </ul>
             </section>

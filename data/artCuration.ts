@@ -1,11 +1,24 @@
 export type ArtView = 'big' | 'small'
 
+export const ART_GRID_COLUMNS = 100
+
+export type MediaPosition = 'center' | 'top' | 'bottom' | 'left' | 'right'
+
+export type InnerPadding = {
+  bottom: number
+  left: number
+  right: number
+  top: number
+}
+
 export type LayoutItem = {
   id: string
   x: number
   y: number
   w: number
   h: number
+  objectPosition?: MediaPosition
+  innerPadding?: InnerPadding
 }
 
 export type ArtLayout = Record<string, LayoutItem[]>
@@ -22,11 +35,11 @@ export type CurationGroup = {
   items: CurationItem[]
 }
 
-const bigWidths = [12, 7, 5, 8, 4, 4, 6, 6, 9, 3]
-const smallWidths = [4, 4, 4, 6, 6, 8, 4, 8, 5, 7]
+const bigWidths = [100, 58, 42, 67, 33, 33, 50, 50, 75, 25]
+const smallWidths = [33, 33, 33, 50, 50, 67, 33, 67, 42, 58]
 
 const getHeight = (width: number, ratio: number) =>
-  Math.max(4, Math.round((width / Math.max(ratio, 0.25)) * 1.75))
+  Math.max(8, Math.round(width / Math.max(ratio, 0.25)))
 
 export const createDefaultLayout = (
   items: CurationItem[],
@@ -43,7 +56,7 @@ export const createDefaultLayout = (
     const requestedWidth = widths[index % widths.length]
     let width = requestedWidth
 
-    if (x + width > 12) {
+    if (x + width > ART_GRID_COLUMNS) {
       if (x > 0) {
         x = 0
         y += rowHeight + 1
@@ -65,7 +78,7 @@ export const createDefaultLayout = (
     rowHeight = Math.max(rowHeight, height)
     x += width
 
-    if (x >= 12) {
+    if (x >= ART_GRID_COLUMNS) {
       x = 0
       y += rowHeight + 1
       rowHeight = 0

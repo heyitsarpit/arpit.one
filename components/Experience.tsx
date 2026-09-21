@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import { actionLinkClassName } from '@/components/SitePrimitives'
 import { a11yDate, visibleDate } from '@/utils/date'
 
 const experience = [
@@ -53,7 +54,7 @@ const experience = [
       <>
         Proposed and developed system to auto update firefox public suffix list.
         Successfully delivered in firefox 70.{' '}
-        <Link href='/posts/gsoc-2019' className='link-btn'>
+        <Link href='/posts/gsoc-2019' className={actionLinkClassName}>
           All my work is public and open source.
         </Link>
       </>

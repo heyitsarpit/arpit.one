@@ -2,14 +2,13 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import matter from 'gray-matter'
+import type { PostMeta } from 'mdx'
 import { bundleMDX } from 'mdx-bundler'
 import rehypeAutolink from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import remarkPrism from 'remark-prism'
 import glob from 'tiny-glob'
-
-import type { PostMeta } from 'mdx'
 import { autoLinkHeadingsOptions } from './rehypeAutolinkPlugin'
 
 const RootPath = process.cwd()

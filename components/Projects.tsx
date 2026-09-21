@@ -1,3 +1,5 @@
+import { actionLinkClassName } from '@/components/SitePrimitives'
+
 export const projects = [
   {
     title: 'React Hooks Library',
@@ -70,7 +72,7 @@ export function Projects() {
                 {source ? (
                   <a
                     href={source}
-                    className='flex items-center gap-1 link-btn'
+                    className={`flex items-center gap-1 ${actionLinkClassName}`}
                     target='_blank'
                     rel='noopener noreferrer'>
                     <span>source</span>
@@ -80,7 +82,7 @@ export function Projects() {
                 {live ? (
                   <a
                     href={live}
-                    className='flex items-center gap-1 link-btn'
+                    className={`flex items-center gap-1 ${actionLinkClassName}`}
                     target='_blank'
                     rel='noopener noreferrer'>
                     <span>live</span>

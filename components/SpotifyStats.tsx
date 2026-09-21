@@ -1,6 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
+import Image from 'next/image'
 import { useMemo, useState } from 'react'
 
+import {
+  focusRingClassName,
+  SectionHeading,
+  StatusMessage
+} from '@/components/SitePrimitives'
 import type { StoredPlaylistLibrary } from '@/utils/playlists'
 
 const ranges = [
@@ -48,7 +54,7 @@ type RepeatedTrack = {
 
 const loadingRanks = Array.from({ length: 10 }, (_, index) => index)
 const parentheticalVersionSuffix =
-  /\s*[\[(](?=[^\])]*(?:\b(?:remaster(?:ed)?|live|unplugged|demo|mono|stereo|edit(?:ion)?|version|mix|rework|deluxe|bonus|alternate|radio|single|anniversary|session|take|rough|extended|explicit)\b))[^\])]*[\])]\s*/gi
+  /\s*[[(](?=[^\])]*(?:\b(?:remaster(?:ed)?|live|unplugged|demo|mono|stereo|edit(?:ion)?|version|mix|rework|deluxe|bonus|alternate|radio|single|anniversary|session|take|rough|extended|explicit)\b))[^\])]*[\])]\s*/gi
 const dashedVersionSuffix =
   /\s*[-–—]\s*(?:(?:\d{4}\s+)?(?:digital\s+)?remaster(?:ed)?|(?:\d{4}\s+)?remaster(?:ed)?|live(?:\s+at)?|unplugged|demo|mono|stereo|radio\s+edit|single\s+version|edit(?:ion)?|version|mix|rework|remix|deluxe(?:\s+edition)?|bonus(?:\s+track)?|alternate|anniversary|session|take|rough|extended|explicit).*$/i
 
@@ -203,19 +209,28 @@ const SpotifyStats: React.FC<Props> = ({ library }) => {
 
   const errorMessage = state?.error || (!state ? error?.message : undefined)
 
+  const rankingListClass = 'm-0 grid list-none gap-3 p-0'
+  const rankingLinkClass = `grid min-w-0 grid-cols-[24px_72px_minmax(0,1fr)] items-center gap-3 rounded-[14px] bg-transparent p-2 font-ui text-sm leading-[1.4] text-[color:var(--page-text)] no-underline hover:bg-[color-mix(in_srgb,var(--page-highlight)_15%,var(--page-background))] ${focusRingClassName}`
+  const imagePlaceholderClass =
+    'block h-[72px] w-[72px] rounded-lg bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)]'
+
   return (
-    <div className='site-stats'>
-      <section className='site-stats-top' aria-labelledby='top-stats'>
-        <header className='site-stats-top-header'>
-          <h2 id='top-stats'>Top played</h2>
-          <fieldset className='site-stats-range-switcher'>
-            <legend>Listening period</legend>
+    <div className='grid gap-[72px]'>
+      <section aria-labelledby='top-stats'>
+        <header className='mb-7 flex items-end justify-between gap-6 max-[700px]:block'>
+          <h2
+            id='top-stats'
+            className='m-0 font-display text-[22px] font-normal leading-[1.35] text-[color:var(--page-text)]'>
+            Top played
+          </h2>
+          <fieldset className='m-0 flex items-center gap-4 border-0 p-0 max-[700px]:mt-5 max-[479px]:justify-between max-[479px]:gap-3'>
+            <legend className='sr-only'>Listening period</legend>
             {ranges.map((item) => (
               <button
                 key={item.value}
                 type='button'
                 aria-pressed={range === item.value}
-                className={range === item.value ? 'is-selected' : ''}
+                className={`border-0 border-b border-transparent bg-transparent pb-1 font-ui text-[12px] text-[color:var(--page-muted)] ${range === item.value ? 'border-[color:var(--page-highlight)] text-[color:var(--page-text)]' : ''}`}
                 onClick={() => setRange(item.value)}>
                 {item.label}
               </button>
@@ -224,51 +239,68 @@ const SpotifyStats: React.FC<Props> = ({ library }) => {
         </header>
 
         {errorMessage ? (
-          <p className='site-spotify-status site-stats-status'>
+          <StatusMessage className='min-h-40 py-8'>
             {errorMessage}
-          </p>
+          </StatusMessage>
         ) : (
           <>
             {error && state ? (
-              <p className='site-stats-refresh-status' aria-live='polite'>
+              <p
+                className='mb-5 font-ui text-[12px] text-[color:var(--page-muted)]'
+                aria-live='polite'>
                 Showing saved stats while Spotify reconnects.
               </p>
             ) : null}
-            <div className='site-stats-ranking-grid'>
+            <div className='grid grid-cols-2 gap-14 max-[700px]:grid-cols-1 max-[700px]:gap-10'>
               <section aria-labelledby='top-artists'>
-                <h3 id='top-artists'>Top played artists</h3>
+                <h3
+                  id='top-artists'
+                  className='mb-[18px] mt-0 font-display text-sm font-normal leading-[1.35] text-[color:var(--page-muted)]'>
+                  Top played artists
+                </h3>
                 {isPending && !state ? (
-                  <ol
-                    className='site-stats-ranking is-loading'
-                    aria-label='Loading artists'>
+                  <ol className={rankingListClass} aria-label='Loading artists'>
                     {loadingRanks.map((rank) => (
-                      <li key={rank} aria-hidden='true'>
-                        <span className='site-stats-rank'>{rank + 1}</span>
-                        <span className='site-stats-image-placeholder' />
-                        <span className='site-stats-loading-line' />
+                      <li
+                        key={rank}
+                        className='grid grid-cols-[24px_72px_minmax(0,1fr)] items-center gap-3'
+                        aria-hidden='true'>
+                        <span className='text-right font-code text-[11px] text-[color:var(--page-muted)]'>
+                          {rank + 1}
+                        </span>
+                        <span className={imagePlaceholderClass} />
+                        <span className='block h-3 w-[min(72%,220px)] animate-pulse rounded-full bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)]' />
                       </li>
                     ))}
                   </ol>
                 ) : (
-                  <ol className='site-stats-ranking'>
+                  <ol className={rankingListClass}>
                     {artists.map((artist, index) => (
                       <li key={artist.id || artist.name}>
                         <a
+                          className={rankingLinkClass}
                           href={artist.url || undefined}
                           target='_blank'
                           rel='noreferrer'>
-                          <span className='site-stats-rank'>{index + 1}</span>
+                          <span className='text-right font-code text-[11px] text-[color:var(--page-muted)]'>
+                            {index + 1}
+                          </span>
                           {artist.image ? (
-                            <img
+                            <Image
+                              className={imagePlaceholderClass}
                               src={artist.image}
                               alt=''
+                              width={72}
+                              height={72}
+                              sizes='72px'
                               loading='lazy'
-                              decoding='async'
                             />
                           ) : (
-                            <span className='site-stats-image-placeholder' />
+                            <span className={imagePlaceholderClass} />
                           )}
-                          <strong>{artist.name}</strong>
+                          <strong className='overflow-hidden text-ellipsis whitespace-nowrap font-medium'>
+                            {artist.name}
+                          </strong>
                         </a>
                       </li>
                     ))}
@@ -277,41 +309,59 @@ const SpotifyStats: React.FC<Props> = ({ library }) => {
               </section>
 
               <section aria-labelledby='top-tracks'>
-                <h3 id='top-tracks'>Top played songs</h3>
+                <h3
+                  id='top-tracks'
+                  className='mb-[18px] mt-0 font-display text-sm font-normal leading-[1.35] text-[color:var(--page-muted)]'>
+                  Top played songs
+                </h3>
                 {isPending && !state ? (
-                  <ol
-                    className='site-stats-ranking is-loading'
-                    aria-label='Loading songs'>
+                  <ol className={rankingListClass} aria-label='Loading songs'>
                     {loadingRanks.map((rank) => (
-                      <li key={rank} aria-hidden='true'>
-                        <span className='site-stats-rank'>{rank + 1}</span>
-                        <span className='site-stats-image-placeholder' />
-                        <span className='site-stats-loading-line' />
+                      <li
+                        key={rank}
+                        className='grid grid-cols-[24px_72px_minmax(0,1fr)] items-center gap-3'
+                        aria-hidden='true'>
+                        <span className='text-right font-code text-[11px] text-[color:var(--page-muted)]'>
+                          {rank + 1}
+                        </span>
+                        <span className={imagePlaceholderClass} />
+                        <span className='block h-3 w-[min(72%,220px)] animate-pulse rounded-full bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)]' />
                       </li>
                     ))}
                   </ol>
                 ) : (
-                  <ol className='site-stats-ranking'>
+                  <ol className={rankingListClass}>
                     {tracks.map((track, index) => (
-                      <li key={track.id || `${track.name}-${index}`}>
+                      <li
+                        key={
+                          track.id || `${track.name}-${track.artists.join('|')}`
+                        }>
                         <a
+                          className={rankingLinkClass}
                           href={track.url || undefined}
                           target='_blank'
                           rel='noreferrer'>
-                          <span className='site-stats-rank'>{index + 1}</span>
+                          <span className='text-right font-code text-[11px] text-[color:var(--page-muted)]'>
+                            {index + 1}
+                          </span>
                           {track.image ? (
-                            <img
+                            <Image
+                              className={imagePlaceholderClass}
                               src={track.image}
                               alt=''
+                              width={72}
+                              height={72}
+                              sizes='72px'
                               loading='lazy'
-                              decoding='async'
                             />
                           ) : (
-                            <span className='site-stats-image-placeholder' />
+                            <span className={imagePlaceholderClass} />
                           )}
-                          <span className='site-stats-ranking-copy'>
-                            <strong>{track.name}</strong>
-                            <span>
+                          <span className='flex min-w-0 flex-col'>
+                            <strong className='overflow-hidden text-ellipsis whitespace-nowrap font-medium'>
+                              {track.name}
+                            </strong>
+                            <span className='overflow-hidden text-ellipsis whitespace-nowrap text-[12px] leading-[1.45] text-[color:var(--page-muted)]'>
                               {[
                                 track.artists.join(', '),
                                 track.album,
@@ -332,41 +382,43 @@ const SpotifyStats: React.FC<Props> = ({ library }) => {
         )}
       </section>
 
-      <section
-        className='site-stats-collection site-stats-favorites'
-        aria-labelledby='most-repeated-songs'>
-        <header className='site-stats-section-heading'>
-          <div>
-            <p className='site-section-kicker'>Repeated across my playlists</p>
-            <h2 id='most-repeated-songs'>Most repeated songs</h2>
-          </div>
-        </header>
+      <section className='w-full min-w-0' aria-labelledby='most-repeated-songs'>
+        <SectionHeading
+          as='h2'
+          kicker='Repeated across my playlists'
+          id='most-repeated-songs'>
+          Most repeated songs
+        </SectionHeading>
         {favoriteRows.length > 0 ? (
-          <ol className='site-stats-quiet-list'>
+          <ol className='m-0 grid list-none grid-cols-3 gap-x-[30px] gap-y-1.5 p-0 max-[700px]:grid-cols-1 min-[701px]:max-[900px]:grid-cols-2'>
             {favoriteRows.map((track, index) => (
               <li key={track.key}>
                 <a
-                  className='site-stats-quiet-track-link'
+                  className={`grid grid-cols-[20px_72px_minmax(0,1fr)] items-center gap-x-3.5 rounded-[10px] px-1.5 py-2 text-[color:var(--page-text)] no-underline transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--page-highlight)_10%,var(--page-background))] max-[479px]:grid-cols-[24px_56px_minmax(0,1fr)] max-[479px]:gap-3 max-[479px]:px-2 max-[479px]:py-2.5 ${focusRingClassName}`}
                   href={track.url || undefined}
                   target='_blank'
                   rel='noreferrer'>
-                  <span className='site-stats-quiet-rank'>
+                  <span className='text-right font-code text-[11px] text-[color:var(--page-muted)]'>
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   {track.image ? (
-                    <img
-                      className='site-stats-quiet-image'
+                    <Image
+                      className='block h-[72px] w-[72px] rounded-lg bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)] object-cover max-[479px]:h-14 max-[479px]:w-14'
                       src={track.image}
                       alt=''
+                      width={72}
+                      height={72}
+                      sizes='(max-width: 479px) 56px, 72px'
                       loading='lazy'
-                      decoding='async'
                     />
                   ) : (
-                    <span className='site-stats-quiet-image-placeholder' />
+                    <span className='block h-[72px] w-[72px] rounded-lg bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)] max-[479px]:h-14 max-[479px]:w-14' />
                   )}
-                  <span className='site-stats-quiet-copy'>
-                    <strong>{track.name}</strong>
-                    <span>
+                  <span className='flex min-w-0 flex-col gap-[3px]'>
+                    <strong className='overflow-hidden text-ellipsis whitespace-nowrap font-display text-sm font-normal'>
+                      {track.name}
+                    </strong>
+                    <span className='overflow-hidden text-ellipsis whitespace-nowrap font-ui text-[11px] text-[color:var(--page-muted)]'>
                       {[
                         track.artists.join(', '),
                         track.album,
@@ -375,49 +427,56 @@ const SpotifyStats: React.FC<Props> = ({ library }) => {
                         .filter(Boolean)
                         .join(' · ')}
                     </span>
-                    <em>{track.meta}</em>
+                    <em className='overflow-hidden text-ellipsis whitespace-nowrap font-ui text-[11px] not-italic text-[color:var(--page-muted)]'>
+                      {track.meta}
+                    </em>
                   </span>
                 </a>
               </li>
             ))}
           </ol>
         ) : (
-          <p className='site-stats-empty'>No repeated songs found.</p>
+          <p className='m-0 font-ui text-[13px] text-[color:var(--page-muted)]'>
+            No repeated songs found.
+          </p>
         )}
       </section>
 
-      <section
-        className='site-stats-collection site-stats-loved-artists'
-        aria-labelledby='most-loved-artists'>
-        <div className='site-stats-section-heading'>
-          <p className='site-section-kicker'>Across my playlists</p>
-          <h2 id='most-loved-artists'>Most loved artists</h2>
-        </div>
-        <ol className='site-stats-collected-list'>
+      <section className='w-full min-w-0' aria-labelledby='most-loved-artists'>
+        <SectionHeading
+          as='h2'
+          className='mb-8'
+          kicker='Across my playlists'
+          id='most-loved-artists'>
+          Most loved artists
+        </SectionHeading>
+        <ol className='m-0 grid list-none gap-1 p-0'>
           {libraryStats.mostLovedArtists.map(([artist, stats], index) => (
             <li key={artist}>
               <a
-                className='site-stats-loved-artist-link'
+                className={`grid grid-cols-[32px_48px_minmax(0,1fr)] items-center gap-5 rounded-[14px] px-4 py-3 font-display text-xl text-[color:var(--page-text)] no-underline transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--page-highlight)_10%,var(--page-background))] max-[479px]:grid-cols-[24px_48px_minmax(0,1fr)] max-[479px]:gap-3 max-[479px]:px-2 max-[479px]:py-2.5 ${focusRingClassName}`}
                 href={stats.url || undefined}
                 target='_blank'
                 rel='noreferrer'>
-                <span className='site-stats-loved-artist-rank'>
+                <span className='text-right font-code text-[11px] text-[color:var(--page-muted)]'>
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 {stats.image ? (
-                  <img
-                    className='site-stats-loved-artist-image'
+                  <Image
+                    className='block h-12 w-12 shrink-0 rounded-full bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)] object-cover'
                     src={stats.image}
                     alt=''
+                    width={48}
+                    height={48}
+                    sizes='48px'
                     loading='lazy'
-                    decoding='async'
                   />
                 ) : (
-                  <span className='site-stats-loved-artist-image-placeholder' />
+                  <span className='block h-12 w-12 shrink-0 rounded-full bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)]' />
                 )}
-                <span className='site-stats-loved-artist-copy'>
+                <span className='flex min-w-0 flex-col gap-[3px]'>
                   <strong>{artist}</strong>
-                  <em>
+                  <em className='font-ui text-[12px] not-italic text-[color:var(--page-muted)]'>
                     {stats.trackCount} track appearances across{' '}
                     {stats.playlistNames.size}{' '}
                     {stats.playlistNames.size === 1 ? 'playlist' : 'playlists'}

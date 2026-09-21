@@ -4,6 +4,7 @@ import PlaylistPageNav from '@/components/PlaylistPageNav'
 import PlaylistsLayout, {
   type PageWithLayout
 } from '@/components/PlaylistsLayout'
+import { SectionHeading, StatusMessage } from '@/components/SitePrimitives'
 import SpotifyStats from '@/components/SpotifyStats'
 import { usePlaylistLibrary } from '@/utils/playlistQuery'
 
@@ -17,14 +18,14 @@ const PlaylistStatsPage: React.FC & PageWithLayout = () => {
         canonical='https://www.arpit.one/playlists/stats'
         openGraph={{ url: 'https://www.arpit.one/playlists/stats' }}
       />
-      <header className='site-playlists-header'>
-        <h1 className='site-section-title'>Stats</h1>
+      <header className='mb-10 flex items-baseline justify-between gap-6 max-[479px]:gap-4'>
+        <SectionHeading titleClassName='mb-0'>Stats</SectionHeading>
         <PlaylistPageNav active='stats' />
       </header>
       {isPending ? (
-        <p className='site-spotify-status'>Loading playlist stats…</p>
+        <StatusMessage>Loading playlist stats…</StatusMessage>
       ) : error ? (
-        <p className='site-spotify-status'>{error.message}</p>
+        <StatusMessage>{error.message}</StatusMessage>
       ) : library ? (
         <SpotifyStats library={library} />
       ) : null}

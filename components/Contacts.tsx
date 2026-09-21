@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
+import { inlineLinkClassName } from '@/components/SitePrimitives'
 
 type LinkProps = {
   href: string
@@ -8,7 +10,7 @@ type LinkProps = {
 export function Link({ href, children }: LinkProps) {
   return (
     <a
-      className='site-inline-link'
+      className={inlineLinkClassName}
       rel='noopener noreferrer'
       target='_blank'
       href={href}>
@@ -38,16 +40,28 @@ const contactList = [
 
 export function Contacts() {
   const [copied, setCopied] = useState(false)
+  const copyResetTimeout = useRef<number | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (copyResetTimeout.current !== null) {
+        window.clearTimeout(copyResetTimeout.current)
+      }
+    }
+  }, [])
 
   const copyEmail = async () => {
     await navigator.clipboard?.writeText('arpitbharti73@gmail.com')
     setCopied(true)
-    window.setTimeout(() => setCopied(false), 1600)
+    if (copyResetTimeout.current !== null) {
+      window.clearTimeout(copyResetTimeout.current)
+    }
+    copyResetTimeout.current = window.setTimeout(() => setCopied(false), 1600)
   }
 
   return (
-    <div className='site-contacts'>
-      <p>
+    <div className='mt-6'>
+      <p className='mb-1'>
         {contactList
           .filter(({ name }) => name !== 'Email')
           .map(({ name, href }) => (
@@ -56,11 +70,16 @@ export function Contacts() {
             </span>
           ))}
       </p>
-      <p>
-        <a className='site-inline-link' href='mailto:arpitbharti73@gmail.com'>
+      <p className='mb-1'>
+        <a
+          className={inlineLinkClassName}
+          href='mailto:arpitbharti73@gmail.com'>
           arpitbharti73@gmail.com
         </a>{' '}
-        <button type='button' className='site-copy-button' onClick={copyEmail}>
+        <button
+          type='button'
+          className='border-0 border-b border-dotted border-[color:var(--page-text)] bg-transparent p-0 text-[color:var(--page-text)] transition-colors duration-100 ease-in hover:border-solid hover:border-[color:var(--page-highlight)] hover:text-[color:var(--page-highlight)]'
+          onClick={copyEmail}>
           ({copied ? 'copied' : 'copy'})
         </button>
       </p>
