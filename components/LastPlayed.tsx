@@ -91,7 +91,8 @@ const LastPlayed: React.FC = () => {
               width={76}
               height={76}
               sizes='76px'
-              loading='lazy'
+              priority
+              loading='eager'
             />
           ) : null}
           <span className='flex min-w-0 flex-col font-ui text-[13px] leading-[1.5]'>

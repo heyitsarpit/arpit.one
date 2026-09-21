@@ -10,7 +10,7 @@
       "!**/build",
       "!**/.next",
       "!**/node_modules",
-      "!components/archive/**",
+      "!components/archive",
       "!data/spotify-playlists.json"
     ]
   },
@@ -31,7 +31,7 @@
       "!**/build",
       "!**/.next",
       "!**/node_modules",
-      "!components/archive/**",
+      "!components/archive",
       "!data/spotify-playlists.json"
     ]
   },
@@ -60,7 +60,8 @@
       },
       "suspicious": {
         "noDebugger": "error",
-        "noEmptyBlockStatements": "info"
+        "noEmptyBlockStatements": "info",
+        "noUnknownAtRules": "off"
       }
     },
     "includes": [
@@ -70,7 +71,7 @@
       "!**/build",
       "!**/.next",
       "!**/node_modules",
-      "!components/archive/**",
+      "!components/archive",
       "!data/spotify-playlists.json"
     ]
   },
@@ -87,5 +88,10 @@
       "bracketSpacing": true
     },
     "globals": ["React", "JSX"]
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
   }
 }

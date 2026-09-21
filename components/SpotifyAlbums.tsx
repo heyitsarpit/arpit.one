@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import {
   focusRingClassName,
@@ -142,10 +142,12 @@ const albumGridClasses: Record<number, string> = {
   10: 'grid-cols-10 gap-x-3 gap-y-4'
 }
 
-const AlbumCard: React.FC<{ album: Album; columns: number }> = ({
-  album,
-  columns
-}) => (
+const AlbumCard: React.FC<{
+  album: Album
+  columns: number
+  eager?: boolean
+  priority?: boolean
+}> = ({ album, columns, eager = false, priority = false }) => (
   <li>
     <a
       className={`${columns >= 7 ? 'rounded-none bg-transparent p-0 hover:bg-transparent' : 'rounded-2xl bg-[color-mix(in_srgb,var(--page-text)_4%,var(--page-background))] p-3 hover:bg-[color-mix(in_srgb,var(--page-highlight)_12%,var(--page-background))]'} block min-w-0 text-[color:var(--page-text)] no-underline transition-colors duration-200 focus-visible:bg-[color:var(--page-background)] ${focusRingClassName}`}
@@ -160,7 +162,8 @@ const AlbumCard: React.FC<{ album: Album; columns: number }> = ({
           width={512}
           height={512}
           sizes='(max-width: 700px) 50vw, 20vw'
-          loading='lazy'
+          priority={priority}
+          loading={eager || priority ? 'eager' : 'lazy'}
         />
       ) : (
         <span className='block aspect-square w-full rounded-[10px] bg-[color-mix(in_srgb,var(--page-text)_9%,var(--page-background))]' />
@@ -221,7 +224,10 @@ const SpotifyAlbums: React.FC = () => {
       : undefined) ||
     error?.message
   const albumGridClassName = `grid list-none m-0 p-0 ${albumGridClasses[columns]} max-[700px]:grid-cols-2 max-[700px]:gap-x-4 max-[700px]:gap-y-7`
-  const albumGroups = groupAlbums(sortAlbums(albums, sort), group)
+  const albumGroups = useMemo(
+    () => groupAlbums(sortAlbums(albums, sort), group),
+    [albums, group, sort]
+  )
 
   return (
     <section className='w-full pb-16' aria-labelledby='saved-albums-title'>
@@ -300,7 +306,7 @@ const SpotifyAlbums: React.FC = () => {
 
       {!errorMessage && state && albums.length > 0 ? (
         <div className='grid gap-14'>
-          {albumGroups.map((albumGroup) => (
+          {albumGroups.map((albumGroup, albumGroupIndex) => (
             <section className='min-w-0' key={albumGroup.key}>
               {albumGroup.label ? (
                 <h2 className='mb-5 font-ui text-lg font-medium tracking-[-0.02em] text-[color:var(--page-text)]'>
@@ -315,8 +321,14 @@ const SpotifyAlbums: React.FC = () => {
                     ? `${albumGroup.label} albums`
                     : 'Saved albums'
                 }>
-                {albumGroup.albums.map((album) => (
-                  <AlbumCard key={album.id} album={album} columns={columns} />
+                {albumGroup.albums.map((album, albumIndex) => (
+                  <AlbumCard
+                    key={album.id}
+                    album={album}
+                    columns={columns}
+                    eager={albumGroupIndex === 0 && albumIndex < columns}
+                    priority={albumGroupIndex === 0 && albumIndex === 0}
+                  />
                 ))}
               </ul>
             </section>

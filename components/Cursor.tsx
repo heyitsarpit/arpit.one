@@ -72,28 +72,39 @@ export function Cursor() {
     let lastScrollY = 0
     let lastPageX = 0
     let lastPageY = 0
+    let animationFrame: number | null = null
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!ref.current) return
-
-      ref.current.style.left = `${e.pageX}px`
-      ref.current.style.top = `${e.pageY}px`
-
-      lastScrollX = window.scrollX
-      lastScrollY = window.scrollY
-
-      lastPageX = e.pageX
-      lastPageY = e.pageY
-    }
-
-    const handleScroll = () => {
-      if (!ref.current) return
+    const updatePosition = () => {
+      if (!ref.current) {
+        animationFrame = null
+        return
+      }
 
       const scrollDistanceX = window.scrollX - lastScrollX
       const scrollDistanceY = window.scrollY - lastScrollY
 
       ref.current.style.left = `${lastPageX + scrollDistanceX}px`
       ref.current.style.top = `${lastPageY + scrollDistanceY}px`
+      animationFrame = null
+    }
+
+    const schedulePositionUpdate = () => {
+      if (animationFrame === null) {
+        animationFrame = window.requestAnimationFrame(updatePosition)
+      }
+    }
+
+    const handleMouseMove = (e: MouseEvent) => {
+      lastScrollX = window.scrollX
+      lastScrollY = window.scrollY
+
+      lastPageX = e.pageX
+      lastPageY = e.pageY
+      schedulePositionUpdate()
+    }
+
+    const handleScroll = () => {
+      schedulePositionUpdate()
     }
 
     const handleWindowEnter = () => {
@@ -131,6 +142,9 @@ export function Cursor() {
         'mouseleave',
         handleWindowLeave
       )
+      if (animationFrame !== null) {
+        window.cancelAnimationFrame(animationFrame)
+      }
       document.body.style.cursor = previousBodyCursor
     }
   }, [isMobile])

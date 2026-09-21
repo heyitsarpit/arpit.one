@@ -1,6 +1,7 @@
 module.exports = {
   agentRules: false,
   allowedDevOrigins: ['127.0.0.1'],
+  devIndicators: false,
   images: {
     remotePatterns: [
       {

@@ -237,7 +237,7 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
         {selectedPlaylist.tracks.length > 0 ? (
           viewMode === 'cards' ? (
             <ol className='m-0 grid list-none grid-cols-3 gap-x-6 gap-y-9 p-0 max-[700px]:grid-cols-2 max-[700px]:gap-x-4 max-[700px]:gap-y-7 max-[479px]:gap-x-3 max-[479px]:gap-y-6'>
-              {selectedPlaylist.tracks.map((track) => (
+              {selectedPlaylist.tracks.map((track, trackIndex) => (
                 <li key={`${track.id}-${track.name}`} className='min-w-0'>
                   <a
                     className={`group block rounded-xl bg-[color-mix(in_srgb,var(--page-text)_4%,var(--page-background))] p-3 text-[color:var(--page-text)] no-underline transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--page-highlight)_12%,var(--page-background))] ${focusRingClassName}`}
@@ -252,7 +252,8 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
                         width={512}
                         height={512}
                         sizes='(max-width: 700px) 33vw, 25vw'
-                        loading='lazy'
+                        priority={trackIndex === 0}
+                        loading={trackIndex < 3 ? 'eager' : 'lazy'}
                       />
                     ) : (
                       <span className='block w-full aspect-square rounded-lg bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)]' />
