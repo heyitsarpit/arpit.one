@@ -1,6 +1,6 @@
 import type { PostMeta } from 'mdx'
 import Head from 'next/head'
-import { NextSeo } from 'next-seo'
+import { generateNextSeo } from 'next-seo/pages'
 
 import { SectionHeading } from '@/components/SitePrimitives'
 import { formateDateFull, validDate } from '@/utils/formatDate'
@@ -13,13 +13,13 @@ type Props = {
 export function PostPage({ meta, children }: Props) {
   return (
     <>
-      <NextSeo
-        title={`${meta.title} - Arpit`}
-        description={meta.description}
-        canonical={`https://www.arpit.one/posts/${meta.slug}`}
-        openGraph={{ url: `https://www.arpit.one/posts/${meta.slug}` }}
-      />
       <Head>
+        {generateNextSeo({
+          title: `${meta.title} - Arpit`,
+          description: meta.description,
+          canonical: `https://www.arpit.one/posts/${meta.slug}`,
+          openGraph: { url: `https://www.arpit.one/posts/${meta.slug}` }
+        })}
         <link rel='stylesheet' href='/styles/prism.css' />
       </Head>
       <article className='mx-auto min-h-screen w-[min(600px,calc(100%_-_40px))] py-[8%] text-[color:var(--page-text)] max-lg:pb-20 max-lg:pt-[106px] max-[479px]:pt-24'>

@@ -1,7 +1,8 @@
 import type { PostMeta } from 'mdx'
 import type { InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
 import Link from 'next/link'
-import { NextSeo } from 'next-seo'
+import { generateNextSeo } from 'next-seo/pages'
 
 import {
   inlineLinkClassName,
@@ -64,11 +65,13 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>
 const Posts: React.FC<Props> = ({ posts }) => {
   return (
     <>
-      <NextSeo
-        title='Posts'
-        canonical='https://www.arpit.one/posts'
-        openGraph={{ url: 'https://www.arpit.one/posts' }}
-      />
+      <Head>
+        {generateNextSeo({
+          title: 'Posts',
+          canonical: 'https://www.arpit.one/posts',
+          openGraph: { url: 'https://www.arpit.one/posts' }
+        })}
+      </Head>
       <div className='mx-auto min-h-screen w-[min(600px,calc(100%_-_40px))] py-[8%] text-[color:var(--page-text)] max-lg:pb-20 max-lg:pt-[106px] max-[479px]:pt-24'>
         <SectionHeading
           kicker='Index'

@@ -1,4 +1,5 @@
-import { NextSeo } from 'next-seo'
+import Head from 'next/head'
+import { generateNextSeo } from 'next-seo/pages'
 
 import PlaylistExplorer from '@/components/PlaylistExplorer'
 import PlaylistPageNav from '@/components/PlaylistPageNav'
@@ -13,11 +14,13 @@ const Playlists: React.FC & PageWithLayout = () => {
 
   return (
     <>
-      <NextSeo
-        title='Playlists'
-        canonical='https://www.arpit.one/playlists'
-        openGraph={{ url: 'https://www.arpit.one/playlists' }}
-      />
+      <Head>
+        {generateNextSeo({
+          title: 'Playlists',
+          canonical: 'https://www.arpit.one/playlists',
+          openGraph: { url: 'https://www.arpit.one/playlists' }
+        })}
+      </Head>
       <header className='mb-10 flex items-baseline justify-between gap-6 max-[479px]:gap-4'>
         <SectionHeading titleClassName='mb-0'>Playlists</SectionHeading>
         <PlaylistPageNav active='playlists' />
