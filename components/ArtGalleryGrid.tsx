@@ -396,13 +396,13 @@ export function ArtGalleryGrid() {
   return (
     <>
       <section
-        className='box-border min-h-screen ml-[max(150px,calc(8vw+120px))] bg-[color:var(--page-background)] pb-[10vw] pl-0 pr-[6vw] pt-[8vw] text-[color:var(--page-text)] max-[767px]:ml-0 max-[767px]:px-5 max-[767px]:pb-[20vw] max-[767px]:pt-[30vw]'
+        className='box-border min-h-screen ml-[max(150px,calc(8vw+120px))] bg-[color:var(--page-background)] pb-[10vw] pl-0 pr-[6vw] pt-[8vw] text-[color:var(--page-text)] max-lg:ml-0 max-lg:px-5 max-lg:pb-20 max-lg:pt-[106px]'
         aria-labelledby='art-title'>
         <header className='mb-[clamp(36px,6vw,72px)]'>
           <h1
             id='art-title'
-            className='m-0 font-display text-[clamp(32px,4vw,52px)] font-normal leading-[1.2]'>
-            Art &amp; photography
+            className='m-0 font-serif text-[clamp(32px,4vw,52px)] font-normal leading-[1.2]'>
+            Art &amp; Photography
           </h1>
         </header>
 

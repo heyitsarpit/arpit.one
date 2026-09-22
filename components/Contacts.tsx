@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { inlineLinkClassName } from '@/components/SitePrimitives'
+import { focusRingClassName } from '@/components/SitePrimitives'
+
+const homeLinkClassName = `site-home-link ${focusRingClassName}`
 
 type LinkProps = {
   href: string
@@ -10,7 +12,7 @@ type LinkProps = {
 export function Link({ href, children }: LinkProps) {
   return (
     <a
-      className={inlineLinkClassName}
+      className={homeLinkClassName}
       rel='noopener noreferrer'
       target='_blank'
       href={href}>
@@ -35,6 +37,10 @@ const contactList = [
   {
     name: 'Twitter',
     href: 'https://twitter.com/heyitsarpit'
+  },
+  {
+    name: 'Substack',
+    href: 'https://runningdownslopes.substack.com'
   }
 ]
 
@@ -61,24 +67,22 @@ export function Contacts() {
 
   return (
     <div className='mt-6'>
-      <p className='mb-1'>
+      <p className='mb-2 flex flex-wrap gap-x-5 gap-y-2'>
         {contactList
           .filter(({ name }) => name !== 'Email')
           .map(({ name, href }) => (
-            <span key={name}>
-              <Link href={href}>{name}</Link>{' '}
-            </span>
+            <Link key={name} href={href}>
+              {name}
+            </Link>
           ))}
       </p>
       <p className='mb-1'>
-        <a
-          className={inlineLinkClassName}
-          href='mailto:arpitbharti73@gmail.com'>
+        <a className={homeLinkClassName} href='mailto:arpitbharti73@gmail.com'>
           arpitbharti73@gmail.com
         </a>{' '}
         <button
           type='button'
-          className='border-0 border-b border-dotted border-[color:var(--page-text)] bg-transparent p-0 text-[color:var(--page-text)] transition-colors duration-100 ease-in hover:border-solid hover:border-[color:var(--page-highlight)] hover:text-[color:var(--page-highlight)]'
+          className={`site-home-link border-x-0 border-t-0 bg-transparent p-0 ${focusRingClassName}`}
           onClick={copyEmail}>
           ({copied ? 'copied' : 'copy'})
         </button>

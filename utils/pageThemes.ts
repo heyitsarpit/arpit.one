@@ -27,26 +27,26 @@ export const homeTheme: PageTheme = {
   border: 'hsl(0 0% 96% / 0.3)'
 }
 
-/** A quiet green-paper palette for the projects archive. */
+/** A quiet neutral-paper palette shared by the primary text pages. */
 export const projectsTheme: PageTheme = {
   text: 'hsl(150 10% 17% / 1)',
   background: 'hsl(72 18% 93% / 1)',
-  highlight: 'hsl(157 26% 35% / 1)',
-  textHighlight: 'hsl(157 26% 35% / 1)',
+  highlight: 'hsl(0deg 0% 38.19%)',
+  textHighlight: 'hsl(0deg 0% 38.19%)',
   textHighlightText: 'hsl(72 18% 98% / 1)',
   muted: 'hsl(150 8% 32% / 0.64)',
   border: 'hsl(150 10% 17% / 0.18)'
 }
 
-/** The writing palette: warm paper and burnt orange. */
+/** A restrained warm-paper palette for writing. */
 export const writingTheme: PageTheme = {
-  text: '#000000',
-  background: '#ffdc9c',
-  highlight: '#d6893a',
-  textHighlight: '#d6893a',
-  textHighlightText: '#000000',
-  muted: 'rgba(34, 34, 34, 0.62)',
-  border: 'rgba(34, 34, 34, 0.24)'
+  text: '#2b2723',
+  background: '#e8ded1',
+  highlight: '#7a493d',
+  textHighlight: '#7a493d',
+  textHighlightText: '#f8f2ea',
+  muted: 'rgba(43, 39, 35, 0.6)',
+  border: 'rgba(43, 39, 35, 0.2)'
 }
 
 /** A soft rose palette for the curated route. */
@@ -96,12 +96,12 @@ export const playlistsTheme: PageTheme = {
  * nearest configured parent route unless they have their own entry.
  */
 export const pageThemes: PageThemeConfig = {
-  '/': { ...homeTheme },
+  '/': { ...projectsTheme },
   '/art': { ...artTheme },
   '/curated': { ...curatedTheme },
   '/playlists': { ...playlistsTheme },
   '/projects': { ...projectsTheme },
-  '/posts': { ...writingTheme },
+  '/writing': { ...projectsTheme },
   '/404': { ...notFoundTheme }
 }
 
@@ -140,7 +140,7 @@ const normalizePathname = (pathname: string | null | undefined): string => {
  * Resolve the theme for a pathname.
  *
  * Exact entries win, then the longest matching parent route wins. This makes
- * `/posts/my-entry` inherit `/posts` while unknown paths safely use the home
+ * `/writing/my-entry` inherits `/writing` while unknown paths use the home
  * palette.
  */
 export const resolvePageTheme = (

@@ -19,7 +19,7 @@ const PlaylistAlbumsPage: React.FC & PageWithLayout = () => {
         })}
       </Head>
       <header className='mb-10 flex items-baseline justify-between gap-6 max-[479px]:gap-4'>
-        <SectionHeading titleClassName='mb-0'>Albums</SectionHeading>
+        <SectionHeading titleClassName='mb-0 font-serif'>Albums</SectionHeading>
         <PlaylistPageNav active='albums' />
       </header>
       <SpotifyAlbums />

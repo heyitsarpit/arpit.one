@@ -30,7 +30,7 @@ export default function Home({ code }: Props) {
   const Component = useMemo(() => getMDXComponent(code), [code])
 
   return (
-    <article className='mx-auto box-border flex min-h-screen max-w-[600px] flex-col px-5 pb-[9%] pt-[8%] text-[color:var(--page-text)] max-lg:pb-[16%] max-lg:pt-[18%] max-md:pb-[12%] max-[479px]:pb-[16%] max-[479px]:pt-[30%]'>
+    <article className='mx-auto flex min-h-screen w-[min(680px,calc(100%_-_40px))] flex-col pb-24 pt-[106px] text-[color:var(--page-text)] lg:py-[8vw]'>
       <Component components={mdxComponents} />
     </article>
   )

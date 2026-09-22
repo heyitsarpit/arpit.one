@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { type CSSProperties, useState } from 'react'
+import { type CSSProperties, useEffect, useState } from 'react'
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/posts', label: 'Writing' },
+  { href: '/writing', label: 'Writing' },
   { href: '/projects', label: 'Projects' },
   { href: '/art', label: 'Art' },
   { href: '/playlists', label: 'Playlists' }
@@ -25,8 +25,20 @@ const Nav: React.FC = () => {
     '--nav-active-offset': `${activeNavIndex * 38}px`
   } as CSSProperties
 
+  useEffect(() => {
+    if (!isOpen) return
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false)
+    }
+
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [isOpen])
+
   return (
-    <header className='fixed left-0 top-0 z-50 flex h-[50px] w-full items-center border-b border-[color:var(--page-border)] bg-transparent px-5 text-[color:var(--page-text)] backdrop-blur-lg lg:left-[8vw] lg:top-[8vw] lg:block lg:h-auto lg:w-[100px] lg:border-0 lg:p-0'>
+    <header
+      className={`site-nav-shell fixed left-0 top-0 z-50 flex h-[50px] w-full items-center border-b border-[color:var(--page-border)] bg-[color-mix(in_srgb,var(--page-background)_88%,transparent)] px-5 text-[color:var(--page-text)] lg:block lg:h-auto lg:w-[100px] lg:border-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none ${isOpen ? 'backdrop-blur-none' : 'backdrop-blur-lg'}`}>
       <nav
         className='relative hidden flex-col items-start lg:flex'
         style={navStyle}
@@ -50,29 +62,44 @@ const Nav: React.FC = () => {
 
       <button
         type='button'
-        className='flex h-[25px] w-[25px] flex-col items-center justify-between border-0 bg-transparent p-[3px_4px] text-[color:var(--page-text)] lg:hidden'
+        className='ml-auto flex h-9 w-9 flex-col items-center justify-center gap-[6px] border-0 bg-transparent p-2 text-[color:var(--page-text)] lg:hidden'
         aria-expanded={isOpen}
         aria-controls='site-nav-menu'
         aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
         onClick={() => setIsOpen((open) => !open)}>
-        <span />
-        <span />
-        <span />
+        <span
+          className={`block h-px w-full bg-current transition-transform duration-200 ${isOpen ? 'translate-y-[7px] rotate-45' : ''}`}
+          aria-hidden='true'
+        />
+        <span
+          className={`block h-px w-full bg-current transition-opacity duration-150 ${isOpen ? 'opacity-0' : ''}`}
+          aria-hidden='true'
+        />
+        <span
+          className={`block h-px w-full bg-current transition-transform duration-200 ${isOpen ? '-translate-y-[7px] -rotate-45' : ''}`}
+          aria-hidden='true'
+        />
       </button>
 
       {isOpen ? (
         <nav
           id='site-nav-menu'
-          className='absolute left-0 top-[50px] flex w-full flex-col items-start border-t border-[color:var(--page-border)] bg-[color:var(--page-background)] px-5 pb-2 pl-10 pt-1 lg:hidden'
+          className='absolute left-0 top-[49px] flex max-h-[calc(100vh_-_49px)] w-full flex-col items-start overflow-y-auto border-t border-[color:var(--page-border)] bg-[color-mix(in_srgb,var(--page-background)_62%,transparent)] px-5 py-4 shadow-[0_18px_36px_color-mix(in_srgb,var(--page-text)_8%,transparent)] backdrop-blur-[12px] lg:hidden'
           aria-label='Main navigation'>
           {navItems.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className='mr-1 mb-4 block border-b border-transparent font-ui text-base font-normal leading-[1.4] text-[color:var(--page-text)] no-underline'
+              className='block w-full py-2.5 font-ui text-base font-normal leading-[1.4] text-[color:var(--page-text)] no-underline'
               aria-current={isCurrent(href) ? 'page' : undefined}
               onClick={() => setIsOpen(false)}>
-              {label}
+              <span className='inline-flex items-center gap-3'>
+                <span
+                  className={`h-1.5 w-1.5 rounded-full bg-current ${isCurrent(href) ? 'opacity-100' : 'opacity-0'}`}
+                  aria-hidden='true'
+                />
+                {label}
+              </span>
             </Link>
           ))}
         </nav>

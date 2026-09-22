@@ -2,6 +2,20 @@ module.exports = {
   agentRules: false,
   allowedDevOrigins: ['127.0.0.1'],
   devIndicators: false,
+  async redirects() {
+    return [
+      {
+        source: '/posts',
+        destination: '/writing',
+        permanent: true
+      },
+      {
+        source: '/posts/:slug',
+        destination: '/writing/:slug',
+        permanent: true
+      }
+    ]
+  },
   images: {
     remotePatterns: [
       {

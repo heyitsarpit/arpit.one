@@ -22,7 +22,7 @@ const PlaylistStatsPage: React.FC & PageWithLayout = () => {
         })}
       </Head>
       <header className='mb-10 flex items-baseline justify-between gap-6 max-[479px]:gap-4'>
-        <SectionHeading titleClassName='mb-0'>Stats</SectionHeading>
+        <SectionHeading titleClassName='mb-0 font-serif'>Stats</SectionHeading>
         <PlaylistPageNav active='stats' />
       </header>
       {isPending ? (
