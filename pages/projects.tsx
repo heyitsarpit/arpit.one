@@ -9,6 +9,8 @@ const ProjectsPage: React.FC = () => {
       <Head>
         {generateNextSeo({
           title: 'Projects',
+          description:
+            'Software projects and experiments by Arpit Bharti, focused on developer tools, agents, and automation.',
           canonical: 'https://www.arpit.one/projects',
           openGraph: { url: 'https://www.arpit.one/projects' }
         })}

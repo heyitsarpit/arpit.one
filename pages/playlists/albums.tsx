@@ -14,6 +14,7 @@ const PlaylistAlbumsPage: React.FC & PageWithLayout = () => {
       <Head>
         {generateNextSeo({
           title: 'Albums',
+          description: 'Albums saved and collected by Arpit Bharti.',
           canonical: 'https://www.arpit.one/playlists/albums',
           openGraph: { url: 'https://www.arpit.one/playlists/albums' }
         })}

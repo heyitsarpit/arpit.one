@@ -17,6 +17,8 @@ const PlaylistStatsPage: React.FC & PageWithLayout = () => {
       <Head>
         {generateNextSeo({
           title: 'Playlist stats',
+          description:
+            'Listening statistics and music trends from Arpit Bharti.',
           canonical: 'https://www.arpit.one/playlists/stats',
           openGraph: { url: 'https://www.arpit.one/playlists/stats' }
         })}

@@ -6,12 +6,14 @@ export const SEO: React.FC = () => {
     <Head>
       {generateDefaultSeo({
         title: 'Arpit',
-        description: 'Software Developer',
+        description:
+          'Independent software engineer exploring software automation and human-AI collaboration.',
         canonical: 'https://www.arpit.one/',
         openGraph: {
           url: 'https://www.arpit.one/',
           title: 'Arpit',
-          description: 'Software Developer',
+          description:
+            'Independent software engineer exploring software automation and human-AI collaboration.',
           site_name: 'Arpit'
         },
         twitter: {

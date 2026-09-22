@@ -29,6 +29,10 @@ const Playlists: React.FC & PageWithLayout = () => {
           title: routePlaylist
             ? `${routePlaylist.name} - Playlists`
             : 'Playlists',
+          description: routePlaylist
+            ? routePlaylist.description ||
+              `Tracks from ${routePlaylist.name}, a playlist by Arpit Bharti.`
+            : 'Playlists and listening history from Arpit Bharti.',
           canonical: `https://www.arpit.one${canonicalPath}`,
           openGraph: { url: `https://www.arpit.one${canonicalPath}` }
         })}

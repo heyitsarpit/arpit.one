@@ -233,7 +233,10 @@ const SpotifyAlbums: React.FC = () => {
     <section className='w-full pb-16' aria-labelledby='saved-albums-title'>
       <header className='mb-9 flex items-end justify-between gap-6 max-[700px]:block'>
         <div>
-          <SectionHeading kicker='My Spotify library' id='saved-albums-title'>
+          <SectionHeading
+            as='h2'
+            kicker='My Spotify library'
+            id='saved-albums-title'>
             Albums
           </SectionHeading>
         </div>
