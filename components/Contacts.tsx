@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { focusRingClassName } from '@/components/SitePrimitives'
 
-const homeLinkClassName = `site-home-link ${focusRingClassName}`
+const homeLinkClassName = `site-home-link inline-block border-x-0 border-t-0 bg-transparent p-0 ${focusRingClassName}`
 
 type LinkProps = {
   href: string
@@ -80,10 +80,7 @@ export function Contacts() {
         <a className={homeLinkClassName} href='mailto:arpitbharti73@gmail.com'>
           arpitbharti73@gmail.com
         </a>{' '}
-        <button
-          type='button'
-          className={`site-home-link border-x-0 border-t-0 bg-transparent p-0 ${focusRingClassName}`}
-          onClick={copyEmail}>
+        <button type='button' className={homeLinkClassName} onClick={copyEmail}>
           ({copied ? 'copied' : 'copy'})
         </button>
       </p>
