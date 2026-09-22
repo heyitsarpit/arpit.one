@@ -42,6 +42,10 @@ const fetchAlbumsPage = async (
 }
 
 const Albums = async (req: NextApiRequest, res: NextApiResponse) => {
+  // Never let a transient Spotify or deployment failure linger in an edge cache.
+  // The successful response below replaces this with its public cache policy.
+  res.setHeader('Cache-Control', 'private, no-store')
+
   if (req.method !== 'GET') {
     res.setHeader('Allow', 'GET')
     res.status(405).json({ error: 'Method not allowed.' })

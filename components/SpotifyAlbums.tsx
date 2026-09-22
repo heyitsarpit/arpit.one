@@ -196,8 +196,10 @@ const fetchSpotifyAlbums = async (): Promise<ApiState> => {
   const response = await fetch('/api/spotify/albums')
   const payload = (await response.json()) as ApiState
 
-  if (!response.ok && payload.configured !== false) {
-    throw new Error(payload.error || 'Saved albums are unavailable.')
+  if (!response.ok) {
+    throw new Error(
+      payload.error || 'Spotify albums are temporarily unavailable.'
+    )
   }
 
   return payload
@@ -212,15 +214,17 @@ const SpotifyAlbums: React.FC = () => {
     error,
     isPending
   } = useQuery({
-    queryKey: ['spotify', 'albums', 'v3'],
-    queryFn: fetchSpotifyAlbums
+    queryKey: ['spotify', 'albums', 'v4'],
+    queryFn: fetchSpotifyAlbums,
+    refetchOnReconnect: true,
+    refetchOnWindowFocus: true
   })
 
   const albums = state?.albums ?? []
   const errorMessage =
     state?.error ||
     (state && !state.configured
-      ? 'Spotify albums are unavailable.'
+      ? 'Spotify albums are temporarily unavailable.'
       : undefined) ||
     error?.message
   const albumGridClassName = `grid list-none m-0 p-0 ${albumGridClasses[columns]} max-[700px]:grid-cols-2 max-[700px]:gap-x-4 max-[700px]:gap-y-7`
