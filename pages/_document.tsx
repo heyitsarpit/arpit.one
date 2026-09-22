@@ -6,14 +6,17 @@ class MyDocument extends Document {
     return (
       <Html lang='en' data-scroll-behavior='smooth'>
         <Head>
-          <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
           <link
             rel='icon'
             href='/images/icon-48x48.png'
             sizes='48x48'
             type='image/png'
           />
-          <link rel='apple-touch-icon' href='/images/icon-384x384.png' />
+          <link
+            rel='apple-touch-icon'
+            href='/images/icon-384x384.png'
+            sizes='384x384'
+          />
           <link rel='manifest' href='/manifest.json' />
         </Head>
         <body className='dark'>
