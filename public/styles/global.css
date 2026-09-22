@@ -1,3 +1,9 @@
+/*
+ * Legacy stylesheet retained for archived markup only.
+ * The current app imports styles/tailwind.css; edit utils/pageThemes.ts for
+ * route colours.
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

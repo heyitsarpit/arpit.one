@@ -13,6 +13,7 @@ const supportedColors = Object.fromEntries(
     .map((name) => [name, colors[name]])
 )
 const neueMontrealFontStack = ['Neue Montreal', 'Arial', 'sans-serif']
+const sourceSerifFontStack = ['var(--font-source-serif-4)', 'Georgia', 'serif']
 
 module.exports = {
   content: [
@@ -46,7 +47,7 @@ module.exports = {
         ],
         display: neueMontrealFontStack,
         sans: neueMontrealFontStack,
-        serif: neueMontrealFontStack,
+        serif: sourceSerifFontStack,
         ui: neueMontrealFontStack
       },
       animation: {

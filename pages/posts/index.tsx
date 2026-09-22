@@ -74,7 +74,7 @@ const Posts: React.FC<Props> = ({ posts }) => {
       </Head>
       <div className='mx-auto min-h-screen w-[min(600px,calc(100%_-_40px))] py-[8%] text-[color:var(--page-text)] max-lg:pb-20 max-lg:pt-[106px] max-[479px]:pt-24'>
         <SectionHeading
-          kicker='Index'
+          kicker='Writing'
           kickerClassName='mb-4'
           className='mb-16'
           titleClassName='text-[28px] max-[479px]:text-[26px]'>

@@ -60,19 +60,21 @@ const LiveIcon = () => (
 
 export function Projects() {
   return (
-    <ul>
+    <ul className='m-0 list-none p-0'>
       {projects.map(({ details, live, source, title }) => (
         <li
           key={title}
-          className='pb-2 pl-0 mb-4 text-sm border-b before:contents dark:border-stone-900 border-stone-200'>
+          className='mb-14 pl-0 text-[color:var(--page-text)] last:mb-0'>
           <section>
-            <div className='flex justify-between'>
-              <h3 className='m-0 text-base font-normal'>{title}</h3>
-              <div className='flex gap-2'>
+            <div className='flex items-baseline justify-between gap-8 max-[600px]:block'>
+              <h2 className='m-0 font-display text-[28px] font-normal leading-[1.1] tracking-[-0.025em]'>
+                {title}
+              </h2>
+              <div className='flex shrink-0 gap-4 max-[600px]:mt-4'>
                 {source ? (
                   <a
                     href={source}
-                    className={`flex items-center gap-1 ${actionLinkClassName}`}
+                    className={`flex items-center gap-1 text-sm ${actionLinkClassName}`}
                     target='_blank'
                     rel='noopener noreferrer'>
                     <span>source</span>
@@ -82,7 +84,7 @@ export function Projects() {
                 {live ? (
                   <a
                     href={live}
-                    className={`flex items-center gap-1 ${actionLinkClassName}`}
+                    className={`flex items-center gap-1 text-sm ${actionLinkClassName}`}
                     target='_blank'
                     rel='noopener noreferrer'>
                     <span>live</span>
@@ -91,7 +93,9 @@ export function Projects() {
                 ) : null}
               </div>
             </div>
-            <p>{details}</p>
+            <p className='mb-0 mt-4 max-w-[680px] font-body text-[18px] leading-[1.6] tracking-[-0.015em] text-[color:var(--page-muted)]'>
+              {details}
+            </p>
           </section>
         </li>
       ))}

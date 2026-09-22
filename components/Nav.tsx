@@ -4,7 +4,8 @@ import { type CSSProperties, useState } from 'react'
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/posts', label: 'Index' },
+  { href: '/posts', label: 'Writing' },
+  { href: '/projects', label: 'Projects' },
   { href: '/art', label: 'Art' },
   { href: '/playlists', label: 'Playlists' }
 ]

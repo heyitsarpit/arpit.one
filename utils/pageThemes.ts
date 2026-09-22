@@ -16,19 +16,30 @@ export type PageTheme = {
 
 export type PageThemeConfig = Record<string, PageTheme>
 
-/** Molly's home palette from https://www.molly.info/. */
-export const mollyHomeTheme: PageTheme = {
-  text: '#000000',
-  background: '#bac8d3',
-  highlight: '#0c6e99',
-  textHighlight: '#0c6e99',
-  textHighlightText: '#ffffff',
-  muted: 'rgba(0, 0, 0, 0.62)',
-  border: 'rgba(0, 0, 0, 0.22)'
+/** Homepage colours sampled from Porter Robinson's Nurture artwork. */
+export const homeTheme: PageTheme = {
+  text: 'hsl(0 0% 96% / 1)',
+  background: 'hsl(120deg 39.64% 23.28% / 1)',
+  highlight: 'hsl(72.1deg 41.81% 75.48% / 1)',
+  textHighlight: 'hsl(72.1deg 41.81% 75.48% / 1)',
+  textHighlightText: 'hsl(120deg 39.64% 23.28% / 1)',
+  muted: 'hsl(120 25% 94% / 0.74)',
+  border: 'hsl(0 0% 96% / 0.3)'
 }
 
-/** A warm companion palette for pages that need a different visual mood. */
-export const warmTheme: PageTheme = {
+/** A quiet green-paper palette for the projects archive. */
+export const projectsTheme: PageTheme = {
+  text: 'hsl(150 10% 17% / 1)',
+  background: 'hsl(72 18% 93% / 1)',
+  highlight: 'hsl(157 26% 35% / 1)',
+  textHighlight: 'hsl(157 26% 35% / 1)',
+  textHighlightText: 'hsl(72 18% 98% / 1)',
+  muted: 'hsl(150 8% 32% / 0.64)',
+  border: 'hsl(150 10% 17% / 0.18)'
+}
+
+/** The writing palette: warm paper and burnt orange. */
+export const writingTheme: PageTheme = {
   text: '#000000',
   background: '#ffdc9c',
   highlight: '#d6893a',
@@ -36,6 +47,28 @@ export const warmTheme: PageTheme = {
   textHighlightText: '#000000',
   muted: 'rgba(34, 34, 34, 0.62)',
   border: 'rgba(34, 34, 34, 0.24)'
+}
+
+/** A soft rose palette for the curated route. */
+export const curatedTheme: PageTheme = {
+  text: '#2b1f24',
+  background: '#ead8d9',
+  highlight: '#8d3f52',
+  textHighlight: '#8d3f52',
+  textHighlightText: '#ffffff',
+  muted: 'rgba(43, 31, 36, 0.62)',
+  border: 'rgba(43, 31, 36, 0.22)'
+}
+
+/** A neutral fallback for missing pages. */
+export const notFoundTheme: PageTheme = {
+  text: '#20252b',
+  background: '#dfe4e8',
+  highlight: '#345d75',
+  textHighlight: '#345d75',
+  textHighlightText: '#ffffff',
+  muted: 'rgba(32, 37, 43, 0.62)',
+  border: 'rgba(32, 37, 43, 0.22)'
 }
 
 export const artTheme: PageTheme = {
@@ -63,16 +96,17 @@ export const playlistsTheme: PageTheme = {
  * nearest configured parent route unless they have their own entry.
  */
 export const pageThemes: PageThemeConfig = {
-  '/': { ...mollyHomeTheme },
+  '/': { ...homeTheme },
   '/art': { ...artTheme },
-  '/curated': { ...warmTheme },
+  '/curated': { ...curatedTheme },
   '/playlists': { ...playlistsTheme },
-  '/posts': { ...warmTheme },
-  '/404': { ...warmTheme }
+  '/projects': { ...projectsTheme },
+  '/posts': { ...writingTheme },
+  '/404': { ...notFoundTheme }
 }
 
 /** Always-available fallback for unknown, empty, or malformed paths. */
-export const defaultPageTheme: PageTheme = { ...mollyHomeTheme }
+export const defaultPageTheme: PageTheme = { ...homeTheme }
 
 const urlProtocolPattern = /^[a-z][a-z\d+.-]*:\/\//i
 const queryPattern = /[?#]/

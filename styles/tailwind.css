@@ -35,15 +35,7 @@
 }
 
 @layer base {
-  :root {
-    --page-text: #000;
-    --page-background: #bac8d3;
-    --page-highlight: #0c6e99;
-    --page-text-highlight: #0c6e99;
-    --page-text-highlight-text: #fff;
-    --page-muted: rgb(0 0 0 / 62%);
-    --page-border: rgb(0 0 0 / 22%);
-  }
+  /* Page colour tokens are injected once by pages/_app.tsx from utils/pageThemes.ts. */
 
   html,
   body,
@@ -54,6 +46,8 @@
 
   html {
     @apply font-sans leading-7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
