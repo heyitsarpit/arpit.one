@@ -383,8 +383,8 @@ export function ArtGalleryGrid() {
               width={item.width}
               height={item.height}
               sizes='(max-width: 767px) 100vw, (max-width: 1200px) 33vw, 25vw'
-              priority={index === 0}
-              loading={index === 0 ? 'eager' : 'lazy'}
+              priority={index < 2}
+              loading={index < 2 ? 'eager' : 'lazy'}
               unoptimized
             />
           </button>

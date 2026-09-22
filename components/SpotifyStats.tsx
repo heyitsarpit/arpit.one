@@ -223,7 +223,7 @@ const SpotifyStats: React.FC<Props> = ({ library }) => {
             className='m-0 font-display text-[22px] font-normal leading-[1.35] text-[color:var(--page-text)]'>
             Top played
           </h2>
-          <fieldset className='m-0 flex items-center gap-4 border-0 p-0 max-[700px]:mt-5 max-[479px]:justify-between max-[479px]:gap-3'>
+          <fieldset className='m-0 flex items-center gap-4 border-0 p-0 max-[700px]:ml-auto max-[700px]:mt-5 max-[700px]:w-fit max-[479px]:gap-3'>
             <legend className='sr-only'>Listening period</legend>
             {ranges.map((item) => (
               <button

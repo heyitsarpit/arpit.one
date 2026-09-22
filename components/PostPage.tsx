@@ -21,7 +21,6 @@ export function PostPage({ meta, children }: Props) {
           canonical: `https://www.arpit.one/writing/${meta.slug}`,
           openGraph: { url: `https://www.arpit.one/writing/${meta.slug}` }
         })}
-        <link rel='stylesheet' href='/styles/prism.css' />
       </Head>
       <article className='mx-auto min-h-screen w-[min(680px,calc(100%_-_40px))] pb-24 pt-[106px] text-[color:var(--page-text)] lg:py-[8vw]'>
         <header className='mb-16'>

@@ -223,9 +223,9 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
                   key={mode}
                   type='button'
                   className={`grid h-9 w-9 place-items-center border border-transparent bg-transparent p-0 text-[color:var(--page-muted)] hover:border-[color:var(--page-border)] hover:text-[color:var(--page-text)] ${viewMode === mode ? 'border-[color:var(--page-border)] text-[color:var(--page-text)]' : ''}`}
-                  aria-label={mode === 'cards' ? 'Card view' : 'Table view'}
+                  aria-label={mode === 'cards' ? 'Card view' : 'Long card view'}
                   aria-pressed={viewMode === mode}
-                  title={mode === 'cards' ? 'Card view' : 'Table view'}
+                  title={mode === 'cards' ? 'Card view' : 'Long card view'}
                   onClick={() => setViewMode(mode)}>
                   <PlaylistViewIcon mode={mode} />
                 </button>
@@ -252,7 +252,7 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
                         width={512}
                         height={512}
                         sizes='(max-width: 700px) 33vw, 25vw'
-                        priority={trackIndex === 0}
+                        priority={trackIndex < 3}
                         loading={trackIndex < 3 ? 'eager' : 'lazy'}
                       />
                     ) : (
@@ -272,54 +272,47 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
               ))}
             </ol>
           ) : (
-            <>
-              <div
-                className='grid grid-cols-[48px_minmax(140px,1.25fr)_minmax(120px,1fr)_minmax(120px,1fr)_52px] items-center gap-4 px-3 pb-2.5 font-ui text-[11px] uppercase tracking-[0.04em] text-[color:var(--page-muted)] max-[700px]:grid-cols-[48px_minmax(140px,1.4fr)_minmax(120px,1fr)_52px]'
-                aria-hidden='true'>
-                <span />
-                <span>Song</span>
-                <span>Artist</span>
-                <span className='max-[700px]:hidden'>Album</span>
-                <span>Year</span>
-              </div>
-              <ul
-                className='m-0 grid list-none gap-1 p-0'
-                aria-label='Playlist songs'>
-                {selectedPlaylist.tracks.map((track) => (
-                  <li key={`${track.id}-${track.name}`}>
-                    <a
-                      className={`grid grid-cols-[48px_minmax(140px,1.25fr)_minmax(120px,1fr)_minmax(120px,1fr)_52px] items-center gap-4 rounded-[10px] px-3 py-2 font-ui text-[13px] leading-[1.4] text-[color:var(--page-text)] no-underline transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--page-highlight)_12%,var(--page-background))] max-[700px]:grid-cols-[48px_minmax(140px,1.4fr)_minmax(120px,1fr)_52px] ${focusRingClassName}`}
-                      href={track.url || undefined}
-                      target='_blank'
-                      rel='noreferrer'>
-                      {track.albumImage ? (
-                        <Image
-                          src={track.albumImage}
-                          alt=''
-                          className='block h-12 w-12 rounded-md bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)] object-cover'
-                          width={48}
-                          height={48}
-                          sizes='48px'
-                          loading='lazy'
-                        />
-                      ) : (
-                        <span className='block aspect-square h-12 w-12 rounded-md bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)]' />
-                      )}
+            <ul
+              className='m-0 grid list-none gap-2 p-0'
+              aria-label='Playlist songs'>
+              {selectedPlaylist.tracks.map((track) => (
+                <li className='min-w-0' key={`${track.id}-${track.name}`}>
+                  <a
+                    className={`flex min-w-0 items-center gap-4 rounded-xl bg-[color-mix(in_srgb,var(--page-text)_4%,var(--page-background))] p-3 font-ui text-[13px] leading-[1.4] text-[color:var(--page-text)] no-underline transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--page-highlight)_12%,var(--page-background))] ${focusRingClassName}`}
+                    href={track.url || undefined}
+                    target='_blank'
+                    rel='noreferrer'>
+                    {track.albumImage ? (
+                      <Image
+                        src={track.albumImage}
+                        alt=''
+                        className='block h-16 w-16 shrink-0 rounded-lg bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)] object-cover'
+                        width={64}
+                        height={64}
+                        sizes='64px'
+                        loading='lazy'
+                      />
+                    ) : (
+                      <span className='block aspect-square h-16 w-16 shrink-0 rounded-lg bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)]' />
+                    )}
+                    <span className='flex min-w-0 flex-1 flex-col gap-0.5'>
                       <MarqueeText className='font-medium text-[color:var(--page-text)]'>
                         {track.name}
                       </MarqueeText>
                       <MarqueeText>{track.artists.join(', ')}</MarqueeText>
-                      <MarqueeText className='text-[color:var(--page-muted)] max-[700px]:hidden'>
+                      <MarqueeText className='text-[color:var(--page-muted)]'>
                         {track.album}
                       </MarqueeText>
-                      <span className='text-[color:var(--page-muted)]'>
-                        {track.releaseYear || '—'}
+                    </span>
+                    {track.releaseYear ? (
+                      <span className='shrink-0 self-start text-[12px] text-[color:var(--page-muted)] max-[479px]:hidden'>
+                        {track.releaseYear}
                       </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </>
+                    ) : null}
+                  </a>
+                </li>
+              ))}
+            </ul>
           )
         ) : (
           <StatusMessage>This playlist has no stored tracks.</StatusMessage>

@@ -1,4 +1,5 @@
 import '@/styles/tailwind.css'
+import '../public/styles/prism.css'
 
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
 import type { AppProps } from 'next/app'

@@ -327,7 +327,7 @@ const SpotifyAlbums: React.FC = () => {
                     album={album}
                     columns={columns}
                     eager={albumGroupIndex === 0 && albumIndex < columns}
-                    priority={albumGroupIndex === 0 && albumIndex === 0}
+                    priority={albumGroupIndex === 0 && albumIndex < columns}
                   />
                 ))}
               </ul>
