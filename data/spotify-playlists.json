@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T13:44:40.119Z",
+  "generatedAt": "2026-09-22T10:01:42.283Z",
   "owner": {
     "id": "rpittrer-us",
     "displayName": "arpit"
@@ -1425,6 +1425,43 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273ef51817e6a6563b6f7ce5872",
           "url": "https://open.spotify.com/track/0dWOFwdXrbBUYqD9DLsoyK",
           "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "2LuWYa6cXmNTctYITm0cUv",
+          "name": "10:37",
+          "artists": [
+            "Beach House"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/56ZTgzPBDge0OvCGgMO3OY"
+          ],
+          "album": "Depression Cherry",
+          "releaseYear": "2015",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
+          "url": "https://open.spotify.com/track/2LuWYa6cXmNTctYITm0cUv",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "2wOOIm3IvF4gFeIVXRxjsC",
+          "name": "Kaira",
+          "artists": [
+            "Ali Farka Touré",
+            "Toumani Diabaté"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/3mNygoyrEKLgo6sx0MzwOL",
+            "https://open.spotify.com/artist/2nCACYdIndYchzX4bxLcTW"
+          ],
+          "album": "In the Heart of the Moon",
+          "releaseYear": "2005",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27354d8eef1508379cbc20a40bd",
+          "url": "https://open.spotify.com/track/2wOOIm3IvF4gFeIVXRxjsC",
+          "artistImages": [
+            "",
             ""
           ]
         }
@@ -6956,7 +6993,7 @@
     },
     {
       "id": "2v6sNZI6igPYTSrzVbKTtx",
-      "name": "Q4 2024, In Waves",
+      "name": "Q4 2024",
       "description": "",
       "image": "https://mosaic.scdn.co/640/ab67616d00001e02067399144efe0c3c6217797eab67616d00001e0214b5583615b195556a3882acab67616d00001e02225510fbbe0eedbf353c71a3ab67616d00001e027cb855c921ed246905bafe1e",
       "url": "https://open.spotify.com/playlist/2v6sNZI6igPYTSrzVbKTtx",
@@ -8090,7 +8127,7 @@
     },
     {
       "id": "51YX6Lw56Ts08jfkwu2Rn9",
-      "name": "Q3 2024, Hang The Rich",
+      "name": "Q3 2024",
       "description": "",
       "image": "https://mosaic.scdn.co/640/ab67616d00001e0204bb2bb101cd31cf4dbdf988ab67616d00001e026425ed071904c272ac996c7bab67616d00001e028c0ea56622ab17e0712b4b98ab67616d00001e029c8bc3823967e9168badd41f",
       "url": "https://open.spotify.com/playlist/51YX6Lw56Ts08jfkwu2Rn9",
@@ -8905,7 +8942,7 @@
     },
     {
       "id": "555nZt6w5rK2T5LQ3QO7xc",
-      "name": "Q2 2024, Brat Summer",
+      "name": "Q2 2024",
       "description": "",
       "image": "https://mosaic.scdn.co/640/ab67616d00001e02a4b9deda0e39ef597386b9fcab67616d00001e02ae0816a92b256aadd9870e1eab67616d00001e02ba590496d37b8e6a93dbf132ab67616d00001e02c4a89ebfb35ee3ca59565383",
       "url": "https://open.spotify.com/playlist/555nZt6w5rK2T5LQ3QO7xc",
@@ -10459,12 +10496,29 @@
           "artistImages": [
             ""
           ]
+        },
+        {
+          "id": "39exKIvycQDgs4T6uXdyu0",
+          "name": "Harmony Hall",
+          "artists": [
+            "Vampire Weekend"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5BvJzeQpmsdsFp4HGUYUEx"
+          ],
+          "album": "Father of the Bride",
+          "releaseYear": "2019",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273a2b1d3e73c66663c01351bcf",
+          "url": "https://open.spotify.com/track/39exKIvycQDgs4T6uXdyu0",
+          "artistImages": [
+            ""
+          ]
         }
       ]
     },
     {
       "id": "7xa1ESRTNA0OlC7V3pozgF",
-      "name": "Q1 2024, Mexico & Mali",
+      "name": "Q1 2024",
       "description": "",
       "image": "https://mosaic.scdn.co/640/ab67616d00001e0232a8498ea892ccd4fcf3f6cfab67616d00001e0236735e0626a78a81c7e71dfcab67616d00001e027d3a09ab6b01eaeabf0accd7ab67616d00001e02d85c957794c2a5b8b11de5f9",
       "url": "https://open.spotify.com/playlist/7xa1ESRTNA0OlC7V3pozgF",
@@ -14595,7 +14649,7 @@
     },
     {
       "id": "4TIjHNtRVax7N0Cy2usIuD",
-      "name": "Q4 2023, Black Trees",
+      "name": "Q4 2023",
       "description": "",
       "image": "https://mosaic.scdn.co/640/ab67616d00001e0222b42fc5bda488d3ce88a8d2ab67616d00001e024cc6578fa6e10423b5ac1757ab67616d00001e02712c76b4152918fb8d37c53dab67616d00001e02d1e28a5de3822046bc27d8ae",
       "url": "https://open.spotify.com/playlist/4TIjHNtRVax7N0Cy2usIuD",
@@ -16364,7 +16418,7 @@
     },
     {
       "id": "38AQd15MfQhPwxz0A0dnav",
-      "name": "Q3 2023, Discovery",
+      "name": "Q3 2023",
       "description": "",
       "image": "https://mosaic.scdn.co/640/ab67616d00001e02105ef588df1ef91bfa811f94ab67616d00001e0254d8eef1508379cbc20a40bdab67616d00001e028718f18aca81c2f4961946f4ab67616d00001e0299e96bc3a8934f228cd34dec",
       "url": "https://open.spotify.com/playlist/38AQd15MfQhPwxz0A0dnav",
