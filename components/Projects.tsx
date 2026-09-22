@@ -2,21 +2,28 @@ import { focusRingClassName } from '@/components/SitePrimitives'
 
 export const projects = [
   {
+    title: 'flow-state [under construction]',
+    details:
+      'A react state management library and co-framework that offers a range of extra tooling when building large react apps.',
+    live: 'https://github.com/heyitsarpit/flow-state'
+  },
+  {
+    title: 'anti-slop [under construction]',
+    details:
+      'My collection of typescript + effect.ts focused oxlint rules to improve agent written code quality.',
+    live: 'https://github.com/heyitsarpit/flow-state'
+  },
+  {
+    title: 'workflow [under construction]',
+    details:
+      'my intended workflow with skills and procedures for planning, building and shipping projects with agents.',
+    live: 'https://github.com/heyitsarpit/flow-state'
+  },
+  {
     title: 'React Hooks Library',
     details:
       'A collection of more than 30 React hooks, with documentation and live examples.',
     live: 'https://react-hooks-library.vercel.app'
-  },
-  {
-    title: 'arpit.one',
-    details: 'The personal website you are looking at now.',
-    live: 'https://www.arpit.one/'
-  },
-  {
-    title: 'Ad Recommendation on YouTube Videos',
-    details:
-      'A published research project using captions and string-similarity algorithms to recommend products for videos.',
-    live: 'https://link.springer.com/chapter/10.1007/978-981-15-8335-3_48'
   }
 ]
 
