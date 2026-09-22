@@ -167,7 +167,7 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
         className={`sticky top-0 min-w-0 self-start py-8 max-lg:static max-lg:overflow-hidden max-lg:py-5 ${routePlaylistId ? 'max-[700px]:hidden' : ''}`}
         aria-label='Playlists'>
         {!routePlaylistId ? (
-          <ul className='m-0 hidden list-none grid-cols-2 gap-x-3 gap-y-5 p-0 max-[700px]:grid'>
+          <ul className='m-0 hidden list-none grid-cols-4 gap-x-3 gap-y-5 p-0 max-[700px]:grid'>
             {playlists.map((playlist) => (
               <li className='min-w-0' key={playlist.id}>
                 <Link
@@ -287,11 +287,11 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
 
         {selectedPlaylist.tracks.length > 0 ? (
           viewMode === 'cards' ? (
-            <ol className='m-0 grid list-none grid-cols-3 gap-x-6 gap-y-9 p-0 max-[700px]:grid-cols-2 max-[700px]:gap-x-4 max-[700px]:gap-y-7 max-[479px]:gap-x-3 max-[479px]:gap-y-6'>
+            <ol className='m-0 grid list-none grid-cols-4 gap-x-2 gap-y-9 p-0 max-[700px]:grid-cols-3 max-[700px]:gap-x-2 max-[700px]:gap-y-7 max-[479px]:gap-x-3 max-[479px]:gap-y-6'>
               {selectedPlaylist.tracks.map((track, trackIndex) => (
                 <li key={`${track.id}-${track.name}`} className='min-w-0'>
                   <a
-                    className={`group block rounded-xl bg-[color-mix(in_srgb,var(--page-text)_4%,var(--page-background))] p-3 text-[color:var(--page-text)] no-underline transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--page-highlight)_12%,var(--page-background))] ${focusRingClassName}`}
+                    className={`group block rounded-xl bg-[color-mix(in_srgb,var(--page-text)_4%,var(--page-background))] p-2 text-[color:var(--page-text)] no-underline transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--page-highlight)_12%,var(--page-background))] ${focusRingClassName}`}
                     href={track.url || undefined}
                     target='_blank'
                     rel='noreferrer'>
@@ -303,8 +303,8 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
                         width={512}
                         height={512}
                         sizes='(max-width: 700px) 33vw, 25vw'
-                        priority={trackIndex < 3}
-                        loading={trackIndex < 3 ? 'eager' : 'lazy'}
+                        priority={trackIndex < 4}
+                        loading={trackIndex < 4 ? 'eager' : 'lazy'}
                       />
                     ) : (
                       <span className='block w-full aspect-square rounded-lg bg-[color-mix(in_srgb,var(--page-text)_12%,transparent)]' />
