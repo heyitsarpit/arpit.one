@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import {
   type CSSProperties,
   type ReactNode,
@@ -108,6 +110,9 @@ const SpotifyLogoIcon = () => (
 )
 
 const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
+  const router = useRouter()
+  const routePlaylistId =
+    typeof router.query.playlistId === 'string' ? router.query.playlistId : null
   const [selectedId, setSelectedId] = useState(playlists[0]?.id || '')
   const [viewMode, setViewMode] = useState<ViewMode>('cards')
   const selectedPlaylistHeadingRef = useRef<HTMLHeadingElement>(null)
@@ -123,8 +128,11 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
     })
   }
   const selectedPlaylist = useMemo(
-    () => playlists.find((playlist) => playlist.id === selectedId),
-    [playlists, selectedId]
+    () =>
+      playlists.find(
+        (playlist) => playlist.id === (routePlaylistId || selectedId)
+      ),
+    [playlists, routePlaylistId, selectedId]
   )
 
   useEffect(() => {
@@ -138,8 +146,14 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
     return (
       <section className='block min-h-40 p-8'>
         <StatusMessage>
-          No stored playlists yet. Run <code>pnpm spotify:sync</code> after
-          authorizing playlist access.
+          {playlists.length > 0 ? (
+            'Playlist not found.'
+          ) : (
+            <>
+              No stored playlists yet. Run <code>pnpm spotify:sync</code> after
+              authorizing playlist access.
+            </>
+          )}
         </StatusMessage>
       </section>
     )
@@ -150,9 +164,37 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
       className='grid min-h-[560px] grid-cols-[280px_minmax(0,1fr)] gap-x-[clamp(32px,5vw,72px)] max-lg:block max-lg:min-h-0'
       aria-label='Playlist explorer'>
       <nav
-        className='sticky top-0 min-w-0 self-start py-8 max-lg:static max-lg:overflow-hidden max-lg:py-5'
+        className={`sticky top-0 min-w-0 self-start py-8 max-lg:static max-lg:overflow-hidden max-lg:py-5 ${routePlaylistId ? 'max-[700px]:hidden' : ''}`}
         aria-label='Playlists'>
-        <ul className='m-0 list-none p-0 max-lg:flex max-lg:max-w-full max-lg:gap-2 max-lg:overflow-x-auto'>
+        {!routePlaylistId ? (
+          <ul className='m-0 hidden list-none grid-cols-2 gap-x-3 gap-y-5 p-0 max-[700px]:grid'>
+            {playlists.map((playlist) => (
+              <li className='min-w-0' key={playlist.id}>
+                <Link
+                  className={`group block min-w-0 text-[color:var(--page-text)] no-underline ${focusRingClassName}`}
+                  href={`/playlists/${encodeURIComponent(playlist.id)}`}>
+                  {playlist.image ? (
+                    <Image
+                      src={playlist.image}
+                      alt=''
+                      className='block aspect-square h-auto w-full rounded-lg bg-[color-mix(in_srgb,var(--page-text)_8%,var(--page-background))] object-cover transition-opacity group-hover:opacity-80'
+                      width={320}
+                      height={320}
+                      sizes='(max-width: 700px) 45vw, 160px'
+                      loading='lazy'
+                    />
+                  ) : (
+                    <span className='block aspect-square w-full rounded-lg bg-[color-mix(in_srgb,var(--page-text)_8%,var(--page-background))]' />
+                  )}
+                  <strong className='mt-2 block overflow-hidden text-ellipsis font-ui text-sm font-normal leading-[1.35]'>
+                    {playlist.name}
+                  </strong>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+        <ul className='m-0 list-none p-0 max-lg:flex max-lg:max-w-full max-lg:gap-2 max-lg:overflow-x-auto max-[700px]:hidden'>
           {playlists.map((playlist) => {
             const isSelected = playlist.id === selectedPlaylist.id
 
@@ -188,11 +230,20 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
         </ul>
       </nav>
 
-      <section className='min-w-0 py-8 max-lg:py-7' aria-live='polite'>
+      <section
+        className={`min-w-0 py-8 max-lg:py-7 ${routePlaylistId ? '' : 'max-[700px]:hidden'}`}
+        aria-live='polite'>
+        {routePlaylistId ? (
+          <Link
+            className={`mb-7 hidden w-fit font-ui text-sm text-[color:var(--page-muted)] no-underline hover:text-[color:var(--page-text)] max-[700px]:inline-block ${focusRingClassName}`}
+            href='/playlists'>
+            ← All playlists
+          </Link>
+        ) : null}
         <header className='mb-8 flex items-start justify-between gap-6 max-lg:block'>
           <div>
             <h2
-              className='m-0 font-display text-[28px] font-normal leading-[1.3] text-[color:var(--page-text)]'
+              className='m-0 font-serif text-[28px] font-normal leading-[1.3] text-[color:var(--page-text)]'
               ref={selectedPlaylistHeadingRef}
               tabIndex={-1}>
               {selectedPlaylist.name}
