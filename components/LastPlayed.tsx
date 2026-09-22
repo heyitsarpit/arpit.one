@@ -37,6 +37,7 @@ const LastPlayed: React.FC = () => {
   } = useQuery({
     queryKey: ['spotify', 'recently-played'],
     queryFn: fetchRecentlyPlayed,
+    refetchInterval: 5 * 60 * 1000,
     staleTime: 60 * 1000
   })
 

@@ -291,7 +291,7 @@ const PlaylistExplorer: React.FC<Props> = ({ playlists }) => {
               {selectedPlaylist.tracks.map((track, trackIndex) => (
                 <li key={`${track.id}-${track.name}`} className='min-w-0'>
                   <a
-                    className={`group block rounded-xl bg-[color-mix(in_srgb,var(--page-text)_4%,var(--page-background))] p-2 text-[color:var(--page-text)] no-underline transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--page-highlight)_12%,var(--page-background))] ${focusRingClassName}`}
+                    className={`group block rounded-xl bg-[color-mix(in_srgb,var(--page-text)_4%,var(--page-background))] p-2 text-[color:var(--page-text)] no-underline transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--page-highlight)_12%,var(--page-background))] max-[700px]:bg-transparent max-[700px]:p-0 max-[700px]:hover:bg-transparent ${focusRingClassName}`}
                     href={track.url || undefined}
                     target='_blank'
                     rel='noreferrer'>
