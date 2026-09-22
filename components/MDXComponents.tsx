@@ -25,7 +25,7 @@ export const components = {
     className,
     ...props
   }: ImgHTMLAttributes<HTMLImageElement>) => (
-    <div className='my-10 overflow-hidden'>
+    <span className='my-10 block overflow-hidden'>
       {/* biome-ignore lint/performance/noImgElement: MDX images are arbitrary external URLs and do not provide dimensions for next/image. */}
       <img
         {...props}
@@ -34,6 +34,6 @@ export const components = {
         loading='lazy'
         decoding='async'
       />
-    </div>
+    </span>
   )
 }

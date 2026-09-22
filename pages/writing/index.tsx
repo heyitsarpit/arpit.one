@@ -22,7 +22,6 @@ const drafts = [
   'source code is not the truth',
   'obsession(2026) is about unaligned general intelligence',
   'Mental models for depression',
-  'What is male fashion'
 ]
 
 const DraftList = () => (
