@@ -6,7 +6,13 @@ class MyDocument extends Document {
     return (
       <Html lang='en' data-scroll-behavior='smooth'>
         <Head>
-          <link rel='shortcut icon' href='/images/icon-128x128.png' />
+          <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
+          <link
+            rel='icon'
+            href='/images/icon-48x48.png'
+            sizes='48x48'
+            type='image/png'
+          />
           <link rel='apple-touch-icon' href='/images/icon-384x384.png' />
           <link rel='manifest' href='/manifest.json' />
         </Head>
