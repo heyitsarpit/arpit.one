@@ -165,6 +165,7 @@ function GalleryLightbox({
   onMove: (direction: number) => void
 }) {
   const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null)
 
   useEffect(() => {
     closeButtonRef.current?.focus()
@@ -173,12 +174,42 @@ function GalleryLightbox({
   return (
     // biome-ignore lint/a11y/useKeyWithClickEvents: Backdrop click dismissal has equivalent Escape and close-button controls.
     <div
-      className='fixed inset-0 z-[100] grid h-screen w-full grid-cols-[44px_minmax(0,1fr)_44px] items-center gap-2 overflow-hidden bg-black p-3 sm:grid-cols-[48px_minmax(0,1fr)_48px] sm:gap-5 sm:p-8'
+      className='fixed inset-0 z-[100] flex h-dvh w-full touch-pan-y items-center justify-center overflow-hidden bg-black p-2 sm:p-4'
       role='dialog'
       aria-modal='true'
       aria-labelledby='art-lightbox-title'
       onClick={(event) => {
         if (event.target === event.currentTarget) onClose()
+      }}
+      onTouchStart={(event) => {
+        if (
+          event.touches.length !== 1 ||
+          (event.target instanceof Element &&
+            event.target.closest('button, video'))
+        ) {
+          touchStartRef.current = null
+          return
+        }
+
+        const touch = event.touches[0]
+        touchStartRef.current = { x: touch.clientX, y: touch.clientY }
+      }}
+      onTouchEnd={(event) => {
+        const start = touchStartRef.current
+        const touch = event.changedTouches[0]
+        touchStartRef.current = null
+        if (!start || !touch) return
+
+        const deltaX = touch.clientX - start.x
+        const deltaY = touch.clientY - start.y
+        if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY)) {
+          return
+        }
+
+        onMove(deltaX < 0 ? 1 : -1)
+      }}
+      onTouchCancel={() => {
+        touchStartRef.current = null
       }}>
       <h2 id='art-lightbox-title' className='sr-only'>
         {item.alt}
@@ -186,22 +217,22 @@ function GalleryLightbox({
       <button
         ref={closeButtonRef}
         type='button'
-        className={`absolute right-7 top-6 z-10 grid h-11 w-11 place-items-center border-0 bg-transparent text-3xl leading-none text-white hover:text-[color:var(--page-highlight)] ${focusRingClassName}`}
+        className={`absolute right-2 top-2 z-10 grid h-11 w-11 place-items-center border-0 bg-transparent text-3xl leading-none text-white hover:text-[color:var(--page-highlight)] sm:right-4 sm:top-4 ${focusRingClassName}`}
         aria-label='Close fullscreen artwork'
         onClick={onClose}>
         ×
       </button>
       <button
         type='button'
-        className={`grid h-11 w-11 place-items-center border-0 bg-transparent text-3xl leading-none text-white hover:text-[color:var(--page-highlight)] ${focusRingClassName}`}
+        className={`absolute left-2 z-10 grid h-11 w-11 place-items-center border-0 bg-transparent text-3xl leading-none text-white hover:text-[color:var(--page-highlight)] sm:left-4 ${focusRingClassName}`}
         aria-label='Previous artwork'
         onClick={() => onMove(-1)}>
         ←
       </button>
-      <div className='flex min-h-0 min-w-0 max-h-full max-w-full items-center justify-center'>
+      <div className='flex h-full w-full min-h-0 min-w-0 items-center justify-center'>
         {item.kind === 'video' ? (
           <video
-            className='block max-h-[calc(100vh-96px)] max-w-full object-contain'
+            className='block h-full w-full object-contain'
             src={item.src}
             poster={item.poster}
             controls
@@ -213,7 +244,7 @@ function GalleryLightbox({
           />
         ) : (
           <Image
-            className={`block h-auto max-h-[calc(100vh-96px)] w-auto max-w-full object-contain ${item.width > item.height ? 'min-w-[min(60vw,960px)] max-[767px]:min-w-0' : ''}`}
+            className='block h-full w-full object-contain'
             src={item.src}
             alt={item.alt}
             width={item.width}
@@ -226,7 +257,7 @@ function GalleryLightbox({
       </div>
       <button
         type='button'
-        className={`grid h-11 w-11 place-items-center border-0 bg-transparent text-3xl leading-none text-white hover:text-[color:var(--page-highlight)] ${focusRingClassName}`}
+        className={`absolute right-2 z-10 grid h-11 w-11 place-items-center border-0 bg-transparent text-3xl leading-none text-white hover:text-[color:var(--page-highlight)] sm:right-4 ${focusRingClassName}`}
         aria-label='Next artwork'
         onClick={() => onMove(1)}>
         →
