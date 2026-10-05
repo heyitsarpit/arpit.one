@@ -21,6 +21,8 @@ export function Link({ href, children }: LinkProps) {
   )
 }
 
+const Email = "hello@arpit.one"
+
 const contactList = [
   {
     name: 'Github',
@@ -32,7 +34,7 @@ const contactList = [
   },
   {
     name: 'Email',
-    href: 'mailto:hello@arpit.one?subject=Hey%20Arpit'
+    href: `mailto:${Email}?subject=Hey%20Arpit`
   },
   {
     name: 'Twitter',
@@ -57,7 +59,7 @@ export function Contacts() {
   }, [])
 
   const copyEmail = async () => {
-    await navigator.clipboard?.writeText('arpitbharti73@gmail.com')
+    await navigator.clipboard?.writeText(Email)
     setCopied(true)
     if (copyResetTimeout.current !== null) {
       window.clearTimeout(copyResetTimeout.current)
@@ -77,8 +79,8 @@ export function Contacts() {
           ))}
       </p>
       <p className='mb-1'>
-        <a className={homeLinkClassName} href='mailto:hello@arpit.one'>
-          hello@arpit.one
+        <a className={homeLinkClassName} href={`mailto:${Email}`}>
+          {Email}
         </a>&nbsp;&nbsp;
         <button type='button' className={homeLinkClassName} onClick={copyEmail}>
           ({copied ? 'copied' : 'copy'})
