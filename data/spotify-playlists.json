@@ -1,10 +1,206 @@
 {
-  "generatedAt": "2026-09-25T17:36:45.493Z",
+  "generatedAt": "2026-10-05T10:09:56.825Z",
   "owner": {
     "id": "rpittrer-us",
     "displayName": "arpit"
   },
   "playlists": [
+    {
+      "id": "1KV3NddIxhOZFsMVTyGi7s",
+      "name": "Q4 2026",
+      "description": "",
+      "image": "https://mosaic.scdn.co/640/ab67616d00001e0202859310b61e59756abb90adab67616d00001e0243f44b90dd0a223b06aba994ab67616d00001e0252501e69190f5d7b6c9f7ab3ab67616d00001e02d00e504004a48159ac896b64",
+      "url": "https://open.spotify.com/playlist/1KV3NddIxhOZFsMVTyGi7s",
+      "tracks": [
+        {
+          "id": "709TS0mvoyISKvljXUBcnD",
+          "name": "We're Where We Were",
+          "artists": [
+            "The Voidz"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/4nUBBtLtzqZGpdiynTJbYJ"
+          ],
+          "album": "Virtue",
+          "releaseYear": "2018",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273d00e504004a48159ac896b64",
+          "url": "https://open.spotify.com/track/709TS0mvoyISKvljXUBcnD",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "05HElY3EVth4SMuOJOGusl",
+          "name": "On the Floor",
+          "artists": [
+            "Perfume Genius"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/2ueoLVCXQ948OfhVvAy3Nn"
+          ],
+          "album": "Set My Heart On Fire Immediately",
+          "releaseYear": "2020",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27343f44b90dd0a223b06aba994",
+          "url": "https://open.spotify.com/track/05HElY3EVth4SMuOJOGusl",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "5icLsBPRCR8VkN1mMVzxDB",
+          "name": "Levitation",
+          "artists": [
+            "Beach House"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/56ZTgzPBDge0OvCGgMO3OY"
+          ],
+          "album": "Depression Cherry",
+          "releaseYear": "2015",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
+          "url": "https://open.spotify.com/track/5icLsBPRCR8VkN1mMVzxDB",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+          ]
+        },
+        {
+          "id": "2LuWYa6cXmNTctYITm0cUv",
+          "name": "10:37",
+          "artists": [
+            "Beach House"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/56ZTgzPBDge0OvCGgMO3OY"
+          ],
+          "album": "Depression Cherry",
+          "releaseYear": "2015",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
+          "url": "https://open.spotify.com/track/2LuWYa6cXmNTctYITm0cUv",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+          ]
+        },
+        {
+          "id": "1O4YoWMQys8jrSfCuDZQit",
+          "name": "Racing Mount Pleasant",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/1O4YoWMQys8jrSfCuDZQit",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "57s098FVVLAFdDNINJRogc",
+          "name": "Call It Easy",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/57s098FVVLAFdDNINJRogc",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "3VNo18F3QOIuSOwrxUqgtC",
+          "name": "Sparks",
+          "artists": [
+            "Beach House"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/56ZTgzPBDge0OvCGgMO3OY"
+          ],
+          "album": "Depression Cherry",
+          "releaseYear": "2015",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
+          "url": "https://open.spotify.com/track/3VNo18F3QOIuSOwrxUqgtC",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+          ]
+        },
+        {
+          "id": "59GnwORhNmJMvkUmEwvTV0",
+          "name": "Your Old Place",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/59GnwORhNmJMvkUmEwvTV0",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "4CbNiKt4MugG8a7eWnRID4",
+          "name": "Do You Think I'm Pretty",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Grip Your Fist, I'm Heaven Bound",
+          "releaseYear": "2022",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b2739d4202cfd6fd1ef1af2c993d",
+          "url": "https://open.spotify.com/track/4CbNiKt4MugG8a7eWnRID4",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "4KU1tXxB4PiiVDhWQvA0Gi",
+          "name": "Love Is",
+          "artists": [
+            "Dove Ellis"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6tGT6SMlubqjTWDxBhSgg9"
+          ],
+          "album": "Blizzard",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273305780793d5f230df33937b6",
+          "url": "https://open.spotify.com/track/4KU1tXxB4PiiVDhWQvA0Gi",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "0U8E6CEaYmRwpm2JOFCER5",
+          "name": "Two Horses",
+          "artists": [
+            "Black Country, New Road"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/3PP6ghmOlDl2jaKaH0avUN"
+          ],
+          "album": "Forever Howlong",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273876f720551132b50c9232fad",
+          "url": "https://open.spotify.com/track/0U8E6CEaYmRwpm2JOFCER5",
+          "artistImages": [
+            ""
+          ]
+        }
+      ]
+    },
     {
       "id": "7IC6MsgDJRB5hSpTHsMh9J",
       "name": "Q3 2026",
@@ -1442,7 +1638,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
           "url": "https://open.spotify.com/track/2LuWYa6cXmNTctYITm0cUv",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
           ]
         },
         {
@@ -1479,7 +1675,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
           "url": "https://open.spotify.com/track/5icLsBPRCR8VkN1mMVzxDB",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
           ]
         },
         {
@@ -1496,7 +1692,41 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
           "url": "https://open.spotify.com/track/38PTaSqKcn1NKafQRdXSby",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+          ]
+        },
+        {
+          "id": "3VNo18F3QOIuSOwrxUqgtC",
+          "name": "Sparks",
+          "artists": [
+            "Beach House"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/56ZTgzPBDge0OvCGgMO3OY"
+          ],
+          "album": "Depression Cherry",
+          "releaseYear": "2015",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
+          "url": "https://open.spotify.com/track/3VNo18F3QOIuSOwrxUqgtC",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+          ]
+        },
+        {
+          "id": "0YP3Eae3Ecr1CYpurF6ULH",
+          "name": "Other People",
+          "artists": [
+            "Beach House"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/56ZTgzPBDge0OvCGgMO3OY"
+          ],
+          "album": "Bloom",
+          "releaseYear": "2012",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27308cc9bc3c9d72c00fdfa5a87",
+          "url": "https://open.spotify.com/track/0YP3Eae3Ecr1CYpurF6ULH",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
           ]
         }
       ]
@@ -2120,7 +2350,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273cff4bd68d5d0dd9a0a748045",
           "url": "https://open.spotify.com/track/1r7dV486KA1fMo2w1voblx",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebfe6d53e126b70d1c2594b434",
+            "",
             ""
           ]
         },
@@ -3341,7 +3571,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273cff4bd68d5d0dd9a0a748045",
           "url": "https://open.spotify.com/track/554qQSs9lpRVq6TlaaiIKT",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebfe6d53e126b70d1c2594b434"
+            ""
           ]
         },
         {
@@ -3360,7 +3590,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273cff4bd68d5d0dd9a0a748045",
           "url": "https://open.spotify.com/track/2pPNAgcdgtRMwK9mPYMK7O",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebfe6d53e126b70d1c2594b434",
+            "",
             ""
           ]
         },
@@ -3378,7 +3608,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273cff4bd68d5d0dd9a0a748045",
           "url": "https://open.spotify.com/track/7gZxliU9pWwAQ3QdyQfdga",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebfe6d53e126b70d1c2594b434"
+            ""
           ]
         },
         {
@@ -3395,7 +3625,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273cff4bd68d5d0dd9a0a748045",
           "url": "https://open.spotify.com/track/78TC2xIVRqJNzzBS6abuNP",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebfe6d53e126b70d1c2594b434"
+            ""
           ]
         },
         {
@@ -3416,7 +3646,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273cff4bd68d5d0dd9a0a748045",
           "url": "https://open.spotify.com/track/5uz5v1hRZLjNGatcPtOWUv",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebfe6d53e126b70d1c2594b434",
+            "",
             "",
             ""
           ]
@@ -3435,7 +3665,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273cff4bd68d5d0dd9a0a748045",
           "url": "https://open.spotify.com/track/7eCiTvwXk0GEEhWyNmZ7Rv",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebfe6d53e126b70d1c2594b434"
+            ""
           ]
         },
         {
@@ -3454,7 +3684,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273cff4bd68d5d0dd9a0a748045",
           "url": "https://open.spotify.com/track/1QSE7XfNSozCWMx6UuNIaa",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebfe6d53e126b70d1c2594b434",
+            "",
             ""
           ]
         },
@@ -3474,7 +3704,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273cff4bd68d5d0dd9a0a748045",
           "url": "https://open.spotify.com/track/57Z6TJCTMACXxdrcwZ3Zvf",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebfe6d53e126b70d1c2594b434",
+            "",
             ""
           ]
         },
@@ -3494,7 +3724,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273cff4bd68d5d0dd9a0a748045",
           "url": "https://open.spotify.com/track/2NLOyWzztMiW5FmNhD83K6",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebfe6d53e126b70d1c2594b434",
+            "",
             ""
           ]
         },
@@ -3512,7 +3742,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273cff4bd68d5d0dd9a0a748045",
           "url": "https://open.spotify.com/track/7mcxFbFdnFFbWwPflgqqKE",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebfe6d53e126b70d1c2594b434"
+            ""
           ]
         },
         {
@@ -3531,7 +3761,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273cff4bd68d5d0dd9a0a748045",
           "url": "https://open.spotify.com/track/1r7dV486KA1fMo2w1voblx",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebfe6d53e126b70d1c2594b434",
+            "",
             ""
           ]
         },
@@ -3697,7 +3927,7 @@
       "id": "3JKqwBEN3hfGTRJrhgEVRm",
       "name": "Q3 2025",
       "description": "",
-      "image": "https://mosaic.scdn.co/640/ab67616d00001e020bb8023bb941c23c805a1ee1ab67616d00001e0290d70048ae31457e03068fb4ab67616d00001e02cd6ac94d68d5f71213da8388ab67616d00001e02fb30016c64d0f82b2b7107d1",
+      "image": "https://mosaic.scdn.co/640/ab67616d00001e020bb8023bb941c23c805a1ee1ab67616d00001e0278dd6eabe59c2c0a083f4429ab67616d00001e0290d70048ae31457e03068fb4ab67616d00001e02cd6ac94d68d5f71213da8388",
       "url": "https://open.spotify.com/playlist/3JKqwBEN3hfGTRJrhgEVRm",
       "tracks": [
         {
@@ -10866,7 +11096,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273ea27a9e38db1ec66119356af",
           "url": "https://open.spotify.com/track/6aYG6qnRBbqOMmqh1neJzd",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
           ]
         },
         {
@@ -12515,7 +12745,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b2730af2276ae66a42e73eb07683",
           "url": "https://open.spotify.com/track/0RBfGcrONMLwLysUhbtxJM",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
           ]
         },
         {
@@ -12532,7 +12762,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b2730af2276ae66a42e73eb07683",
           "url": "https://open.spotify.com/track/6NLRMu1qF1kJQnntDNWDmy",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
           ]
         },
         {
@@ -14051,7 +14281,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
           "url": "https://open.spotify.com/track/1ujxjsoNvh4XgS2fUNwkZ2",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
           ]
         },
         {
