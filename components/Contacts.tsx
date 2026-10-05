@@ -32,7 +32,7 @@ const contactList = [
   },
   {
     name: 'Email',
-    href: 'mailto:arpitbharti73@gmail.com?subject=Hey%20Arpit'
+    href: 'mailto:hello@arpit.one?subject=Hey%20Arpit'
   },
   {
     name: 'Twitter',
@@ -77,9 +77,9 @@ export function Contacts() {
           ))}
       </p>
       <p className='mb-1'>
-        <a className={homeLinkClassName} href='mailto:arpitbharti73@gmail.com'>
-          arpitbharti73@gmail.com
-        </a>{' '}
+        <a className={homeLinkClassName} href='mailto:hello@arpit.one'>
+          hello@arpit.one
+        </a>&nbsp;&nbsp;
         <button type='button' className={homeLinkClassName} onClick={copyEmail}>
           ({copied ? 'copied' : 'copy'})
         </button>
