@@ -1,4 +1,16 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "app/api/schedules/spotify-refresh/route.ts": {
+      "experimentalTriggers": [{ "type": "schedule/v1beta" }]
+    }
+  },
+  "schedules": {
+    "spotify-refresh": {
+      "schedule": "0 6 * * *",
+      "function": "api/schedules/spotify-refresh"
+    }
+  },
   "headers": [
     {
       "source": "/fonts/(.*)",
