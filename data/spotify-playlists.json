@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T10:09:56.825Z",
+  "generatedAt": "2026-11-19T11:27:46.651Z",
   "owner": {
     "id": "rpittrer-us",
     "displayName": "arpit"
@@ -60,57 +60,6 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
           "url": "https://open.spotify.com/track/5icLsBPRCR8VkN1mMVzxDB",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
-          ]
-        },
-        {
-          "id": "2LuWYa6cXmNTctYITm0cUv",
-          "name": "10:37",
-          "artists": [
-            "Beach House"
-          ],
-          "artistUrls": [
-            "https://open.spotify.com/artist/56ZTgzPBDge0OvCGgMO3OY"
-          ],
-          "album": "Depression Cherry",
-          "releaseYear": "2015",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
-          "url": "https://open.spotify.com/track/2LuWYa6cXmNTctYITm0cUv",
-          "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
-          ]
-        },
-        {
-          "id": "1O4YoWMQys8jrSfCuDZQit",
-          "name": "Racing Mount Pleasant",
-          "artists": [
-            "Racing Mount Pleasant"
-          ],
-          "artistUrls": [
-            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
-          ],
-          "album": "Racing Mount Pleasant",
-          "releaseYear": "2025",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
-          "url": "https://open.spotify.com/track/1O4YoWMQys8jrSfCuDZQit",
-          "artistImages": [
-            ""
-          ]
-        },
-        {
-          "id": "57s098FVVLAFdDNINJRogc",
-          "name": "Call It Easy",
-          "artists": [
-            "Racing Mount Pleasant"
-          ],
-          "artistUrls": [
-            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
-          ],
-          "album": "Racing Mount Pleasant",
-          "releaseYear": "2025",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
-          "url": "https://open.spotify.com/track/57s098FVVLAFdDNINJRogc",
-          "artistImages": [
             ""
           ]
         },
@@ -128,7 +77,58 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
           "url": "https://open.spotify.com/track/3VNo18F3QOIuSOwrxUqgtC",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+            ""
+          ]
+        },
+        {
+          "id": "2LuWYa6cXmNTctYITm0cUv",
+          "name": "10:37",
+          "artists": [
+            "Beach House"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/56ZTgzPBDge0OvCGgMO3OY"
+          ],
+          "album": "Depression Cherry",
+          "releaseYear": "2015",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
+          "url": "https://open.spotify.com/track/2LuWYa6cXmNTctYITm0cUv",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "1O4YoWMQys8jrSfCuDZQit",
+          "name": "Racing Mount Pleasant",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/1O4YoWMQys8jrSfCuDZQit",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
+          ]
+        },
+        {
+          "id": "57s098FVVLAFdDNINJRogc",
+          "name": "Call It Easy",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/57s098FVVLAFdDNINJRogc",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
           ]
         },
         {
@@ -145,7 +145,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
           "url": "https://open.spotify.com/track/59GnwORhNmJMvkUmEwvTV0",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
           ]
         },
         {
@@ -162,7 +162,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b2739d4202cfd6fd1ef1af2c993d",
           "url": "https://open.spotify.com/track/4CbNiKt4MugG8a7eWnRID4",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
           ]
         },
         {
@@ -195,6 +195,621 @@
           "releaseYear": "2025",
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273876f720551132b50c9232fad",
           "url": "https://open.spotify.com/track/0U8E6CEaYmRwpm2JOFCER5",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "3UvcXU3N4x9EJq4a4rwKMN",
+          "name": "The City Limit",
+          "artists": [
+            "The Radio Dept."
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/0utS63XytOEVN1EtzWhJpG"
+          ],
+          "album": "I Don't Need Love, I've Got My Band",
+          "releaseYear": "2019",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b2732c50138af214181f2f26b755",
+          "url": "https://open.spotify.com/track/3UvcXU3N4x9EJq4a4rwKMN",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "4P3VPAvME1i9qVk0MIubTa",
+          "name": "And Your Bird Can Sing - 2022 Mix",
+          "artists": [
+            "The Beatles"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2"
+          ],
+          "album": "Revolver (Super Deluxe)",
+          "releaseYear": "2022",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27333b139ea459f9d93c7b8fb30",
+          "url": "https://open.spotify.com/track/4P3VPAvME1i9qVk0MIubTa",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "2QfA2znZln0n0k2zdo91RZ",
+          "name": "Your New Place",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/2QfA2znZln0n0k2zdo91RZ",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
+          ]
+        },
+        {
+          "id": "4cEo4yPU622aFadaA3grdg",
+          "name": "Tenspeed (Shallows)",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/4cEo4yPU622aFadaA3grdg",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
+          ]
+        },
+        {
+          "id": "7kx4CkAX1rmyzggGPc3kC0",
+          "name": "Heavy Red",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/7kx4CkAX1rmyzggGPc3kC0",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
+          ]
+        },
+        {
+          "id": "7zEanUDqPrxM0RDxKxOq1v",
+          "name": "Emily",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/7zEanUDqPrxM0RDxKxOq1v",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
+          ]
+        },
+        {
+          "id": "1Gdb0ewTCvrDK5WbbCITL2",
+          "name": "Seminary",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/1Gdb0ewTCvrDK5WbbCITL2",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
+          ]
+        },
+        {
+          "id": "25YSJknEODwMpCb60ICz20",
+          "name": "You",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/25YSJknEODwMpCb60ICz20",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
+          ]
+        },
+        {
+          "id": "1u4727ZsHw1maP8y9YbIQo",
+          "name": "You Pt. 2",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/1u4727ZsHw1maP8y9YbIQo",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
+          ]
+        },
+        {
+          "id": "1ctDUAAad7Em6JenrjdMNC",
+          "name": "Outlast",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/1ctDUAAad7Em6JenrjdMNC",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
+          ]
+        },
+        {
+          "id": "7j0Watm6VZaCg41LIS2ImW",
+          "name": "34th Floor",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/7j0Watm6VZaCg41LIS2ImW",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
+          ]
+        },
+        {
+          "id": "79vF2NjarXQHuc2OJse7Y0",
+          "name": "Seyburn",
+          "artists": [
+            "Racing Mount Pleasant"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5zaSiNpGxS2lOvZTIZiOQX"
+          ],
+          "album": "Racing Mount Pleasant",
+          "releaseYear": "2025",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
+          "url": "https://open.spotify.com/track/79vF2NjarXQHuc2OJse7Y0",
+          "artistImages": [
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
+          ]
+        },
+        {
+          "id": "3DB2kahoGYYXcjnE8iPg4W",
+          "name": "Torn",
+          "artists": [
+            "Alison's Halo"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/1xD4rzgPGOwrc7RHZywzKg"
+          ],
+          "album": "Eyedazzler",
+          "releaseYear": "1998",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b2739e11496075ffb7b2b510faf9",
+          "url": "https://open.spotify.com/track/3DB2kahoGYYXcjnE8iPg4W",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "03vkICPhl5N7CFmasxCERG",
+          "name": "In Your Room",
+          "artists": [
+            "Airiel"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/1WOhabhnnH1k6KcD81xGD1"
+          ],
+          "album": "Winks & Kisses (20th Anniversary Deluxe Edition)",
+          "releaseYear": "2023",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273fb56425c0e5ac30ab7da8ec7",
+          "url": "https://open.spotify.com/track/03vkICPhl5N7CFmasxCERG",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "2bp3dmD2viZeNlPzprwWAz",
+          "name": "Open Space",
+          "artists": [
+            "Piero Umiliani"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5sD7Cf3SaTVcrg81GQi1Xk"
+          ],
+          "album": "To-Day's Sound",
+          "releaseYear": "1971",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273cfda31fb1a0db3d07f8ba4fa",
+          "url": "https://open.spotify.com/track/2bp3dmD2viZeNlPzprwWAz",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "7FoVZCTSLY9gQ2vqIURPcg",
+          "name": "Dozen",
+          "artists": [
+            "Alison's Halo"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/1xD4rzgPGOwrc7RHZywzKg"
+          ],
+          "album": "Eyedazzler",
+          "releaseYear": "1998",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b2739e11496075ffb7b2b510faf9",
+          "url": "https://open.spotify.com/track/7FoVZCTSLY9gQ2vqIURPcg",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "7blhK6lfFUE1qbxvzul11P",
+          "name": "Goodmorning Sun",
+          "artists": [
+            "Piero Umiliani"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/5sD7Cf3SaTVcrg81GQi1Xk"
+          ],
+          "album": "To-Day's Sound",
+          "releaseYear": "1971",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273cfda31fb1a0db3d07f8ba4fa",
+          "url": "https://open.spotify.com/track/7blhK6lfFUE1qbxvzul11P",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "1QV6deYIVMotvtF7XSfaQr",
+          "name": "Evangeline",
+          "artists": [
+            "Angels Of Light"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/45KTYxYRDjlP4cAd2imJif"
+          ],
+          "album": "How I Loved You",
+          "releaseYear": "2001",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27338522a1a4c323363f052cbd2",
+          "url": "https://open.spotify.com/track/1QV6deYIVMotvtF7XSfaQr",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "3MrWxJaD2AT0W9DjWF64Vm",
+          "name": "Come On Eileen",
+          "artists": [
+            "Dexys Midnight Runners"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/4QTVePrFu1xuGM9K0kNXkk"
+          ],
+          "album": "Too Rye Ay",
+          "releaseYear": "1982",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b2738bd8adbdc4727d9080240905",
+          "url": "https://open.spotify.com/track/3MrWxJaD2AT0W9DjWF64Vm",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "72gg0bqrLCCyomkfunyiuU",
+          "name": "Pictures Of You - Remastered",
+          "artists": [
+            "The Cure"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/7bu3H8JO7d0UbMoVzbo70s"
+          ],
+          "album": "Disintegration (Remastered)",
+          "releaseYear": "1989",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273858ed9e2832801189187391a",
+          "url": "https://open.spotify.com/track/72gg0bqrLCCyomkfunyiuU",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "08Hncs1L3PYHpfsb8sYdmQ",
+          "name": "Disintegration - Remastered",
+          "artists": [
+            "The Cure"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/7bu3H8JO7d0UbMoVzbo70s"
+          ],
+          "album": "Disintegration (Remastered)",
+          "releaseYear": "1989",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273858ed9e2832801189187391a",
+          "url": "https://open.spotify.com/track/08Hncs1L3PYHpfsb8sYdmQ",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "20GBgLYYqg0aAssKspk8rY",
+          "name": "And Dream Of Sheep - 2018 Remaster",
+          "artists": [
+            "Kate Bush"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/1aSxMhuvixZ8h9dK9jIDwL"
+          ],
+          "album": "Hounds of Love (2018 Remaster)",
+          "releaseYear": "1985",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273325778dcafe6ac93d904a9c2",
+          "url": "https://open.spotify.com/track/20GBgLYYqg0aAssKspk8rY",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "74vfedGgRZKqkbr8gdzvkK",
+          "name": "Cloudbusting - 2018 Remaster",
+          "artists": [
+            "Kate Bush"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/1aSxMhuvixZ8h9dK9jIDwL"
+          ],
+          "album": "Hounds of Love (2018 Remaster)",
+          "releaseYear": "1985",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273325778dcafe6ac93d904a9c2",
+          "url": "https://open.spotify.com/track/74vfedGgRZKqkbr8gdzvkK",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "4zI0wuANmj9DNkBOgXU5Wh",
+          "name": "Two Months Off",
+          "artists": [
+            "Underworld"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/1PXHzxRDiLnjqNrRn2Xbsa"
+          ],
+          "album": "A Hundred Days Off",
+          "releaseYear": "2002",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b2731197be5a8ec09edc3befbe71",
+          "url": "https://open.spotify.com/track/4zI0wuANmj9DNkBOgXU5Wh",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "4baXYEQbDjse4afjjToEB6",
+          "name": "Feel So Good",
+          "artists": [
+            "Jamiroquai"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6J7biCazzYhU3gM9j1wfid"
+          ],
+          "album": "A Funk Odyssey",
+          "releaseYear": "2001",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273909ebb0c355f14d0ee7f9974",
+          "url": "https://open.spotify.com/track/4baXYEQbDjse4afjjToEB6",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "7hhclvecTpNxNNRCk7NUoc",
+          "name": "Little L",
+          "artists": [
+            "Jamiroquai"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6J7biCazzYhU3gM9j1wfid"
+          ],
+          "album": "A Funk Odyssey",
+          "releaseYear": "2001",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273909ebb0c355f14d0ee7f9974",
+          "url": "https://open.spotify.com/track/7hhclvecTpNxNNRCk7NUoc",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "1x6jPyUfLuTNQ3o5zykG2x",
+          "name": "You Give Me Something",
+          "artists": [
+            "Jamiroquai"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6J7biCazzYhU3gM9j1wfid"
+          ],
+          "album": "A Funk Odyssey",
+          "releaseYear": "2001",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273909ebb0c355f14d0ee7f9974",
+          "url": "https://open.spotify.com/track/1x6jPyUfLuTNQ3o5zykG2x",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "0upgxxew2mVAEctrz08jnf",
+          "name": "Love Foolosophy - Radio Edit",
+          "artists": [
+            "Jamiroquai"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6J7biCazzYhU3gM9j1wfid"
+          ],
+          "album": "A Funk Odyssey",
+          "releaseYear": "2001",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273909ebb0c355f14d0ee7f9974",
+          "url": "https://open.spotify.com/track/0upgxxew2mVAEctrz08jnf",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "3jmbIhguc5uxiOdZ7ak8H3",
+          "name": "Corner of the Earth",
+          "artists": [
+            "Jamiroquai"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6J7biCazzYhU3gM9j1wfid"
+          ],
+          "album": "A Funk Odyssey",
+          "releaseYear": "2001",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273909ebb0c355f14d0ee7f9974",
+          "url": "https://open.spotify.com/track/3jmbIhguc5uxiOdZ7ak8H3",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "38rSSEjYzSngmL0tVD0Ier",
+          "name": "Stop Don't Panic",
+          "artists": [
+            "Jamiroquai"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6J7biCazzYhU3gM9j1wfid"
+          ],
+          "album": "A Funk Odyssey",
+          "releaseYear": "2001",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273909ebb0c355f14d0ee7f9974",
+          "url": "https://open.spotify.com/track/38rSSEjYzSngmL0tVD0Ier",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "2ZdOKiTafRudq2AePFs33j",
+          "name": "Black Crow",
+          "artists": [
+            "Jamiroquai"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6J7biCazzYhU3gM9j1wfid"
+          ],
+          "album": "A Funk Odyssey",
+          "releaseYear": "2001",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273909ebb0c355f14d0ee7f9974",
+          "url": "https://open.spotify.com/track/2ZdOKiTafRudq2AePFs33j",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "77wvD68DO1na0pvLMcVASk",
+          "name": "Main Vein",
+          "artists": [
+            "Jamiroquai",
+            "James Donaldson"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6J7biCazzYhU3gM9j1wfid",
+            "https://open.spotify.com/artist/3a64PaH2MTn7Q596JQuNJq"
+          ],
+          "album": "A Funk Odyssey",
+          "releaseYear": "2001",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273909ebb0c355f14d0ee7f9974",
+          "url": "https://open.spotify.com/track/77wvD68DO1na0pvLMcVASk",
+          "artistImages": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "614rRlqTwqjPHgcUBUdwi6",
+          "name": "Twenty Zero One",
+          "artists": [
+            "Jamiroquai"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6J7biCazzYhU3gM9j1wfid"
+          ],
+          "album": "A Funk Odyssey",
+          "releaseYear": "2001",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273909ebb0c355f14d0ee7f9974",
+          "url": "https://open.spotify.com/track/614rRlqTwqjPHgcUBUdwi6",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "0JSinz03ZGQxKtCH3yBg6W",
+          "name": "Picture of My Life",
+          "artists": [
+            "Jamiroquai"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6J7biCazzYhU3gM9j1wfid"
+          ],
+          "album": "A Funk Odyssey",
+          "releaseYear": "2001",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273909ebb0c355f14d0ee7f9974",
+          "url": "https://open.spotify.com/track/0JSinz03ZGQxKtCH3yBg6W",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "4UALNtb6gBbaDHWazUenW3",
+          "name": "So Good to Feel Real",
+          "artists": [
+            "Jamiroquai"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6J7biCazzYhU3gM9j1wfid"
+          ],
+          "album": "A Funk Odyssey",
+          "releaseYear": "2001",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273909ebb0c355f14d0ee7f9974",
+          "url": "https://open.spotify.com/track/4UALNtb6gBbaDHWazUenW3",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "6K53GM9W6Vle5KBwGFVnZM",
+          "name": "Space Cowboy",
+          "artists": [
+            "Jamiroquai"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/6J7biCazzYhU3gM9j1wfid"
+          ],
+          "album": "The Return of the Space Cowboy (Remastered)",
+          "releaseYear": "1994",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b27315b3727c6abdcfe4826f91ff",
+          "url": "https://open.spotify.com/track/6K53GM9W6Vle5KBwGFVnZM",
           "artistImages": [
             ""
           ]
@@ -937,7 +1552,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
           "url": "https://open.spotify.com/track/7zEanUDqPrxM0RDxKxOq1v",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
           ]
         },
         {
@@ -1405,7 +2020,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
           "url": "https://open.spotify.com/track/2QfA2znZln0n0k2zdo91RZ",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
           ]
         },
         {
@@ -1424,7 +2039,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27387d87a07fde5c03cb198c59a",
           "url": "https://open.spotify.com/track/1Y4U9aHqcfOGvW4jRmbqfy",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914",
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a",
             ""
           ]
         },
@@ -1533,7 +2148,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
           "url": "https://open.spotify.com/track/1O4YoWMQys8jrSfCuDZQit",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
           ]
         },
         {
@@ -1638,7 +2253,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
           "url": "https://open.spotify.com/track/2LuWYa6cXmNTctYITm0cUv",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+            ""
           ]
         },
         {
@@ -1675,7 +2290,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
           "url": "https://open.spotify.com/track/5icLsBPRCR8VkN1mMVzxDB",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+            ""
           ]
         },
         {
@@ -1692,7 +2307,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
           "url": "https://open.spotify.com/track/38PTaSqKcn1NKafQRdXSby",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+            ""
           ]
         },
         {
@@ -1709,7 +2324,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
           "url": "https://open.spotify.com/track/3VNo18F3QOIuSOwrxUqgtC",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+            ""
           ]
         },
         {
@@ -1726,7 +2341,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27308cc9bc3c9d72c00fdfa5a87",
           "url": "https://open.spotify.com/track/0YP3Eae3Ecr1CYpurF6ULH",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+            ""
           ]
         }
       ]
@@ -2871,7 +3486,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273712c76b4152918fb8d37c53d",
           "url": "https://open.spotify.com/track/3zFy1R0QhiT3YMXTxV0KRd",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -2919,7 +3534,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/6TMArobOb57EYVsiB3mbcj",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -2936,7 +3551,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/10gQOaynSWC0nZH1Coda1X",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -2953,7 +3568,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/3ULEHJxcQuFWCoRc7AYncF",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -2970,7 +3585,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/6WhLFDemkZebBhzlRFGryk",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -2987,7 +3602,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/4SUVSWs1VBNxnjvQzGIG4F",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -3004,7 +3619,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/28aYMYah7o7TqI1ycaR3FH",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -3021,7 +3636,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/2VrFzwtsXtYkVzq9ym6DqH",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -3040,7 +3655,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/0yOcTXZR4yTkQT8zlQdGyo",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c",
@@ -3058,7 +3673,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/7G4Nj8oIYZmY65pVv8uzii",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -3075,7 +3690,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/0mQHgkphxz98OO4avLZlgc",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -3092,7 +3707,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/7DwJODbGJgm1DTudNHFsQD",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -3109,7 +3724,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/05i9cnJCtgfGoGIAp6NnzY",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -3126,7 +3741,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/6Z7z47zeezQupL5UcC6Isy",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -3143,7 +3758,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/19hZdJuMXZnuU2ax1B4qnm",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -3160,7 +3775,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/4ese935mu0iNPIygsCB0R9",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -3177,7 +3792,7 @@
           ],
           "album": "Starz",
           "releaseYear": "2020",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b2737af0c13dce12e734753b4790",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273f82651f79b56d26f41b787dc",
           "url": "https://open.spotify.com/track/0lniW2uE7Bka2FS9GrloG6",
           "artistImages": [
             "https://i.scdn.co/image/ab6761610000e5eb9203ea92f4c538f41e6eea8c"
@@ -3537,7 +4152,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27387d87a07fde5c03cb198c59a",
           "url": "https://open.spotify.com/track/4CXHvRbylgt0opmUEYRN4T",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -3779,7 +4394,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27387d87a07fde5c03cb198c59a",
           "url": "https://open.spotify.com/track/7dBXZoeoy3fcPXezyZO2pV",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -3796,7 +4411,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27387d87a07fde5c03cb198c59a",
           "url": "https://open.spotify.com/track/18sB2LoJkSeA4VU46DjGSk",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -3864,7 +4479,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b2730db3901606954f424070ff01",
           "url": "https://open.spotify.com/track/4HbeGjbt7u3pvwDk1vN7P0",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -3881,7 +4496,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273d1a261d47b013292113441b2",
           "url": "https://open.spotify.com/track/14VWPYWaemUTwfy1G1Nnoe",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -3917,7 +4532,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273c349f6f497aefd6a7ea4b5da",
           "url": "https://open.spotify.com/track/36KKQqcDQTk4Op0usyqrMS",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914",
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a",
             ""
           ]
         }
@@ -4032,7 +4647,7 @@
           "url": "https://open.spotify.com/track/2KFa0LSqxL20wZVeeNpVEr",
           "artistImages": [
             "",
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -4967,13 +5582,13 @@
           "name": "I Can Go (feat. Mabe Fratti & Mustafa)",
           "artists": [
             "Blood Orange",
-            "Mabe Fratti",
-            "Mustafa"
+            "Mustafa",
+            "Mabe Fratti"
           ],
           "artistUrls": [
             "https://open.spotify.com/artist/6LEeAFiJF8OuPx747e1wxR",
-            "https://open.spotify.com/artist/7yHfb2D8qIBgrzclpSsTeo",
-            "https://open.spotify.com/artist/1zkKkDDra0jlsiJYz57P3P"
+            "https://open.spotify.com/artist/1zkKkDDra0jlsiJYz57P3P",
+            "https://open.spotify.com/artist/7yHfb2D8qIBgrzclpSsTeo"
           ],
           "album": "Essex Honey",
           "releaseYear": "2025",
@@ -5224,7 +5839,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b2738e9ac108c19e6adc13d4fd9a",
           "url": "https://open.spotify.com/track/62RTXxio7jbtBTxWz43JPS",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -6127,7 +6742,7 @@
           "artistUrls": [
             "https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2"
           ],
-          "album": "The Beatles (Remastered)",
+          "album": "The Beatles (Remastered 2009)",
           "releaseYear": "1968",
           "albumImage": "https://i.scdn.co/image/ab67616d0000b2734ce8b4e42588bf18182a1ad2",
           "url": "https://open.spotify.com/track/1gFNm7cXfG1vSMcxPpSxec",
@@ -6234,7 +6849,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27336ca50e8eac665cff77ac36d",
           "url": "https://open.spotify.com/track/6da9cbeFZZ2mCC5kS5Qvro",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -6251,7 +6866,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27336ca50e8eac665cff77ac36d",
           "url": "https://open.spotify.com/track/7JxVuQdS0aFUIMrja2KzyS",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -6558,7 +7173,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273712c76b4152918fb8d37c53d",
           "url": "https://open.spotify.com/track/3zFy1R0QhiT3YMXTxV0KRd",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -8120,7 +8735,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273358552ea46ca27ee24bc06a0",
           "url": "https://open.spotify.com/track/1OxRNKfrUtgaWoyLZye2ZA",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -8383,6 +8998,23 @@
           "releaseYear": "1969",
           "albumImage": "https://i.scdn.co/image/ab67616d0000b2739a2c40b6a1af4a92aac991c5",
           "url": "https://open.spotify.com/track/2GKxyUw8MQNvc0EP4016Yg",
+          "artistImages": [
+            ""
+          ]
+        },
+        {
+          "id": "0eKRwDBVWxCXWpLYFYrbd1",
+          "name": "Your Silent Face - 2015 Remaster",
+          "artists": [
+            "New Order"
+          ],
+          "artistUrls": [
+            "https://open.spotify.com/artist/0yNLKJebCb8Aueb54LYya3"
+          ],
+          "album": "Power Corruption and Lies",
+          "releaseYear": "1983",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273a0bb93884823982d57cb2004",
+          "url": "https://open.spotify.com/track/0eKRwDBVWxCXWpLYFYrbd1",
           "artistImages": [
             ""
           ]
@@ -8685,7 +9317,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27332a8498ea892ccd4fcf3f6cf",
           "url": "https://open.spotify.com/track/0VEjM4LYuOxPCtrtKuwbuq",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -10758,7 +11390,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27352501e69190f5d7b6c9f7ab3",
           "url": "https://open.spotify.com/track/2QfA2znZln0n0k2zdo91RZ",
           "artistImages": [
-            ""
+            "https://i.scdn.co/image/ab6761610000e5eb91c098c72ec67626b5296a96"
           ]
         },
         {
@@ -10801,7 +11433,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27332a8498ea892ccd4fcf3f6cf",
           "url": "https://open.spotify.com/track/0VEjM4LYuOxPCtrtKuwbuq",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -10818,7 +11450,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27332a8498ea892ccd4fcf3f6cf",
           "url": "https://open.spotify.com/track/18R8a3jq3bbda5XX8fol2r",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -10835,7 +11467,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27332a8498ea892ccd4fcf3f6cf",
           "url": "https://open.spotify.com/track/6t8aRTXXIcx9JVRD8IRZKR",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -11096,7 +11728,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273ea27a9e38db1ec66119356af",
           "url": "https://open.spotify.com/track/6aYG6qnRBbqOMmqh1neJzd",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+            ""
           ]
         },
         {
@@ -11693,7 +12325,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273712c76b4152918fb8d37c53d",
           "url": "https://open.spotify.com/track/1yupbrI7ROhigIHpQBevPh",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -11778,7 +12410,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273712c76b4152918fb8d37c53d",
           "url": "https://open.spotify.com/track/6pvwYMVs13EJ8jj4LMX0aV",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -12745,7 +13377,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b2730af2276ae66a42e73eb07683",
           "url": "https://open.spotify.com/track/0RBfGcrONMLwLysUhbtxJM",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+            ""
           ]
         },
         {
@@ -12762,7 +13394,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b2730af2276ae66a42e73eb07683",
           "url": "https://open.spotify.com/track/6NLRMu1qF1kJQnntDNWDmy",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+            ""
           ]
         },
         {
@@ -12881,7 +13513,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273712c76b4152918fb8d37c53d",
           "url": "https://open.spotify.com/track/4LyO99BhEMAyVGe4J5genE",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -12898,7 +13530,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273820e2ac14772ae3162c6d479",
           "url": "https://open.spotify.com/track/3AyuigFWbuirWHvidbMz8O",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -12915,7 +13547,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273d1a261d47b013292113441b2",
           "url": "https://open.spotify.com/track/4nnH8sda1dI3hxWw5MXIMS",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -12932,7 +13564,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273d1a261d47b013292113441b2",
           "url": "https://open.spotify.com/track/24WtCVcFJD2hWfYgrOBMhA",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -12949,7 +13581,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b2733fc1588803d1887f11d660cc",
           "url": "https://open.spotify.com/track/5GbVzc6Ex5LYlLJqzRQhuy",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -12968,7 +13600,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273c349f6f497aefd6a7ea4b5da",
           "url": "https://open.spotify.com/track/36KKQqcDQTk4Op0usyqrMS",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914",
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a",
             ""
           ]
         },
@@ -12986,7 +13618,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273c349f6f497aefd6a7ea4b5da",
           "url": "https://open.spotify.com/track/6BBYPK2o0HZC3SbKMxxpuj",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -13003,7 +13635,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b2730db3901606954f424070ff01",
           "url": "https://open.spotify.com/track/0SUDiaR0qm30fXVGPjPvRp",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -13887,7 +14519,7 @@
           ],
           "album": "loveless",
           "releaseYear": "1991",
-          "albumImage": "https://i.scdn.co/image/ab67616d0000b273db8e38addb58131f77b48377",
+          "albumImage": "https://i.scdn.co/image/ab67616d0000b273c3e9c9fed4906712461a35ac",
           "url": "https://open.spotify.com/track/4TJVYq699BO7PagAjXxYhJ",
           "artistImages": [
             ""
@@ -14230,7 +14862,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273820e2ac14772ae3162c6d479",
           "url": "https://open.spotify.com/track/4lyIHAc8sk6lm9iN5B8nmj",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -14247,7 +14879,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273820e2ac14772ae3162c6d479",
           "url": "https://open.spotify.com/track/5Qnrgqy1pAm9GyNQOgyVFz",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -14264,7 +14896,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273c349f6f497aefd6a7ea4b5da",
           "url": "https://open.spotify.com/track/4Zts9erRexAxILn5XjSwUN",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -14281,7 +14913,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b27302859310b61e59756abb90ad",
           "url": "https://open.spotify.com/track/1ujxjsoNvh4XgS2fUNwkZ2",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebb3e38a46a56a423d8f741c09"
+            ""
           ]
         },
         {
@@ -14949,7 +15581,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273712c76b4152918fb8d37c53d",
           "url": "https://open.spotify.com/track/7iYaPj3pAQ3UJrSmYZChYY",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -15194,7 +15826,7 @@
           "artistUrls": [
             "https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2"
           ],
-          "album": "Abbey Road (Remastered)",
+          "album": "Abbey Road (Remastered 2009)",
           "releaseYear": "1969",
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273dc30583ba717007b00cceb25",
           "url": "https://open.spotify.com/track/6UCFZ9ZOFRxK8oak7MdPZu",
@@ -16343,7 +16975,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273d1a261d47b013292113441b2",
           "url": "https://open.spotify.com/track/0RsSoxgOcVkGFXwAQCNoR7",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -17274,7 +17906,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b273307b3fb2d6b7e7062bbd804a",
           "url": "https://open.spotify.com/track/6LbFM8wbTe7XZwbm7C5qZ5",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914"
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a"
           ]
         },
         {
@@ -17631,7 +18263,7 @@
           "albumImage": "https://i.scdn.co/image/ab67616d0000b2735a9607bd785a7f5607152431",
           "url": "https://open.spotify.com/track/5hVKXeJg1R9qGbrGW5eHNl",
           "artistImages": [
-            "https://i.scdn.co/image/ab6761610000e5ebe70700c1329d2f26971c3914",
+            "https://i.scdn.co/image/ab6761610000e5ebaa3493a5a9e82d1e04d1b61a",
             ""
           ]
         },
